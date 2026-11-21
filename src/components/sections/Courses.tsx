@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
 import { courseMessage, whatsappLink } from "@/lib/whatsapp";
+import { ItemIcon } from "../ItemIcons";
 import { Reveal } from "../Reveal";
 import { IconArrow, IconCalendar, IconCap, IconPin, IconWhatsApp } from "../Icons";
 
@@ -138,6 +139,19 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
           <p className="text-[11px] font-semibold tracking-[0.2em] text-white/40 uppercase">Incluye</p>
           <p className="mt-1 font-semibold">{c.kit.title}</p>
           {c.kit.perks.length > 0 && <p className="mt-1 text-sm text-white/55">{c.kit.perks.join(" · ")}</p>}
+          {c.includes.length > 0 && (
+            <ul className="mt-4 flex flex-wrap gap-2 border-t border-white/10 pt-4">
+              {c.includes.map((it) => (
+                <li
+                  key={it}
+                  className="inline-flex items-center gap-2 rounded-full border border-white/10 py-1.5 pr-3 pl-2.5 text-xs text-white/75"
+                >
+                  <ItemIcon text={it} className="size-4" />
+                  {it}
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
       )}
 

@@ -7,7 +7,8 @@ import { bundle, courses, getCourse, soles, statusLabel } from "@/content/course
 import { courseMessage, whatsappLink } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { HexLights } from "@/components/HexLights";
-import { IconArrow, IconCalendar, IconCap, IconClock, IconPin, IconWhatsApp } from "@/components/Icons";
+import { ItemIcon } from "@/components/ItemIcons";
+import { IconArrow, IconCalendar, IconClock, IconPin, IconWhatsApp } from "@/components/Icons";
 
 export function generateStaticParams() {
   return courses.map((c) => ({ slug: c.slug }));
@@ -188,7 +189,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                   <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                     {c.kit.items.map((it) => (
                       <li key={it} className="flex items-center gap-3 rounded-xl border border-white/10 px-4 py-3">
-                        <span className="size-1.5 shrink-0 rounded-full bg-white" />
+                        <ItemIcon text={it} className="size-5 text-white/80" />
                         {it}
                       </li>
                     ))}
@@ -210,8 +211,13 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               <Block title="También incluye">
                 <ul className="grid gap-3 sm:grid-cols-2">
                   {c.includes.map((it) => (
-                    <li key={it} className="flex items-center gap-3 rounded-2xl border border-black/10 p-5 font-semibold">
-                      <IconCap className="size-5 shrink-0" />
+                    <li
+                      key={it}
+                      className="group flex items-center gap-4 rounded-2xl border border-black/10 p-5 font-semibold transition hover:border-black"
+                    >
+                      <span className="grid h-12 min-w-12 shrink-0 place-items-center rounded-xl bg-black px-2.5 text-white transition group-hover:scale-105">
+                        <ItemIcon text={it} className="size-6" />
+                      </span>
                       {it}
                     </li>
                   ))}

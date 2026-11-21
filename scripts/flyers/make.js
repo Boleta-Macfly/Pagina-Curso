@@ -9,6 +9,17 @@ const img = (f) => "data:image/png;base64," + fs.readFileSync(path.join(DIR, f))
 
 const mark = `<svg viewBox="0 0 166 69" fill="currentColor"><path d="M22 0H38.5L47 19.5H35C28 19.5 23.5 14.5 22 8Z"/><path d="M11 26H49.5L57 44.5H24C17 44.5 12.5 39 11 32Z"/><path d="M0 50H59.5L67 69H19C9 69 2 62 0 53Z"/><path d="M107 0H165.5V5C165.5 13.5 160 19.5 151 19.5H98Z"/><path d="M96 26H137.5V31C137.5 38.5 132.5 44.5 124.5 44.5H88Z"/><path d="M86 50H103.5V54C103.5 62.5 98 69 89.5 69H78Z"/></svg>`;
 
+
+// Iconos de "También incluye" (mismos trazos que src/components/ItemIcons.tsx)
+const ic = (d) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
+const ICON = {
+  cert: ic(`<path d="M14.5 19H5a1.5 1.5 0 0 1-1.5-1.5v-12A1.5 1.5 0 0 1 5 4h14a1.5 1.5 0 0 1 1.5 1.5V11"/><path d="M7 8h10M7 11.5h6"/><circle cx="18" cy="15" r="2.6"/><path d="m16.6 17.2-.8 3.8 2.2-1.2 2.2 1.2-.8-3.8"/>`),
+  video: ic(`<rect x="2.5" y="6.5" width="13" height="11" rx="2"/><path d="m15.5 10.5 6-3.5v10l-6-3.5"/><circle cx="6.5" cy="10" r="1" fill="currentColor" stroke="none"/>`),
+  support: ic(`<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19c0 1.5-1.5 2.5-4 2.5h-2"/>`),
+  cap: ic(`<path d="M3.5 15.5c0-5 3.5-9 8-9s7.5 3.5 7.5 8"/><path d="M3.5 15.5h15.5c1.7 0 2.5.8 2.5 1.6 0 .7-.6 1.2-1.6 1.2H7.5c-2.2 0-4-1.2-4-2.8Z"/><path d="M11.5 6.5c-1.5 2.5-2 5.5-1.8 9"/>`),
+  polo: ic(`<path d="M9 3.5 4 5.5 2.5 10l3 1.2L7 9.5V20.5h10V9.5l1.5 1.7 3-1.2L20 5.5l-5-2"/><path d="M9 3.5 12 7l3-3.5"/><path d="M12 7v4"/>`),
+};
+
 const courses = [
   {
     slug: "curso-tratamiento-ceramico",
@@ -85,7 +96,7 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
 .kit p{font-size:18px;color:rgba(255,255,255,.6);margin-top:10px;line-height:1.4}
 .foot{position:absolute;left:64px;right:64px;bottom:52px;display:flex;justify-content:space-between;align-items:flex-end}
 .inc{display:grid;grid-template-columns:auto auto;gap:10px;justify-content:start}
-.inc span{border:2px solid rgba(255,255,255,.2);border-radius:99px;padding:9px 18px;font-size:18px;font-weight:600;text-align:center;white-space:nowrap}
+.inc span{border:2px solid rgba(255,255,255,.2);border-radius:99px;padding:8px 18px 8px 10px;font-size:18px;font-weight:600;white-space:nowrap;display:flex;align-items:center;gap:10px}.inc i{display:flex;gap:2px;background:#fff;color:#000;border-radius:99px;padding:5px 7px}.inc i svg{width:26px;height:26px}
 .cta{text-align:right;font-size:18px;color:rgba(255,255,255,.6)}
 .cta .d{font-size:34px;color:#fff;margin-top:6px}
 .bigmark{position:absolute;right:-80px;bottom:150px;width:560px;color:rgba(255,255,255,.035);z-index:1}
@@ -105,7 +116,7 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
   <div class="kit"><img src="${img(c.kitImg)}"><div><div class="d t">${c.kit}</div><p>${c.kitItems}</p></div></div>
 </div>
 <div class="foot">
-  <div><div class="k" style="margin-bottom:12px">También incluye</div><div class="inc"><span>Certificación</span><span>Video de tus prácticas</span><span>Soporte técnico</span><span>Merch original de la marca</span></div></div>
+  <div><div class="k" style="margin-bottom:12px">También incluye</div><div class="inc"><span><i>${ICON.cert}</i>Certificación</span><span><i>${ICON.video}</i>Video de tus prácticas</span><span><i>${ICON.support}</i>Soporte técnico</span><span><i>${ICON.cap}${ICON.polo}</i>Merch original de la marca</span></div></div>
   <div class="cta">Dictado por AlexAF · @alexaf___<div class="d">Reserva tu cupo</div></div>
 </div>
 </body></html>`;
