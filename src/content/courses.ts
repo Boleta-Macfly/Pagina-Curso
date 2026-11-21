@@ -53,7 +53,7 @@ export type Course = {
   seo?: { title?: string; description?: string };
 };
 
-const commonIncludes = ["Certificación", "Video de tus prácticas", "Soporte técnico", "Merch original de la marca"];
+const commonIncludes = ["Certificación", "Video de tus prácticas", "Soporte técnico", "Merch"];
 
 export const courses: Course[] = [
   {

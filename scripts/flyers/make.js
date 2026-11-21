@@ -116,7 +116,7 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
   <div class="kit"><img src="${img(c.kitImg)}"><div><div class="d t">${c.kit}</div><p>${c.kitItems}</p></div></div>
 </div>
 <div class="foot">
-  <div><div class="k" style="margin-bottom:12px">También incluye</div><div class="inc"><span><i>${ICON.cert}</i>Certificación</span><span><i>${ICON.video}</i>Video de tus prácticas</span><span><i>${ICON.support}</i>Soporte técnico</span><span><i>${ICON.cap}${ICON.polo}</i>Merch original de la marca</span></div></div>
+  <div><div class="k" style="margin-bottom:12px">También incluye</div><div class="inc"><span><i>${ICON.cert}</i>Certificación</span><span><i>${ICON.video}</i>Video de tus prácticas</span><span><i>${ICON.support}</i>Soporte técnico</span><span><i>${ICON.cap}${ICON.polo}</i>Merch</span></div></div>
   <div class="cta">Dictado por AlexAF · @alexaf___<div class="d">Reserva tu cupo</div></div>
 </div>
 </body></html>`;
