@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/config/site";
 import { courses } from "@/content/courses";
@@ -11,10 +12,23 @@ export function Hero() {
 
   return (
     <section id="inicio" className="grain relative isolate overflow-hidden bg-ink pt-28 sm:pt-32">
+      {/* Foto a color de fondo (instalación de PPF) */}
+      <div className="pointer-events-none absolute inset-0 -z-20">
+        <Image
+          src="/cursos/ppf-portada.jpg"
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[35%_center] opacity-90 lg:object-[70%_center]"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/0 max-lg:from-ink/80 max-lg:via-ink/40 max-lg:to-ink/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50" />
+      </div>
       {/* Techo de luces en perspectiva */}
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[70%] [mask-image:linear-gradient(to_bottom,black_10%,transparent_95%)] [perspective:1100px]">
         <div className="absolute inset-x-[-15%] -top-10 h-[150%] origin-top [transform:rotateX(48deg)]">
-          <HexLights className="h-full w-full opacity-[0.28]" />
+          <HexLights className="h-full w-full opacity-[0.2]" />
         </div>
       </div>
       <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_50%_0%,rgba(255,255,255,0.14),transparent_55%)]" />
@@ -81,10 +95,19 @@ export function Hero() {
 
         {/* Retrato del coach (reemplazar por foto real en /public/coach/alex.jpg) */}
         <div className="relative mx-auto w-full max-w-md animate-fade-up [animation-delay:200ms] lg:mx-0 lg:ml-auto">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/10 bg-gradient-to-b from-ink-3 to-ink">
-            <LogoMark className="absolute top-1/2 left-1/2 w-2/3 -translate-x-1/2 -translate-y-1/2 text-white/[0.06]" />
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <p className="text-[11px] tracking-[0.2em] text-white/35 uppercase">Foto de Alex · pendiente</p>
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/15 bg-ink-3 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.9)]">
+            <Image
+              src="/cursos/ceramico-portada.jpg"
+              alt="Aplicación de tratamiento cerámico sobre un auto rojo"
+              fill
+              priority
+              sizes="(min-width: 1024px) 448px, 90vw"
+              className="object-cover object-[35%_center]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
+            <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6">
+              <LogoMark className="w-14 text-white/90" />
+              <p className="text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase">Mira a Alex en acción</p>
             </div>
             <a
               href={site.social.tiktok}
