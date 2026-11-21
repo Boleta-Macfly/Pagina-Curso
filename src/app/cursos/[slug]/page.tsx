@@ -134,6 +134,25 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               </Block>
             )}
 
+            {c.split && (
+              <Block title="Metodología">
+                <div className="flex h-16 overflow-hidden rounded-2xl text-sm font-bold tracking-[0.12em] uppercase">
+                  <div
+                    className="flex items-center justify-center rounded-l-2xl border border-r-0 border-black/15 px-3 text-black/70"
+                    style={{ width: `${c.split.theory}%` }}
+                  >
+                    {c.split.theory}% teórico
+                  </div>
+                  <div className="flex flex-1 items-center justify-center bg-black text-white">
+                    {c.split.practice}% práctico
+                  </div>
+                </div>
+                <p className="mt-4 text-black/60">
+                  El curso es 20% teórico y 80% práctico: la mayor parte del tiempo aplicas lo aprendido, guiado por Alex.
+                </p>
+              </Block>
+            )}
+
             <Block title="Lo que aprenderás">
               {c.modules.length ? (
                 <ol className="divide-y divide-black/10 border-y border-black/10">

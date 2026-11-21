@@ -109,6 +109,11 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
           <IconCap className="size-4" />
           Certificación
         </li>
+        {c.split && (
+          <li className="inline-flex items-center gap-2 font-semibold text-white">
+            {c.split.practice}% práctico
+          </li>
+        )}
       </ul>
 
       {c.modules.length > 0 && (

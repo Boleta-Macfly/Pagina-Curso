@@ -19,7 +19,7 @@ const courses = [
     hero: "hero-ceramico.png",
     kitImg: "kit-ceramico.png",
     kit: "Kit Alcance Pro para tus primeros servicios",
-    kitItems: "Aquo Alcalino · Aquo Neutro · Ziox · Lae36 · Claybar · VX45 20 ml ×2",
+    kitItems: "Aquo Alcalino · Aquo Neutro · Ziox · Lae36 · Claybar · VX45&nbsp;20&nbsp;ml&nbsp;×2",
     modules: [
       "Distinguir los pH de shampoos",
       "Prelavado acorde a cada superficie",
@@ -75,7 +75,8 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
 .price s{white-space:nowrap;font-size:26px;color:rgba(0,0,0,.45);font-weight:600}
 .price .k{color:rgba(0,0,0,.5)}
 .price .v{font-size:64px;white-space:nowrap}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-top:28px}
+.split{display:flex;margin-top:24px;height:46px;border-radius:14px;overflow:hidden;font-size:17px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}.split .th{width:20%;display:flex;align-items:center;justify-content:center;border:2px solid rgba(255,255,255,.25);border-right:0;border-radius:14px 0 0 14px;color:rgba(255,255,255,.8)}.split .pr{flex:1;display:flex;align-items:center;justify-content:center;background:#fff;color:#000}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px 28px;margin-top:24px}
 .grid li{list-style:none;font-size:22px;font-weight:500;display:flex;gap:14px;align-items:baseline;color:rgba(255,255,255,.9)}
 .grid li b{font-family:Saira;font-style:italic;font-weight:800;font-size:20px;color:rgba(255,255,255,.4);min-width:30px}
 .kit{display:flex;align-items:center;gap:26px;margin-top:28px;border-radius:24px;background:#151515;border:2px solid rgba(255,255,255,.08);padding:14px 26px 14px 14px}
@@ -99,6 +100,7 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
     <div class="box" style="flex:1"><div class="k">Fecha y lugar</div><div class="v d">${c.date}</div><div style="font-size:22px;font-weight:600;margin-top:8px;color:rgba(255,255,255,.75)">San Miguel · 2 días · Presencial</div></div>
     <div class="price"><div><div class="k">Normal</div><s>${c.normal}</s></div><div><div class="k">Preventa</div><div class="v d">${c.presale}</div></div></div>
   </div>
+  <div class="split"><div class="th">20% teórico</div><div class="pr">80% práctico</div></div>
   <ul class="grid">${c.modules.map((m, i) => `<li><b>${String(i + 1).padStart(2, "0")}</b>${m}</li>`).join("")}</ul>
   <div class="kit"><img src="${img(c.kitImg)}"><div><div class="d t">${c.kit}</div><p>${c.kitItems}</p></div></div>
 </div>

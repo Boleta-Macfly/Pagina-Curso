@@ -110,6 +110,7 @@ export function AnnouncementModal() {
                     <IconPin className="size-4" />
                     {c.location || c.modality}
                   </span>
+                  {c.split && <span>{c.split.practice}% práctico</span>}
                 </div>
                 {c.presalePrice && (
                   <p className="mt-2 text-sm">

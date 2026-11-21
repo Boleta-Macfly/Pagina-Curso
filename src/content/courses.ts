@@ -43,6 +43,8 @@ export type Course = {
   modules: string[];
   /** Lo que incluye el curso además de las clases. */
   includes: string[];
+  /** Porcentaje de teoría y práctica. null = no se muestra. */
+  split: { theory: number; practice: number } | null;
   kit: Kit | null;
   /** Imágenes en /public. "" = sin imagen. */
   images: { hero: string; kit: string; flyer: string };
@@ -79,6 +81,7 @@ export const courses: Course[] = [
       "Aplicación de recubrimiento cerámico",
     ],
     includes: commonIncludes,
+    split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit Alcance Pro para tus primeros servicios",
       brand: "Alcance Pro",
@@ -127,6 +130,7 @@ export const courses: Course[] = [
       "Instalación de PPF interior y exterior",
     ],
     includes: commonIncludes,
+    split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit PPF para tus primeros servicios",
       brand: "Película Da Vida",
@@ -162,6 +166,7 @@ export const courses: Course[] = [
     audience: "",
     modules: [],
     includes: [],
+    split: null,
     kit: null,
     images: { hero: "", kit: "", flyer: "" },
     featured: false,

@@ -54,6 +54,10 @@ export const faqs: Faq[] = [
     q: "¿Cuánto cuestan los cursos?",
     a: "En preventa, Tratamiento Cerámico cuesta S/ 1,300 (precio normal S/ 1,500) e Instalación de PPF S/ 2,800 (precio normal S/ 3,300). Si llevas ambos cursos pagas S/ 3,900 y ahorras S/ 200.",
   },
+  {
+    q: "¿Las clases son teóricas o prácticas?",
+    a: "Ambos cursos son 20% teóricos y 80% prácticos.",
+  },
   { q: "¿Necesito experiencia previa?", a: "" }, // PENDIENTE
   { q: "¿Qué medios de pago aceptan?", a: "" }, // PENDIENTE
   { q: "¿Entregan certificado?", a: "Sí. Ambos cursos incluyen certificación, el video de tus prácticas y soporte técnico." },
