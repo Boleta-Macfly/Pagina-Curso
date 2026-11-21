@@ -21,9 +21,9 @@ const courses = [
     kit: "Kit Alcance Pro para tus primeros servicios",
     kitItems: "Aquo Alcalino · Aquo Neutro · Ziox · Lae36 · Claybar · VX45 ×2",
     modules: [
-      "Descontaminación química y manual",
       "Distinguir los pH de shampoos",
       "Prelavado acorde a cada superficie",
+      "Descontaminación química y manual",
       "Eliminación de imperfecciones",
       "Pulido en 3 etapas",
       "Preparación de la superficie",

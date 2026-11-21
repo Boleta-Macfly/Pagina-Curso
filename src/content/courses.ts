@@ -70,9 +70,9 @@ export const courses: Course[] = [
     presalePrice: 1300,
     audience: "",
     modules: [
-      "Descontaminación química y manual",
       "Distinguir los distintos pH de shampoos",
       "Prelavado acorde a cada superficie",
+      "Descontaminación química y manual",
       "Eliminación de imperfecciones de la pintura",
       "Pulido en 3 etapas",
       "Preparación de la superficie",
