@@ -46,7 +46,8 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
       <section className="relative overflow-hidden pb-20">
         {c.images.hero ? (
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] [mask-image:linear-gradient(to_bottom,black_30%,transparent)]">
-            <Image src={c.images.hero} alt="" fill priority sizes="100vw" className="object-cover opacity-35" />
+            <Image src={c.images.hero} alt="" fill priority sizes="100vw" className="object-cover opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/70 to-ink/10" />
           </div>
         ) : (
           <HexLights className="pointer-events-none absolute inset-x-0 top-0 h-[420px] w-full opacity-15 [mask-image:linear-gradient(to_bottom,black,transparent)]" />

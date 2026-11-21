@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { bundle, courses, soles, statusLabel } from "@/content/courses";
@@ -58,7 +59,7 @@ export function AnnouncementModal() {
         className="absolute inset-0 animate-[fade-up_.4s_ease_both] bg-black/75 backdrop-blur-sm"
         onClick={close}
       />
-      <div className="grain relative flex max-h-[92dvh] w-full max-w-3xl animate-fade-up flex-col overflow-hidden rounded-t-3xl border border-white/10 bg-ink-2 sm:rounded-3xl">
+      <div className="grain relative flex max-h-[92dvh] w-full max-w-4xl animate-fade-up flex-col overflow-hidden rounded-t-3xl border border-white/10 bg-ink-2 sm:rounded-3xl">
         {/* Emblema gigante de fondo */}
         <LogoMark className="pointer-events-none absolute -right-16 -bottom-10 w-[420px] text-white/[0.04]" />
 
@@ -94,9 +95,20 @@ export function AnnouncementModal() {
             <p className="mt-8 hidden text-[11px] font-semibold tracking-[0.2em] text-black/40 uppercase sm:block">AF Academy</p>
           </div>
 
-          <ul className="divide-y divide-white/10 p-3 sm:p-4">
+          <ul className="divide-y divide-white/10 p-3 sm:p-4 sm:pr-14">
             {upcoming.map((c) => (
-              <li key={c.slug} className="p-4">
+              <li key={c.slug} className="flex gap-4 p-4">
+                {c.images.hero && (
+                  <Link
+                    href={`/cursos/${c.slug}`}
+                    onClick={close}
+                    className="relative aspect-[4/5] w-20 shrink-0 self-start overflow-hidden rounded-2xl sm:w-28"
+                    aria-label={`Ver ${c.title}`}
+                  >
+                    <Image src={c.images.hero} alt="" fill sizes="96px" className="object-cover transition duration-700 hover:scale-110" />
+                  </Link>
+                )}
+                <div className="min-w-0 flex-1">
                 <p className="text-[11px] font-semibold tracking-[0.18em] text-white/45 uppercase">
                   {statusLabel[c.status]}
                 </p>
@@ -137,6 +149,7 @@ export function AnnouncementModal() {
                     Ver detalles
                     <IconArrow className="size-3.5 transition-transform group-hover:translate-x-0.5" />
                   </Link>
+                </div>
                 </div>
               </li>
             ))}

@@ -96,7 +96,7 @@ export const courses: Course[] = [
       perks: [],
     },
     images: {
-      hero: "/cursos/ceramico-hero.jpg",
+      hero: "/cursos/ceramico-portada.jpg",
       kit: "/cursos/ceramico-kit.jpg",
       flyer: "/flyers/flyer-curso-tratamiento-ceramico.jpg",
     },
@@ -138,7 +138,7 @@ export const courses: Course[] = [
       perks: ["10% de descuento en PPF", "20% de descuento en gel + activador"],
     },
     images: {
-      hero: "/cursos/ppf-hero.jpg",
+      hero: "/cursos/ppf-portada.jpg",
       kit: "/cursos/ppf-kit.jpg",
       flyer: "/flyers/flyer-curso-ppf.jpg",
     },
