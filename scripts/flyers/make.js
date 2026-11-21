@@ -62,7 +62,7 @@ body{width:1080px;height:1350px;background:#0a0a0a;color:#fff;font-family:Inter,
 .logo{display:flex;align-items:center;gap:14px;font-size:34px}
 .logo svg{height:34px}
 .pill{border:2px solid #fff;border-radius:99px;padding:10px 22px;font-weight:700;font-size:18px;letter-spacing:.18em;text-transform:uppercase}
-.main{position:absolute;left:64px;right:64px;top:300px;z-index:2}
+.main{position:absolute;left:64px;right:64px;top:262px;z-index:2}
 .eyebrow{font-size:20px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.75);display:flex;align-items:center;gap:16px}
 .eyebrow:before{content:"";width:48px;height:2px;background:#fff}
 h1{font-size:124px;margin-top:20px}
@@ -80,12 +80,12 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
 .grid li{list-style:none;font-size:22px;font-weight:500;display:flex;gap:14px;align-items:baseline;color:rgba(255,255,255,.9)}
 .grid li b{font-family:Saira;font-style:italic;font-weight:800;font-size:20px;color:rgba(255,255,255,.4);min-width:30px}
 .kit{display:flex;align-items:center;gap:26px;margin-top:28px;border-radius:24px;background:#151515;border:2px solid rgba(255,255,255,.08);padding:14px 26px 14px 14px}
-.kit img{width:300px;height:150px;object-fit:cover;border-radius:16px}
+.kit img{width:280px;height:130px;object-fit:cover;border-radius:16px}
 .kit .t{font-size:30px;line-height:1}
 .kit p{font-size:18px;color:rgba(255,255,255,.6);margin-top:10px;line-height:1.4}
 .foot{position:absolute;left:64px;right:64px;bottom:52px;display:flex;justify-content:space-between;align-items:flex-end}
-.inc{display:flex;gap:10px}
-.inc span{border:2px solid rgba(255,255,255,.2);border-radius:99px;padding:10px 18px;font-size:18px;font-weight:600}
+.inc{display:grid;grid-template-columns:auto auto;gap:10px;justify-content:start}
+.inc span{border:2px solid rgba(255,255,255,.2);border-radius:99px;padding:9px 18px;font-size:18px;font-weight:600;text-align:center;white-space:nowrap}
 .cta{text-align:right;font-size:18px;color:rgba(255,255,255,.6)}
 .cta .d{font-size:34px;color:#fff;margin-top:6px}
 .bigmark{position:absolute;right:-80px;bottom:150px;width:560px;color:rgba(255,255,255,.035);z-index:1}
@@ -105,7 +105,7 @@ h1 .o{color:transparent;-webkit-text-stroke:2px #fff}
   <div class="kit"><img src="${img(c.kitImg)}"><div><div class="d t">${c.kit}</div><p>${c.kitItems}</p></div></div>
 </div>
 <div class="foot">
-  <div><div class="k" style="margin-bottom:12px">También incluye</div><div class="inc"><span>Certificación</span><span>Video de tus prácticas</span><span>Soporte técnico</span></div></div>
+  <div><div class="k" style="margin-bottom:12px">También incluye</div><div class="inc"><span>Certificación</span><span>Video de tus prácticas</span><span>Soporte técnico</span><span>Merch original de la marca</span></div></div>
   <div class="cta">Dictado por AlexAF · @alexaf___<div class="d">Reserva tu cupo</div></div>
 </div>
 </body></html>`;

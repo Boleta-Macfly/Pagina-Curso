@@ -208,7 +208,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
 
             {c.includes.length > 0 && (
               <Block title="También incluye">
-                <ul className="grid gap-3 sm:grid-cols-3">
+                <ul className="grid gap-3 sm:grid-cols-2">
                   {c.includes.map((it) => (
                     <li key={it} className="flex items-center gap-3 rounded-2xl border border-black/10 p-5 font-semibold">
                       <IconCap className="size-5 shrink-0" />
