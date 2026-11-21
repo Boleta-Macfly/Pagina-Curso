@@ -59,7 +59,7 @@ export const faqs: Faq[] = [
   { q: "¿Entregan certificado?", a: "Sí. Ambos cursos incluyen certificación, el video de tus prácticas y soporte técnico." },
   {
     q: "¿Qué incluye cada curso?",
-    a: "Tratamiento Cerámico incluye un kit Alcance Pro para tus primeros servicios (Aquo Alcalino, Aquo Neutro, Ziox, Lae36, Claybar y VX45). Instalación de PPF incluye 2.5 metros lineales de PPF Película Da Vida de regalo, Magic Gel, Magic Activator, kit de paletas y cuchilla, además de 10% de descuento en PPF y 20% en gel + activador.",
+    a: "Tratamiento Cerámico incluye un kit Alcance Pro para tus primeros servicios (Aquo Alcalino, Aquo Neutro, Ziox, Lae36, Claybar y 2 VX45 de 20 ml). Instalación de PPF incluye 2.5 metros lineales de PPF Película Da Vida de regalo, Magic Gel, Magic Activator, kit de paletas y cuchilla, además de 10% de descuento en PPF y 20% en gel + activador.",
   },
 ];
 

@@ -19,7 +19,7 @@ const courses = [
     hero: "hero-ceramico.png",
     kitImg: "kit-ceramico.png",
     kit: "Kit Alcance Pro para tus primeros servicios",
-    kitItems: "Aquo Alcalino · Aquo Neutro · Ziox · Lae36 · Claybar · VX45 ×2",
+    kitItems: "Aquo Alcalino · Aquo Neutro · Ziox · Lae36 · Claybar · VX45 20 ml ×2",
     modules: [
       "Distinguir los pH de shampoos",
       "Prelavado acorde a cada superficie",

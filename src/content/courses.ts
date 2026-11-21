@@ -88,7 +88,7 @@ export const courses: Course[] = [
         "Ziox 500 ml",
         "Lae36 500 ml",
         "Claybar 75 g",
-        "VX45 30 ml × 2", // CONFIRMAR: en el flyer los frascos dicen 20 ml
+        "VX45 20 ml × 2",
       ],
       perks: [],
     },
