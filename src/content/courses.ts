@@ -44,6 +44,8 @@ export type Course = {
   /** Lo que incluye el curso además de las clases. */
   includes: string[];
   kit: Kit | null;
+  /** Imágenes en /public. "" = sin imagen. */
+  images: { hero: string; kit: string; flyer: string };
   /** Mostrar en el anuncio de próximos cursos. */
   featured: boolean;
   seo?: { title?: string; description?: string };
@@ -90,6 +92,11 @@ export const courses: Course[] = [
       ],
       perks: [],
     },
+    images: {
+      hero: "/cursos/ceramico-hero.jpg",
+      kit: "/cursos/ceramico-kit.jpg",
+      flyer: "/flyers/flyer-curso-tratamiento-ceramico.jpg",
+    },
     featured: true,
     seo: {
       title: "Curso de Tratamiento Cerámico presencial",
@@ -126,6 +133,11 @@ export const courses: Course[] = [
       items: ["2.5 metros lineales de PPF de regalo", "Magic Gel 1 L", "Magic Activator 1 L", "Kit de paletas", "Cuchilla"],
       perks: ["10% de descuento en PPF", "20% de descuento en gel + activador"],
     },
+    images: {
+      hero: "/cursos/ppf-hero.jpg",
+      kit: "/cursos/ppf-kit.jpg",
+      flyer: "/flyers/flyer-curso-ppf.jpg",
+    },
     featured: true,
     seo: {
       title: "Curso de Instalación de PPF presencial",
@@ -151,6 +163,7 @@ export const courses: Course[] = [
     modules: [],
     includes: [],
     kit: null,
+    images: { hero: "", kit: "", flyer: "" },
     featured: false,
   },
 ];

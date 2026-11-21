@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
 import { courseMessage, whatsappLink } from "@/lib/whatsapp";
@@ -67,12 +68,24 @@ export function Courses() {
 function CourseCard({ course: c, index }: { course: Course; index: number }) {
   return (
     <div className="group relative flex h-full flex-col overflow-hidden rounded-[28px] bg-ink p-7 text-white transition duration-500 hover:-translate-y-1 hover:shadow-[0_40px_80px_-30px_rgba(0,0,0,0.6)] sm:p-10">
-      <span
-        className="font-display pointer-events-none absolute -top-6 right-4 text-[150px] leading-none font-extrabold text-white/[0.05] italic"
-        aria-hidden="true"
-      >
-        0{index + 1}
-      </span>
+      {c.images.hero && (
+        <div className="relative -mx-7 -mt-7 mb-7 aspect-[16/7] overflow-hidden sm:-mx-10 sm:-mt-10">
+          <Image
+            src={c.images.hero}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 600px, 100vw"
+            className="object-cover transition duration-[1.2s] group-hover:scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/20 to-transparent" />
+          <span
+            className="font-display absolute right-6 bottom-2 text-[110px] leading-none font-extrabold text-white/15 italic"
+            aria-hidden="true"
+          >
+            0{index + 1}
+          </span>
+        </div>
+      )}
 
       <span className="inline-flex w-fit items-center gap-2 rounded-full bg-white px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-black uppercase">
         {c.status === "abierto" && <span className="size-1.5 animate-pulse rounded-full bg-black" />}
@@ -140,7 +153,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
             </span>
           </span>
         </div>
-        <div className="mt-6 flex flex-wrap gap-3">
+        <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
             href={whatsappLink(courseMessage(c.title, c.dateLabel))}
             target="_blank"
@@ -157,6 +170,16 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
             Ver temario completo
             <IconArrow className="size-3.5 transition-transform group-hover/l:translate-x-0.5" />
           </Link>
+          {c.images.flyer && (
+            <a
+              href={c.images.flyer}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs font-bold tracking-[0.1em] text-white/60 uppercase underline-offset-4 hover:text-white hover:underline"
+            >
+              Ver flyer
+            </a>
+          )}
         </div>
       </div>
     </div>

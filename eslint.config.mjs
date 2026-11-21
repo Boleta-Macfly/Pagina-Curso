@@ -12,6 +12,8 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Scripts de Node para generar flyers (no forman parte de la web).
+    "scripts/**",
   ]),
 ]);
 

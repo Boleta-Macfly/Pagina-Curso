@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site } from "@/config/site";
@@ -42,8 +43,15 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
   return (
     <PageShell>
       <section className="relative overflow-hidden pb-20">
-        <HexLights className="pointer-events-none absolute inset-x-0 top-0 h-[420px] w-full opacity-15 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {c.images.hero ? (
+          <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] [mask-image:linear-gradient(to_bottom,black_30%,transparent)]">
+            <Image src={c.images.hero} alt="" fill priority sizes="100vw" className="object-cover opacity-35" />
+          </div>
+        ) : (
+          <HexLights className="pointer-events-none absolute inset-x-0 top-0 h-[420px] w-full opacity-15 [mask-image:linear-gradient(to_bottom,black,transparent)]" />
+        )}
+        <div className="relative mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.25fr_0.75fr] lg:px-8">
+          <div>
           <Link href="/#cursos" className="text-xs font-semibold tracking-[0.2em] text-white/50 uppercase hover:text-white">
             ← Todos los cursos
           </Link>
@@ -55,7 +63,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-white/65">{c.description}</p>
 
-          <dl className="mt-12 grid gap-px overflow-hidden rounded-[28px] border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-12 grid gap-px overflow-hidden rounded-[28px] border border-white/10 bg-white/10 sm:grid-cols-2">
             {facts.map(({ icon: Icon, k, v }) => (
               <div key={k} className="bg-ink p-6">
                 <dt className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-white/45 uppercase">
@@ -76,6 +84,44 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               </dd>
             </div>
           </dl>
+          </div>
+
+          {c.images.flyer && (
+            <figure className="mx-auto w-full max-w-sm lg:mt-16">
+              <a
+                href={c.images.flyer}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group block overflow-hidden rounded-[24px] border border-white/10 shadow-[0_40px_80px_-30px_rgba(0,0,0,0.9)]"
+              >
+                <Image
+                  src={c.images.flyer}
+                  alt={`Flyer del curso ${c.title}: ${c.dateLabel}, ${c.location}, preventa ${c.presalePrice ? soles(c.presalePrice) : ""}`}
+                  width={1080}
+                  height={1350}
+                  sizes="(min-width: 1024px) 380px, 90vw"
+                  className="transition duration-700 group-hover:scale-[1.03]"
+                />
+              </a>
+              <figcaption className="mt-4 flex gap-2">
+                <a
+                  href={c.images.flyer}
+                  download
+                  className="flex-1 rounded-full bg-white py-3 text-center text-xs font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
+                >
+                  Descargar flyer
+                </a>
+                <a
+                  href={whatsappLink(`Mira este curso de AF Academy: ${c.title} (${c.dateLabel}) ${site.url}/cursos/${c.slug}`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 rounded-full border border-white/20 py-3 text-center text-xs font-bold tracking-[0.12em] uppercase transition hover:border-white"
+                >
+                  Compartir
+                </a>
+              </figcaption>
+            </figure>
+          )}
         </div>
       </section>
 
@@ -107,7 +153,18 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
 
             {c.kit && (
               <Block title="Kit para tus primeros servicios">
-                <div className="rounded-[28px] bg-ink p-7 text-white sm:p-9">
+                <div className="overflow-hidden rounded-[28px] bg-ink p-7 text-white sm:p-9">
+                  {c.images.kit && (
+                    <div className="relative -mx-7 -mt-7 mb-7 aspect-[2/1] sm:-mx-9 sm:-mt-9">
+                      <Image
+                        src={c.images.kit}
+                        alt={`${c.kit.title}: ${c.kit.items.join(", ")}`}
+                        fill
+                        sizes="(min-width: 1024px) 720px, 100vw"
+                        className="object-contain"
+                      />
+                    </div>
+                  )}
                   <p className="text-[11px] font-semibold tracking-[0.2em] text-white/45 uppercase">{c.kit.brand}</p>
                   <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                     {c.kit.items.map((it) => (
