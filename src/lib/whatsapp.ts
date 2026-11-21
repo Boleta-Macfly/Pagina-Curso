@@ -9,5 +9,5 @@ export function whatsappLink(message: string = site.defaultWhatsappMessage) {
 
 export function courseMessage(courseTitle: string, dateLabel?: string) {
   const when = dateLabel ? ` (${dateLabel})` : "";
-  return `Hola Alex, quiero inscribirme al ${courseTitle}${when} de AF Academy. ¿Me puedes dar más información sobre cupos, horarios y precio?`;
+  return `Hola Alex, quiero inscribirme al curso de ${courseTitle}${when} de AF Academy. ¿Me puedes dar más información sobre cupos, horarios y precio?`;
 }

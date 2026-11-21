@@ -40,7 +40,7 @@ export const site = {
   /** PENDIENTE: correo de contacto. */
   email: "",
   /** PENDIENTE: ciudad / dirección del taller, si corresponde. */
-  location: "Perú",
+  location: "San Miguel",
   /** PENDIENTE: horarios de atención. */
   hours: "",
 

@@ -151,7 +151,7 @@ export function Header() {
                   <span className="block font-semibold leading-snug">{c.title}</span>
                   <span className="mt-1 block text-sm text-black/55">{c.short}</span>
                   <span className="mt-2 inline-block text-[11px] font-semibold tracking-[0.12em] text-black/45 uppercase">
-                    {c.dateLabel || statusLabel[c.status]} · {c.modality}
+                    {c.dateLabel || statusLabel[c.status]}{c.location ? ` · ${c.location}` : ` · ${c.modality}`}
                   </span>
                 </span>
               </Link>

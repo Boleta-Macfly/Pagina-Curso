@@ -5,11 +5,20 @@
  * Para quitarlo, bórralo. La página se actualiza sola
  * (menú, tarjetas, anuncio de próximos cursos y página propia).
  *
- * Campos con `null` o "" se ocultan automáticamente.
+ * Campos con `null`, "" o [] se ocultan automáticamente.
  */
 
 export type Modality = "Presencial" | "Online" | "Híbrido";
 export type CourseStatus = "abierto" | "proximamente" | "lleno";
+
+export type Kit = {
+  title: string;
+  /** Marca que provee el kit (debe existir en content/media.ts → brands). */
+  brand: string;
+  items: string[];
+  /** Beneficios extra destacados (descuentos, regalos). */
+  perks: string[];
+};
 
 export type Course = {
   slug: string;
@@ -24,51 +33,105 @@ export type Course = {
   /** Fecha de inicio ISO (AAAA-MM-DD) para ordenar el anuncio. */
   startDate: string | null;
   duration: string;
-  /** Precio en soles. null = "Consultar". */
+  location: string;
+  /** Precio normal en soles. null = "Consultar". */
   price: number | null;
+  /** Precio de preventa en soles (opcional). */
+  presalePrice: number | null;
   audience: string;
-  benefits: string[];
+  /** Lo que aprenderás (temario). */
   modules: string[];
+  /** Lo que incluye el curso además de las clases. */
+  includes: string[];
+  kit: Kit | null;
   /** Mostrar en el anuncio de próximos cursos. */
   featured: boolean;
   seo?: { title?: string; description?: string };
 };
 
+const commonIncludes = ["Certificación", "Video de tus prácticas", "Soporte técnico"];
+
 export const courses: Course[] = [
-  {
-    slug: "curso-ppf",
-    title: "Curso de PPF",
-    short: "Instalación profesional de Paint Protection Film",
-    description:
-      "Aprende a instalar lámina de protección de pintura (PPF) en las piezas más exigentes del vehículo: parachoques, faros y maletera, con práctica directa en taller.",
-    modality: "Presencial",
-    status: "abierto",
-    // Fecha tomada de la miniatura de TikTok. CONFIRMAR año y horario.
-    dateLabel: "11 y 12 de diciembre",
-    startDate: "2026-12-11",
-    duration: "2 días", // CONFIRMAR
-    price: null,
-    audience: "Detailers, emprendedores y personas que quieren iniciar en el PPF", // CONFIRMAR
-    benefits: [], // PENDIENTE
-    modules: [], // PENDIENTE
-    featured: true,
-  },
   {
     slug: "curso-tratamiento-ceramico",
     title: "Tratamiento Cerámico",
-    short: "Técnicas de aplicación para brillo y protección PRO",
+    short: "Descontaminación, pulido en 3 etapas y recubrimiento cerámico",
     description:
-      "Técnicas de aplicación de recubrimiento cerámico para lograr brillo profundo y protección duradera, con el método que Alex enseña como Trainer Oficial Feynlab Perú.",
+      "Curso intensivo de detailing: aprende el proceso completo, desde la descontaminación y el pulido hasta la aplicación del recubrimiento cerámico, y amplía tus servicios.",
     modality: "Presencial",
-    status: "proximamente",
-    dateLabel: "",
-    startDate: null,
-    duration: "", // PENDIENTE
-    price: null,
-    audience: "", // PENDIENTE
-    benefits: [],
-    modules: [],
+    status: "abierto",
+    dateLabel: "9 y 10 de diciembre",
+    startDate: "2026-12-09", // CONFIRMAR año
+    duration: "2 días",
+    location: "San Miguel",
+    price: 1500,
+    presalePrice: 1300,
+    audience: "",
+    modules: [
+      "Descontaminación química y manual",
+      "Distinguir los distintos pH de shampoos",
+      "Prelavado acorde a cada superficie",
+      "Eliminación de imperfecciones de la pintura",
+      "Pulido en 3 etapas",
+      "Preparación de la superficie",
+      "Aplicación de recubrimiento cerámico",
+    ],
+    includes: commonIncludes,
+    kit: {
+      title: "Kit Alcance Pro para tus primeros servicios",
+      brand: "Alcance Pro",
+      items: [
+        "Aquo Alcalino 500 ml",
+        "Aquo Neutro 500 ml",
+        "Ziox 500 ml",
+        "Lae36 500 ml",
+        "Claybar 75 g",
+        "VX45 30 ml × 2", // CONFIRMAR: en el flyer los frascos dicen 20 ml
+      ],
+      perks: [],
+    },
     featured: true,
+    seo: {
+      title: "Curso de Tratamiento Cerámico presencial",
+      description:
+        "Curso intensivo de tratamiento cerámico con AlexAF: descontaminación, pulido en 3 etapas y aplicación de recubrimiento cerámico. Incluye kit Alcance Pro y certificación.",
+    },
+  },
+  {
+    slug: "curso-ppf",
+    title: "Instalación de PPF",
+    short: "Precortes manuales y con plotter, piezas complejas e interior",
+    description:
+      "Curso intensivo de instalación de Paint Protection Film: precortes a mano y con plotter, manejo del software e instalación en piezas complejas, interior y exterior.",
+    modality: "Presencial",
+    status: "abierto",
+    dateLabel: "11 y 12 de diciembre",
+    startDate: "2026-12-11", // CONFIRMAR año
+    duration: "2 días",
+    location: "San Miguel",
+    price: 3300,
+    presalePrice: 2800,
+    audience: "",
+    modules: [
+      "Precortes de manera manual",
+      "Precortes utilizando plotter",
+      "Capacitación en el uso del software y el plotter",
+      "Instalación de PPF en piezas complejas",
+      "Instalación de PPF interior y exterior",
+    ],
+    includes: commonIncludes,
+    kit: {
+      title: "Kit PPF para tus primeros servicios",
+      brand: "Película Da Vida",
+      items: ["2.5 metros lineales de PPF de regalo", "Magic Gel 1 L", "Magic Activator 1 L", "Kit de paletas", "Cuchilla"],
+      perks: ["10% de descuento en PPF", "20% de descuento en gel + activador"],
+    },
+    featured: true,
+    seo: {
+      title: "Curso de Instalación de PPF presencial",
+      description:
+        "Curso intensivo de instalación de PPF con AlexAF: precortes manuales y con plotter, piezas complejas, interior y exterior. Incluye kit PPF y certificación.",
+    },
   },
   {
     slug: "academia-online",
@@ -81,13 +144,25 @@ export const courses: Course[] = [
     dateLabel: "",
     startDate: null,
     duration: "",
+    location: "",
     price: null,
+    presalePrice: null,
     audience: "",
-    benefits: [],
     modules: [],
+    includes: [],
+    kit: null,
     featured: false,
   },
 ];
+
+/** Promoción por llevar ambos cursos presenciales. */
+export const bundle = {
+  enabled: true,
+  title: "Lleva ambos cursos",
+  courses: ["curso-tratamiento-ceramico", "curso-ppf"],
+  price: 3900,
+  savings: 200,
+};
 
 export const getCourse = (slug: string) => courses.find((c) => c.slug === slug);
 
@@ -96,3 +171,5 @@ export const statusLabel: Record<CourseStatus, string> = {
   proximamente: "Próximamente",
   lleno: "Cupos agotados",
 };
+
+export const soles = (n: number) => `S/ ${n.toLocaleString("es-PE")}`;

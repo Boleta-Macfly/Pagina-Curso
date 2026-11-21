@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { courses, statusLabel } from "@/content/courses";
+import { bundle, courses, soles, statusLabel } from "@/content/courses";
 import { courseMessage, whatsappLink } from "@/lib/whatsapp";
 import { LogoMark } from "./Logo";
 import { IconArrow, IconCalendar, IconClose, IconPin, IconWhatsApp } from "./Icons";
@@ -58,7 +58,7 @@ export function AnnouncementModal() {
         className="absolute inset-0 animate-[fade-up_.4s_ease_both] bg-black/75 backdrop-blur-sm"
         onClick={close}
       />
-      <div className="grain relative w-full max-w-3xl animate-fade-up overflow-hidden rounded-t-3xl border border-white/10 bg-ink-2 sm:rounded-3xl">
+      <div className="grain relative flex max-h-[92dvh] w-full max-w-3xl animate-fade-up flex-col overflow-hidden rounded-t-3xl border border-white/10 bg-ink-2 sm:rounded-3xl">
         {/* Emblema gigante de fondo */}
         <LogoMark className="pointer-events-none absolute -right-16 -bottom-10 w-[420px] text-white/[0.04]" />
 
@@ -72,8 +72,8 @@ export function AnnouncementModal() {
           <IconClose className="size-4" />
         </button>
 
-        <div className="relative grid gap-0 sm:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex flex-col justify-between border-b border-white/10 bg-white p-7 text-black sm:border-r sm:border-b-0 sm:p-9">
+        <div className="relative grid gap-0 overflow-y-auto overscroll-contain sm:grid-cols-[0.9fr_1.1fr]">
+          <div className="flex flex-col justify-between border-b border-white/10 bg-white p-6 pr-16 text-black sm:border-r sm:border-b-0 sm:p-9">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-black px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-white uppercase">
                 <span className="size-1.5 animate-pulse rounded-full bg-white" />
@@ -81,17 +81,17 @@ export function AnnouncementModal() {
               </span>
               <h2
                 id="anuncio-titulo"
-                className="font-display mt-5 text-[42px] leading-[0.9] font-extrabold uppercase italic sm:text-[54px]"
+                className="font-display mt-4 text-[34px] leading-[0.9] font-extrabold uppercase italic sm:text-[54px]"
               >
                 Próximos
                 <br />
                 cursos
               </h2>
-              <p className="mt-4 max-w-[260px] text-sm text-black/60">
-                Cupos limitados. Aprende directamente con Alex, Trainer Oficial Feynlab Perú.
+              <p className="mt-3 max-w-[260px] text-sm text-black/60">
+                Cursos intensivos de detailing con kit de productos y certificación. Dictados por AlexAF.
               </p>
             </div>
-            <p className="mt-8 text-[11px] font-semibold tracking-[0.2em] text-black/40 uppercase">AF Academy</p>
+            <p className="mt-8 hidden text-[11px] font-semibold tracking-[0.2em] text-black/40 uppercase sm:block">AF Academy</p>
           </div>
 
           <ul className="divide-y divide-white/10 p-3 sm:p-4">
@@ -108,9 +108,15 @@ export function AnnouncementModal() {
                   </span>
                   <span className="inline-flex items-center gap-1.5">
                     <IconPin className="size-4" />
-                    {c.modality}
+                    {c.location || c.modality}
                   </span>
                 </div>
+                {c.presalePrice && (
+                  <p className="mt-2 text-sm">
+                    <span className="font-display text-xl font-extrabold italic">Preventa {soles(c.presalePrice)}</span>
+                    {c.price && <s className="ml-2 text-white/40">{soles(c.price)}</s>}
+                  </p>
+                )}
                 <div className="mt-4 flex flex-wrap gap-2">
                   <a
                     href={whatsappLink(courseMessage(c.title, c.dateLabel))}
@@ -133,6 +139,15 @@ export function AnnouncementModal() {
                 </div>
               </li>
             ))}
+            {bundle.enabled && (
+              <li className="m-1 flex items-center justify-between gap-3 rounded-2xl bg-white/[0.06] p-4">
+                <span className="text-sm">
+                  <span className="block font-semibold">Ambos cursos</span>
+                  <span className="text-white/55">Ahorra {soles(bundle.savings)}</span>
+                </span>
+                <span className="font-display text-2xl font-extrabold italic">{soles(bundle.price)}</span>
+              </li>
+            )}
           </ul>
         </div>
       </div>

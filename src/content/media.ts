@@ -48,12 +48,19 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Los cursos son presenciales u online?",
-    a: "Los cursos actuales son presenciales y prácticos en taller. Estamos preparando AF Academy Online; únete a la lista de espera para enterarte primero.",
+    a: "Los cursos actuales son presenciales, en San Miguel, y duran 2 días. Estamos preparando AF Academy Online; únete a la lista de espera para enterarte primero.",
+  },
+  {
+    q: "¿Cuánto cuestan los cursos?",
+    a: "En preventa, Tratamiento Cerámico cuesta S/ 1,300 (precio normal S/ 1,500) e Instalación de PPF S/ 2,800 (precio normal S/ 3,300). Si llevas ambos cursos pagas S/ 3,900 y ahorras S/ 200.",
   },
   { q: "¿Necesito experiencia previa?", a: "" }, // PENDIENTE
   { q: "¿Qué medios de pago aceptan?", a: "" }, // PENDIENTE
-  { q: "¿Entregan certificado?", a: "" }, // PENDIENTE
-  { q: "¿Incluye materiales y herramientas?", a: "" }, // PENDIENTE
+  { q: "¿Entregan certificado?", a: "Sí. Ambos cursos incluyen certificación, el video de tus prácticas y soporte técnico." },
+  {
+    q: "¿Qué incluye cada curso?",
+    a: "Tratamiento Cerámico incluye un kit Alcance Pro para tus primeros servicios (Aquo Alcalino, Aquo Neutro, Ziox, Lae36, Claybar y VX45). Instalación de PPF incluye 2.5 metros lineales de PPF Película Da Vida de regalo, Magic Gel, Magic Activator, kit de paletas y cuchilla, además de 10% de descuento en PPF y 20% en gel + activador.",
+  },
 ];
 
 export type Testimonial = { name: string; text: string; course: string; photo: string };

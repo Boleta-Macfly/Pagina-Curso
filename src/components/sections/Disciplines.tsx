@@ -7,21 +7,21 @@ const items = [
     n: "01",
     title: "PPF",
     sub: "Paint Protection Film",
-    text: "Instalación de lámina de protección en parachoques, faros y maletera: corte, estirado, bordes y acabado invisible.",
+    text: "Precortes manuales y con plotter, manejo del software e instalación en piezas complejas, interior y exterior.",
     icon: IconShield,
   },
   {
     n: "02",
     title: "Cerámico",
     sub: "Recubrimiento cerámico",
-    text: "Preparación de superficie y técnicas de aplicación para lograr brillo profundo y protección duradera.",
+    text: "Descontaminación química y manual, pH de shampoos, prelavado, preparación de superficie y aplicación del recubrimiento.",
     icon: IconSpark,
   },
   {
     n: "03",
     title: "Corrección",
-    sub: "Corrección de pintura",
-    text: "Pulido y corrección de defectos en pintura, la base de todo trabajo de detailing de alto nivel.",
+    sub: "Incluido en el curso de Cerámico",
+    text: "Eliminación de imperfecciones de la pintura con el método de pulido en 3 etapas.",
     icon: IconPolish,
   },
 ];
@@ -31,7 +31,7 @@ export function Disciplines() {
     <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">Especialidades de Alex</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">Lo que aprenderás</p>
           <h2 className="font-display mt-3 max-w-3xl text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
             Técnica de <span className="text-outline">taller real</span>
           </h2>
