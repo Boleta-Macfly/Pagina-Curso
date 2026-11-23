@@ -7,6 +7,8 @@ import { bundle, courses, getCourse, soles, statusLabel } from "@/content/course
 import { courseMessage, whatsappLink } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { HexLights } from "@/components/HexLights";
+import { StudentGallery } from "@/components/StudentGallery";
+import { editionsFor } from "@/content/students";
 import { ItemIcon } from "@/components/ItemIcons";
 import { IconArrow, IconCalendar, IconClock, IconPin, IconWhatsApp } from "@/components/Icons";
 
@@ -261,6 +263,34 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
           </aside>
         </div>
       </section>
+
+      {editionsFor(c.slug).map((ed) => (
+        <section key={ed.label} id="alumnos" className="bg-ink py-20 sm:py-28">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+              <div>
+                <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">{ed.label}</p>
+                <h2 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
+                  Alumnos <span className="text-outline">certificados</span>
+                </h2>
+              </div>
+              <p className="max-w-sm text-white/60">
+                Fotos reales de la última edición: práctica en taller y entrega de certificados AF Academy y Alcance Pro.
+              </p>
+            </div>
+            <StudentGallery photos={ed.photos} label={ed.label} />
+            <a
+              href={wa}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
+            >
+              <IconWhatsApp className="size-5" />
+              Quiero ser el próximo certificado
+            </a>
+          </div>
+        </section>
+      ))}
 
       <script
         type="application/ld+json"

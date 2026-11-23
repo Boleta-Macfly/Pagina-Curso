@@ -9,6 +9,7 @@ import { Contact, Faq, Footer, OnlineWaitlist, Testimonials, WhatsAppFloat } fro
 import { Courses } from "@/components/sections/Courses";
 import { Disciplines } from "@/components/sections/Disciplines";
 import { Steps } from "@/components/sections/Steps";
+import { StudentsTeaser } from "@/components/sections/StudentsTeaser";
 import { Videos } from "@/components/sections/Videos";
 
 export default function Home() {
@@ -35,6 +36,7 @@ export default function Home() {
         <Hero />
         <Brands />
         <Courses />
+        <StudentsTeaser />
         <Disciplines />
         <About />
         <Videos />
