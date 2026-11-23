@@ -33,8 +33,12 @@ export function StudentGallery({ photos, label }: Props) {
 
   const [first, ...rest] = photos;
   const idx = (p: StudentPhoto) => photos.indexOf(p);
-  const certs = rest.filter((p) => p.kind === "certificado");
-  const others = rest.filter((p) => p.kind !== "certificado");
+  // Completa la fila de certificados (4 columnas) con fotos de clase para evitar huecos.
+  const certOnly = rest.filter((p) => p.kind === "certificado");
+  const classOnly = rest.filter((p) => p.kind !== "certificado");
+  const fill = certOnly.length ? (4 - (certOnly.length % 4)) % 4 : 0;
+  const certs = [...certOnly, ...classOnly.slice(0, fill)];
+  const others = classOnly.slice(fill);
 
   return (
     <>

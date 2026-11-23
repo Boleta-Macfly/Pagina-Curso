@@ -275,7 +275,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 </h2>
               </div>
               <p className="max-w-sm text-white/60">
-                Fotos reales de la última edición: práctica en taller y entrega de certificados AF Academy y Alcance Pro.
+                Fotos reales de la última edición: práctica en taller y entrega de certificados AF Academy{c.kit ? ` y ${c.kit.brand}` : ""}.
               </p>
             </div>
             <StudentGallery photos={ed.photos} label={ed.label} />
