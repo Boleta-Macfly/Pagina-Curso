@@ -83,6 +83,14 @@ export const faqs: Faq[] = [
     q: "¿Las clases son teóricas o prácticas?",
     a: "Ambos cursos son 20% teóricos y 80% prácticos.",
   },
+  {
+    q: "¿Cómo separo mi cupo?",
+    a: "Con un pago de separación de S/ 150 a S/ 300, según el curso, que se descuenta del precio total. Tu cupo queda confirmado cuando el asesor valida el pago. El saldo se paga antes del inicio del curso.",
+  },
+  {
+    q: "¿Qué pasa si no puedo asistir?",
+    a: "Si nos avisas con al menos 7 días de anticipación, puedes pasar tu separación a la siguiente edición del mismo curso, una sola vez. La separación no es reembolsable. Revisa los términos y condiciones para más detalles.",
+  },
   { q: "¿Necesito experiencia previa?", a: "" }, // PENDIENTE
   { q: "¿Qué medios de pago aceptan?", a: "" }, // PENDIENTE
   { q: "¿Entregan certificado?", a: "Sí. Ambos cursos incluyen certificación, el video de tus prácticas, soporte técnico y merch." },
