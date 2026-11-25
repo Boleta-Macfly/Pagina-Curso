@@ -2,19 +2,19 @@ import Link from "next/link";
 import { site } from "@/config/site";
 import { courses } from "@/content/courses";
 import { brands, faqs, testimonials } from "@/content/media";
-import { advisorLink, waProps, waitlistMessage } from "@/lib/whatsapp";
+import { advisorLink, waProps } from "@/lib/whatsapp";
 import { HexLights } from "../HexLights";
 import { Logo, LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
 import { WhatsAppForm } from "../WhatsAppForm";
 import { IconChevron, IconTikTok, IconWhatsApp } from "../Icons";
 
-/* ---------- AF Academy Online (lista de espera) ---------- */
-export function OnlineWaitlist() {
+/* ---------- AF Academy Online (próximamente) ---------- */
+export function OnlineSoon() {
   return (
     <section className="grain relative overflow-hidden bg-ink py-24 sm:py-32">
       <HexLights className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12] [mask-image:radial-gradient(ellipse_at_right,black,transparent_70%)]" />
-      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-10 px-4 sm:px-6 lg:flex-row lg:items-end lg:px-8">
         <Reveal>
           <span className="inline-flex rounded-full border border-white/20 px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase">
             Próximamente
@@ -25,16 +25,11 @@ export function OnlineWaitlist() {
             <span className="text-outline">Online</span>
           </h2>
           <p className="mt-6 max-w-md text-lg text-white/60">
-            Estamos preparando cursos online para que aprendas desde cualquier lugar. Déjanos tus datos y sé de los
-            primeros en enterarte.
+            Estamos preparando cursos online para que aprendas desde cualquier lugar. Muy pronto más novedades.
           </p>
         </Reveal>
-        <Reveal delay={120} className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur sm:p-9">
-          <p className="font-display mb-5 text-2xl font-bold uppercase italic">Únete a la lista de espera</p>
-          <WhatsAppForm
-            intro={waitlistMessage}
-            submitLabel="Quiero enterarme primero"
-          />
+        <Reveal delay={120}>
+          <p className="font-display text-6xl leading-none font-extrabold text-white/10 uppercase italic sm:text-8xl">Muy pronto</p>
         </Reveal>
       </div>
     </section>

@@ -82,7 +82,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               </dt>
               <dd className="mt-1 flex items-baseline gap-3">
                 <span className="font-display text-3xl font-extrabold italic">
-                  {c.presalePrice ? soles(c.presalePrice) : c.price ? soles(c.price) : "Consultar"}
+                  {c.presalePrice ? soles(c.presalePrice) : c.price ? soles(c.price) : c.status === "proximamente" ? "Muy pronto" : "Consultar"}
                 </span>
                 {c.presalePrice && c.price && <s className="text-black/40">{soles(c.price)}</s>}
               </dd>
@@ -170,7 +170,9 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                   ))}
                 </ol>
               ) : (
-                <p className="text-black/50">El temario se publicará pronto. Escríbenos para recibirlo.</p>
+                <p className="text-black/50">
+                  {c.status === "proximamente" ? "El temario se publicará muy pronto." : "El temario se publicará pronto. Escríbenos para recibirlo."}
+                </p>
               )}
             </Block>
 
@@ -230,6 +232,19 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
           </div>
 
           <aside className="h-fit space-y-4 lg:sticky lg:top-28">
+            {c.status === "proximamente" ? (
+            <div className="rounded-[28px] bg-ink p-8 text-white">
+              <p className="font-display text-3xl font-extrabold uppercase italic">Próximamente</p>
+              <p className="mt-3 text-sm text-white/60">Este curso estará disponible muy pronto.</p>
+              <Link
+                href="/#cursos"
+                className="group mt-7 flex items-center justify-center gap-2 rounded-full bg-white py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
+              >
+                Ver cursos disponibles
+                <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </div>
+            ) : (
             <div className="rounded-[28px] bg-ink p-8 text-white">
               <p className="font-display text-3xl font-extrabold uppercase italic">Reserva tu cupo</p>
               <p className="mt-3 text-sm text-white/60">
@@ -251,6 +266,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
+            )}
             {inBundle && (
               <div className="rounded-[28px] border-2 border-black p-6">
                 <p className="text-[11px] font-semibold tracking-[0.2em] text-black/45 uppercase">{bundle.title}</p>

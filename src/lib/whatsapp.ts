@@ -44,9 +44,6 @@ export function courseMessage(courseTitle: string, dateLabel?: string) {
   return `¡Hola, {asesor}! Vengo de la página de AF Academy y me interesa el curso de ${courseTitle}${when}. ¿Me puedes asesorar?`;
 }
 
-export const waitlistMessage =
-  "¡Hola, {asesor}! Vengo de la página de AF Academy y quiero unirme a la lista de espera de AF Academy Online.";
-
 /** Enlace para compartir con amigos (sin destinatario, no va a los asesores). */
 export function shareLink(text: string) {
   return `https://wa.me/?text=${encodeURIComponent(text)}`;

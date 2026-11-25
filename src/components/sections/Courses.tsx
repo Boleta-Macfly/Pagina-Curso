@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
-import { courseMessage, waitlistMessage, waProps } from "@/lib/whatsapp";
+import { courseMessage, waProps } from "@/lib/whatsapp";
 import { ItemIcon } from "../ItemIcons";
 import { Reveal } from "../Reveal";
 import { IconArrow, IconCalendar, IconCap, IconPin, IconWhatsApp } from "../Icons";
@@ -49,13 +49,9 @@ export function Courses() {
                 <h3 className="font-display mt-4 text-4xl font-extrabold uppercase italic">{c.title}</h3>
                 <p className="mt-2 max-w-xl text-black/60">{c.description}</p>
               </div>
-              <a
-                {...waProps(waitlistMessage)}
-                className="inline-flex shrink-0 items-center gap-2 rounded-full bg-black px-6 py-3.5 text-xs font-bold tracking-[0.1em] text-white uppercase transition hover:bg-black/80"
-              >
-                <IconWhatsApp className="size-4" />
-                Unirme a la lista de espera
-              </a>
+              <span className="font-display shrink-0 text-3xl font-extrabold text-black/25 uppercase italic sm:text-4xl">
+                Muy pronto
+              </span>
             </div>
           </Reveal>
         ))}
@@ -218,7 +214,7 @@ function Bundle() {
           </span>
           <a
             {...waProps(
-              `¡Hola, {asesor}! Vengo de la página de AF Academy y me interesan ambos cursos (${names.join(" + ")}) por ${soles(bundle.price)}. ¿Me puedes asesorar?`,
+              `¡Hola, {asesor}! Vengo de la página de AF Academy y quiero aprovechar la promoción de ambos cursos: ${names.join(" + ")} por ${soles(bundle.price)}. ¿Me ayudas con mi inscripción?`,
             )}
             className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3.5 text-xs font-bold tracking-[0.1em] text-white uppercase transition hover:bg-black/80"
           >

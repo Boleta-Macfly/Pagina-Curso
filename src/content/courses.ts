@@ -154,7 +154,7 @@ export const courses: Course[] = [
     title: "AF Academy Online",
     short: "Aprende desde casa a tu ritmo",
     description:
-      "Muy pronto: cursos online con lecciones en video, módulos y acompañamiento. Únete a la lista de espera para enterarte primero.",
+      "Muy pronto: cursos online con lecciones en video, módulos y acompañamiento.",
     modality: "Online",
     status: "proximamente",
     dateLabel: "",

@@ -48,7 +48,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Los cursos son presenciales u online?",
-    a: "Los cursos actuales son presenciales, en San Miguel, y duran 2 días. Estamos preparando AF Academy Online; únete a la lista de espera para enterarte primero.",
+    a: "Los cursos actuales son presenciales, en San Miguel, y duran 2 días. Muy pronto lanzaremos AF Academy Online.",
   },
   {
     q: "¿Cuánto cuestan los cursos?",
