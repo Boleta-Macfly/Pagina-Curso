@@ -94,17 +94,6 @@ export function Hero() {
         </div>
       </div>
 
-      {/* Cifras reales */}
-      <div className="border-t border-white/10">
-        <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/10 sm:grid-cols-4">
-          {site.stats.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse bg-ink px-4 py-6 sm:px-8 sm:py-8">
-              <dt className="mt-1 text-[11px] leading-snug text-white/50 sm:text-sm">{s.label}</dt>
-              <dd className="font-display text-3xl font-extrabold italic sm:text-5xl">{s.value}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
     </section>
   );
 }

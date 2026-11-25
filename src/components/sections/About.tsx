@@ -46,6 +46,16 @@ export function About() {
             ))}
           </div>
 
+          {/* Cifras reales de Alex */}
+          <dl className="mt-10 grid max-w-lg grid-cols-2 gap-px overflow-hidden rounded-2xl border border-black/10 bg-black/10">
+            {site.stats.map((s) => (
+              <div key={s.label} className="flex flex-col-reverse bg-paper px-5 py-5">
+                <dt className="mt-1 text-xs leading-snug text-black/60">{s.label}</dt>
+                <dd className="font-display text-3xl font-extrabold italic sm:text-4xl">{s.value}</dd>
+              </div>
+            ))}
+          </dl>
+
           {coach.message && (
             <blockquote className="font-display mt-8 border-l-2 border-black pl-5 text-2xl italic">
               “{coach.message}”
