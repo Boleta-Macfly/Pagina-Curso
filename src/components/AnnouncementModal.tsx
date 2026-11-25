@@ -91,14 +91,14 @@ export function AnnouncementModal() {
                 <br />
                 cursos
               </h2>
-              <p className="mt-3 max-w-[260px] text-sm text-black/60">
+              <p className="mt-4 max-w-[300px] text-base leading-relaxed text-black/75 sm:text-lg">
                 Cursos intensivos de detailing con kit de productos y certificación. Dictados por AlexAF.
               </p>
             </div>
             <p className="mt-8 hidden text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase sm:block">AF Academy</p>
           </div>
 
-          <ul className="divide-y divide-white/10 p-3 sm:p-4 sm:pr-14">
+          <ul className="divide-y divide-white/10 p-3 pb-24 sm:p-4 sm:pr-14 sm:pb-24">
             {upcoming.map((c) => (
               <li key={c.slug} className="flex gap-4 p-4">
                 {c.images.hero && (

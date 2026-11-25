@@ -349,7 +349,7 @@ export function WhatsAppFloat() {
     <a
       {...waProps()}
       aria-label="Escríbenos por WhatsApp"
-      className="group fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-wa p-4 text-white shadow-[0_15px_40px_-10px_rgba(37,211,102,0.6)] transition hover:scale-105 sm:right-6 sm:bottom-24"
+      className="group fixed right-4 bottom-24 z-40 flex items-center gap-2 rounded-full bg-wa p-4 text-white shadow-[0_15px_40px_-10px_rgba(37,211,102,0.6)] transition hover:scale-105 sm:right-6 sm:bottom-24"
     >
       <IconWhatsApp className="size-6" />
       <span className="hidden max-w-0 overflow-hidden text-sm font-bold whitespace-nowrap transition-all duration-500 group-hover:max-w-40 sm:inline">
