@@ -49,7 +49,7 @@ export function Courses() {
                 <h3 className="font-display mt-4 text-4xl font-extrabold uppercase italic">{c.title}</h3>
                 <p className="mt-2 max-w-xl text-black/60">{c.description}</p>
               </div>
-              <span className="font-display shrink-0 text-3xl font-extrabold text-black/25 uppercase italic sm:text-4xl">
+              <span className="font-display shrink-0 text-3xl font-extrabold text-black uppercase italic sm:text-4xl">
                 Muy pronto
               </span>
             </div>

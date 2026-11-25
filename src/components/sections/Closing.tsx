@@ -29,7 +29,13 @@ export function OnlineSoon() {
           </p>
         </Reveal>
         <Reveal delay={120}>
-          <p className="font-display text-6xl leading-none font-extrabold text-white/10 uppercase italic sm:text-8xl">Muy pronto</p>
+          <p className="flex items-center gap-3 font-display text-[42px] leading-none font-extrabold whitespace-nowrap text-white uppercase italic sm:gap-4 sm:text-7xl lg:text-8xl">
+            <span className="relative flex size-4 shrink-0 sm:size-5" aria-hidden="true">
+              <span className="absolute inset-0 animate-ping rounded-full bg-white/60 [animation-duration:2s]" />
+              <span className="relative size-full rounded-full bg-white" />
+            </span>
+            Muy pronto
+          </p>
         </Reveal>
       </div>
     </section>
