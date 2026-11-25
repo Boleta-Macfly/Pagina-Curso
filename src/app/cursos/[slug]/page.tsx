@@ -225,7 +225,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 className="mt-7 flex items-center justify-center gap-2 rounded-full bg-white py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
               >
                 <IconWhatsApp className="size-5" />
-                Contacte con un asesor
+                Contáctate con un asesor
               </a>
               <div className="mt-6 border-t border-white/10 pt-5">
                 <p className="text-[10px] font-semibold tracking-[0.2em] text-white/60 uppercase">Medios de pago</p>

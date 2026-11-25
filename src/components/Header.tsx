@@ -160,7 +160,7 @@ export function Header() {
               className="group flex gap-3 rounded-xl bg-black p-5 text-white"
             >
               <span>
-                <span className="block font-semibold">Solicitar información</span>
+                <span className="block font-semibold">Contáctate con un asesor</span>
                 <span className="mt-1 block text-sm text-white/60">Te asesoramos para elegir tu curso.</span>
                 <IconArrow className="mt-3 size-5 transition-transform group-hover:translate-x-1" />
               </span>
