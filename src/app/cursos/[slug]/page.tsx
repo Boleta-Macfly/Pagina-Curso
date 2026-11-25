@@ -26,7 +26,13 @@ export async function generateMetadata({ params }: PageProps<"/cursos/[slug]">):
     title,
     description,
     alternates: { canonical: `/cursos/${c.slug}` },
-    openGraph: { title: `${title} | ${site.name}`, description },
+    openGraph: {
+      title: `${title} | ${site.name}`,
+      description,
+      ...(c.images.flyer
+        ? { images: [{ url: c.images.flyer, width: 1080, height: 1350, alt: `Flyer del curso ${c.title}` }] }
+        : {}),
+    },
   };
 }
 

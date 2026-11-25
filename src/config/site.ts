@@ -13,8 +13,16 @@ export const site = {
   tagline: "Cursos profesionales de PPF y tratamiento cerámico",
   description:
     "Academia de detailing profesional dirigida por Alex, CEO de AF Detailing y Trainer Oficial Feynlab Perú. Cursos prácticos de PPF y tratamiento cerámico.",
-  /** URL de producción (cámbiala cuando tengas dominio propio). */
-  url: "https://afacademy.example",
+  /**
+   * URL pública de la web. Se toma de la variable NEXT_PUBLIC_SITE_URL o,
+   * en Vercel, del dominio de producción asignado automáticamente.
+   * Cuando tengan dominio propio, configúrenlo en NEXT_PUBLIC_SITE_URL.
+   */
+  url:
+    process.env.NEXT_PUBLIC_SITE_URL ??
+    (process.env.VERCEL_PROJECT_PRODUCTION_URL
+      ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+      : "http://localhost:3000"),
   locale: "es_PE",
 
   coach: {
