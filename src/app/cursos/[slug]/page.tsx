@@ -183,7 +183,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
             </Block>
 
             {c.kit && (
-              <Block title="Kit para tus primeros servicios">
+              <Block title="Kit de regalo">
                 <div className="overflow-hidden rounded-[28px] bg-ink p-7 text-white sm:p-9">
                   {c.images.kit && (
                     <div className="relative -mx-7 -mt-7 mb-7 aspect-[2/1] sm:-mx-9 sm:-mt-9">
