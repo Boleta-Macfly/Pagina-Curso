@@ -236,7 +236,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                     </li>
                   ))}
                 </ul>
-                <p className="mt-3 text-xs text-white/60">Separa tu cupo desde S/ 150.</p>
+                <p className="mt-3 text-xs text-white/60">Consulta con tu asesor el monto de separación de tu cupo.</p>
               </div>
             </div>
             )}
