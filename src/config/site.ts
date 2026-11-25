@@ -118,7 +118,7 @@ export const site = {
    * Cuando tengas redes o portafolio, pon el enlace en `url`.
    */
   credits: {
-    name: "Macfly.Org",
+    name: "Macfly Agency",
     url: "",
   },
 } as const;
