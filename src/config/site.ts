@@ -68,6 +68,9 @@ export const site = {
   /** PENDIENTE: horarios de atención. */
   hours: "",
 
+  /** Medios de pago aceptados. */
+  paymentMethods: ["Yape", "Plin", "Transferencia bancaria", "Pago con tarjeta"],
+
   social: {
     tiktok: "https://www.tiktok.com/@alexaf___",
     instagram: "",

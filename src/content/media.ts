@@ -92,7 +92,10 @@ export const faqs: Faq[] = [
     a: "Si nos avisas con al menos 7 días de anticipación, puedes pasar tu separación a la siguiente edición del mismo curso, una sola vez. La separación no es reembolsable. Revisa los términos y condiciones para más detalles.",
   },
   { q: "¿Necesito experiencia previa?", a: "" }, // PENDIENTE
-  { q: "¿Qué medios de pago aceptan?", a: "" }, // PENDIENTE
+  {
+    q: "¿Qué medios de pago aceptan?",
+    a: "Aceptamos Yape, Plin, transferencia bancaria y pago con tarjeta. Tu asesor te indicará los datos para realizar el pago de la separación y del saldo.",
+  },
   { q: "¿Entregan certificado?", a: "Sí. Ambos cursos incluyen certificación, el video de tus prácticas, soporte técnico y merch." },
   {
     q: "¿Qué incluye cada curso?",

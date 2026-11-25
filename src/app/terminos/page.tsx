@@ -25,6 +25,7 @@ const sections: { title: string; items: string[] }[] = [
     title: "Pago del saldo",
     items: [
       "El saldo restante se paga antes del inicio del curso, en la fecha que indique el asesor al confirmar la inscripción.",
+      `Medios de pago aceptados: ${site.paymentMethods.join(", ")}.`,
       "Si el saldo no se paga en el plazo acordado, AF Academy puede liberar el cupo.",
     ],
   },

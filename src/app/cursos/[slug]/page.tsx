@@ -265,6 +265,17 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 Solicitar información
                 <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
+              <div className="mt-6 border-t border-white/10 pt-5">
+                <p className="text-[10px] font-semibold tracking-[0.2em] text-white/45 uppercase">Medios de pago</p>
+                <ul className="mt-2 flex flex-wrap gap-1.5">
+                  {site.paymentMethods.map((m) => (
+                    <li key={m} className="rounded-full border border-white/15 px-2.5 py-1 text-xs text-white/75">
+                      {m}
+                    </li>
+                  ))}
+                </ul>
+                <p className="mt-3 text-xs text-white/45">Separa tu cupo desde S/ 150.</p>
+              </div>
             </div>
             )}
             {inBundle && (
