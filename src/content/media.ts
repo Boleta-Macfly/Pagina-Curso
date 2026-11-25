@@ -87,7 +87,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Cómo separo mi cupo?",
-    a: "Con un pago de separación de S/ 150 a S/ 300, según el curso, que se descuenta del precio total. Tu cupo queda confirmado cuando el asesor valida el pago. El saldo se paga antes del inicio del curso.",
+    a: "Comunícate con un asesor para la separación de tu cupo, según el curso. Tu cupo queda confirmado cuando se valida el pago.",
   },
   {
     q: "¿Qué pasa si no puedo asistir?",
