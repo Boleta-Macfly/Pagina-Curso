@@ -78,7 +78,11 @@ export const site = {
   hours: "",
 
   /** Video destacado del inicio ("Mira a Alex en acción"). ID = número del enlace de TikTok. */
-  heroVideo: { tiktokId: "7711468828307311890", title: "Mira a Alex en acción" },
+  heroVideo: {
+    tiktokId: "7711468828307311890",
+    title: "¡Así se vivió nuestro curso de Tratamiento Cerámico!",
+    cover: "/videos/curso-ceramico-vivencia.jpg",
+  },
 
   /** Medios de pago aceptados. */
   paymentMethods: ["Yape", "Plin", "Transferencia bancaria", "Pago con tarjeta"],

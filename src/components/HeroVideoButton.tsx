@@ -22,7 +22,7 @@ export function HeroVideoButton() {
           e.preventDefault();
           setOpen(true);
         }}
-        className="group absolute top-1/2 left-1/2 grid size-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black shadow-[0_0_0_10px_rgba(255,255,255,0.08)] transition hover:scale-105"
+        className="group absolute top-[40%] left-1/2 grid size-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black shadow-[0_0_0_10px_rgba(255,255,255,0.08)] transition hover:scale-105"
         aria-label={`Ver video: ${title}`}
       >
         <span className="absolute inset-0 animate-ping rounded-full bg-white/30 [animation-duration:2.2s]" />

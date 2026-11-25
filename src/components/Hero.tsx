@@ -4,7 +4,6 @@ import { site } from "@/config/site";
 import { courses } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { HexLights } from "./HexLights";
-import { LogoMark } from "./Logo";
 import { HeroVideoButton } from "./HeroVideoButton";
 import { IconArrow, IconCalendar } from "./Icons";
 
@@ -80,26 +79,17 @@ export function Hero() {
         </div>
 
         {/* Video destacado: se configura en site.heroVideo */}
-        <div className="relative mx-auto w-full max-w-md animate-fade-up [animation-delay:200ms] lg:mx-0 lg:ml-auto">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/15 bg-ink-3 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.9)]">
+        <div className="relative mx-auto w-full max-w-sm animate-fade-up [animation-delay:200ms] lg:mx-0 lg:ml-auto">
+          <div className="relative aspect-[9/15] overflow-hidden rounded-[28px] border border-white/15 bg-ink-3 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.9)]">
             <Image
-              src="/cursos/ceramico-portada.jpg"
-              alt="Aplicación de tratamiento cerámico sobre un auto rojo"
+              src={site.heroVideo.cover}
+              alt={site.heroVideo.title}
               fill
               priority
               sizes="(min-width: 1024px) 448px, 90vw"
-              className="object-cover object-[35%_center]"
+              className="object-cover object-bottom"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-black/20" />
-            <div className="absolute inset-x-0 top-0 flex items-center justify-between p-6">
-              <LogoMark className="w-14 text-white/90" />
-              <p className="text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase">Mira a Alex en acción</p>
-            </div>
             <HeroVideoButton />
-          </div>
-          <div className="absolute -bottom-5 -left-4 rounded-2xl bg-white px-5 py-4 text-black shadow-2xl sm:-left-8">
-            <p className="font-display text-3xl leading-none font-extrabold italic">2.6M</p>
-            <p className="mt-1 text-xs text-black/60">vistas en un tutorial de PPF</p>
           </div>
         </div>
       </div>
