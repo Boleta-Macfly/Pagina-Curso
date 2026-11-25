@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { site } from "@/config/site";
 import { LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
@@ -9,12 +10,16 @@ export function About() {
     <section id="sobre-alex" className="bg-paper py-24 text-black sm:py-32">
       <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:gap-20 lg:px-8">
         <Reveal className="relative">
-          {/* Reemplazar por foto real del coach */}
           <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] bg-ink">
-            <LogoMark className="absolute top-1/2 left-1/2 w-2/3 -translate-x-1/2 -translate-y-1/2 text-white/[0.07]" />
-            <p className="absolute bottom-6 left-6 text-[11px] tracking-[0.2em] text-white/35 uppercase">
-              Foto de Alex en taller · pendiente
-            </p>
+            <Image
+              src={site.coach.photo}
+              alt={`${coach.name}, ${coach.roles.join(" y ")}`}
+              fill
+              sizes="(min-width: 1024px) 600px, 100vw"
+              className="object-cover object-[68%_center]"
+            />
+            <div className="absolute inset-x-0 top-0 h-1/3 bg-gradient-to-b from-black/40 to-transparent" />
+            <LogoMark className="absolute top-6 left-6 w-14 text-white/90" />
           </div>
           <div className="font-display absolute -right-2 -bottom-6 rounded-2xl bg-black px-6 py-5 text-white sm:-right-6">
             <p className="text-[10px] font-semibold tracking-[0.2em] text-white/50 uppercase not-italic">Trainer</p>
@@ -37,7 +42,7 @@ export function About() {
 
           <p className="mt-8 max-w-lg text-lg leading-relaxed text-black/65">
             {coach.bio ||
-              "Alex dirige AF Detailing y forma a nuevos detailers en PPF y tratamiento cerámico. En sus videos comparte el paso a paso de instalaciones reales, y en AF Academy lo enseña en persona."}
+              "Alex dirige AF Detailing y cuenta con certificaciones internacionales en Brasil y Argentina. Forma a nuevos detailers en PPF y tratamiento cerámico: en sus videos comparte el paso a paso de instalaciones reales, y en AF Academy lo enseña en persona."}
           </p>
 
           {coach.message && (

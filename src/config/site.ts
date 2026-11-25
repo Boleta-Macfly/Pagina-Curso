@@ -21,8 +21,10 @@ export const site = {
     /** PENDIENTE: nombre completo del coach. */
     name: "Alex",
     handle: "@alexaf___",
+    /** Foto del coach en /public/coach/. */
+    photo: "/coach/alex.jpg",
     /** Títulos tal como aparecen en su biografía de TikTok. */
-    roles: ["CEO de AF Detailing", "Trainer Oficial Feynlab Perú"],
+    roles: ["CEO de AF Detailing", "Trainer Oficial Feynlab Perú", "Certificaciones internacionales en Brasil y Argentina"],
     /** PENDIENTE: biografía real del coach. */
     bio: "",
     /** PENDIENTE: mensaje personal del coach. */
