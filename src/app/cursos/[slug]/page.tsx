@@ -225,15 +225,8 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 className="mt-7 flex items-center justify-center gap-2 rounded-full bg-white py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
               >
                 <IconWhatsApp className="size-5" />
-                Inscribirme
+                Contacte con un asesor
               </a>
-              <Link
-                href="/#contacto"
-                className="group mt-3 flex items-center justify-center gap-2 rounded-full border border-white/20 py-4 text-sm font-bold tracking-[0.12em] uppercase transition hover:border-white"
-              >
-                Solicitar información
-                <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
-              </Link>
               <div className="mt-6 border-t border-white/10 pt-5">
                 <p className="text-[10px] font-semibold tracking-[0.2em] text-white/60 uppercase">Medios de pago</p>
                 <ul className="mt-2 flex flex-wrap gap-1.5">
