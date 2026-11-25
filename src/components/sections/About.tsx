@@ -40,10 +40,11 @@ export function About() {
             ))}
           </ul>
 
-          <p className="mt-8 max-w-lg text-lg leading-relaxed text-black/65">
-            {coach.bio ||
-              "Alex dirige AF Detailing y cuenta con certificaciones internacionales en Brasil y Argentina. Forma a nuevos detailers en PPF y tratamiento cerámico: en sus videos comparte el paso a paso de instalaciones reales, y en AF Academy lo enseña en persona."}
-          </p>
+          <div className="mt-8 max-w-lg space-y-4 text-lg leading-relaxed text-black/65">
+            {coach.bio.map((p) => (
+              <p key={p.slice(0, 24)}>{p}</p>
+            ))}
+          </div>
 
           {coach.message && (
             <blockquote className="font-display mt-8 border-l-2 border-black pl-5 text-2xl italic">
