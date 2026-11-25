@@ -10,13 +10,13 @@ export const metadata: Metadata = {
 };
 
 /** Fecha de la última actualización de estos términos. */
-const UPDATED = "25 de noviembre de 2026";
+const UPDATED = "26 de noviembre de 2026";
 
 const sections: { title: string; items: string[] }[] = [
   {
     title: "Inscripción y separación de cupo",
     items: [
-      "Para reservar un cupo se realiza un pago de separación de S/ 150 a S/ 300, según el curso, que se descuenta del precio total.",
+      "Para reservar un cupo se realiza un pago de separación, cuyo monto indicará el asesor según el curso, y que se descuenta del precio total.",
       "El cupo queda confirmado cuando el asesor valida el pago y envía la confirmación por WhatsApp.",
       "Los cupos son limitados y se asignan por orden de pago de la separación.",
     ],
