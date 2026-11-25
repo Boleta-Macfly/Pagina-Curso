@@ -27,7 +27,7 @@ for await (const file of walk(PUBLIC)) {
       if ((await stat(dest)).mtimeMs >= (await stat(file)).mtimeMs) continue;
     } catch {}
     await mkdir(path.dirname(dest), { recursive: true });
-    await sharp(file).resize({ width: w, withoutEnlargement: true }).webp({ quality: 78 }).toFile(dest);
+    await sharp(file).resize({ width: w, withoutEnlargement: true }).webp({ quality: 85 }).toFile(dest);
     count++;
   }
 }
