@@ -174,10 +174,8 @@ export function Header() {
           </p>
           <div className="grid grid-cols-3 gap-6">
             {brands.map((b) => (
-              <Link
+              <div
                 key={b.name}
-                href="/#marcas"
-                onClick={() => setOpen(null)}
                 className="group flex h-36 flex-col items-center justify-center gap-3 rounded-2xl border border-black/10 px-6 transition hover:border-black hover:shadow-lg"
               >
                 <Image
@@ -189,7 +187,7 @@ export function Header() {
                   className={`w-auto transition group-hover:scale-105 ${b.logo.height / b.logo.width < 0.2 ? "h-7" : "h-16"}`}
                 />
                 {b.note && <span className="text-center text-xs text-black/50">{b.note}</span>}
-              </Link>
+              </div>
             ))}
           </div>
         </div>
@@ -231,7 +229,7 @@ export function Header() {
           </MobileGroup>
           <MobileGroup title="Marcas">
             {brands.map((b) => (
-              <Link key={b.name} href="/#marcas" onClick={() => setMobile(false)} className="flex items-center py-3" aria-label={b.name}>
+              <div key={b.name} className="flex items-center py-3">
                 <Image
                   src={b.logo.light}
                   alt={b.name}
@@ -240,7 +238,7 @@ export function Header() {
                   sizes="180px"
                   className={`w-auto opacity-85 ${b.logo.height / b.logo.width < 0.2 ? "h-4" : "h-9"}`}
                 />
-              </Link>
+              </div>
             ))}
           </MobileGroup>
           {links.map((l) => (

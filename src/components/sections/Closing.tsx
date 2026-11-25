@@ -12,7 +12,7 @@ import { IconArrow, IconChevron, IconInstagram, IconPin, IconTikTok, IconWhatsAp
 /* ---------- AF Academy Online (próximamente) ---------- */
 export function OnlineSoon() {
   return (
-    <section className="grain relative overflow-hidden bg-ink py-24 sm:py-32">
+    <section className="grain relative overflow-hidden border-t border-white/10 bg-ink py-24 sm:py-32">
       <HexLights className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12] [mask-image:radial-gradient(ellipse_at_right,black,transparent_70%)]" />
       <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-10 px-4 sm:px-6 lg:flex-row lg:items-end lg:px-8">
         <Reveal>
@@ -274,7 +274,7 @@ export function Footer() {
           </div>
         </div>
         <FooterCol title="Cursos" items={courses.map((c) => ({ href: `/cursos/${c.slug}`, label: c.title }))} />
-        <FooterCol title="Marcas" items={brands.map((b) => ({ href: "/#marcas", label: b.name }))} />
+        <FooterCol title="Marcas" items={brands.map((b) => ({ label: b.name }))} />
         <FooterCol
           title="Academia"
           items={[
@@ -299,16 +299,20 @@ export function Footer() {
   );
 }
 
-function FooterCol({ title, items }: { title: string; items: { href: string; label: string }[] }) {
+function FooterCol({ title, items }: { title: string; items: { href?: string; label: string }[] }) {
   return (
     <div>
       <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{title}</p>
       <ul className="mt-4 space-y-2.5 text-sm">
         {items.map((i) => (
           <li key={i.label}>
-            <Link href={i.href} className="text-white/70 transition hover:text-white">
-              {i.label}
-            </Link>
+            {i.href ? (
+              <Link href={i.href} className="text-white/70 transition hover:text-white">
+                {i.label}
+              </Link>
+            ) : (
+              <span className="text-white/70">{i.label}</span>
+            )}
           </li>
         ))}
       </ul>
