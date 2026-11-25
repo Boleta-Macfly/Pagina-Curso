@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site } from "@/config/site";
-import { courses, getCourse, soles, statusLabel } from "@/content/courses";
+import { bonosOf, courses, getCourse, soles, statusLabel } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { HexLights } from "@/components/HexLights";
@@ -125,6 +125,19 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               </Block>
             )}
 
+            {c.incluye.length > 0 && (
+              <Block title="Incluye">
+                <ul className="divide-y divide-black/10 border-y border-black/10">
+                  {c.incluye.map((it) => (
+                    <li key={it} className="flex items-center gap-4 py-4 text-lg">
+                      <ItemIcon text={it} className="size-6 text-black/70" />
+                      {it}
+                    </li>
+                  ))}
+                </ul>
+              </Block>
+            )}
+
             <Block title="Lo que aprenderás">
               {c.modules.length ? (
                 <ol className="divide-y divide-black/10 border-y border-black/10">
@@ -180,10 +193,10 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               </Block>
             )}
 
-            {c.includes.length > 0 && (
-              <Block title="También incluye">
+            {bonosOf(c).length > 0 && (
+              <Block title="Bonos">
                 <ul className="grid gap-3 sm:grid-cols-2">
-                  {c.includes.map((it) => (
+                  {bonosOf(c).map((it) => (
                     <li
                       key={it}
                       className="group flex items-center gap-4 rounded-2xl border border-black/10 p-5 font-semibold transition hover:border-black"

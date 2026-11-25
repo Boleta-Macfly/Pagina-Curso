@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
+import { bonosOf, bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { ItemIcon } from "../ItemIcons";
 import { Reveal } from "../Reveal";
@@ -128,14 +128,28 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
         </div>
       )}
 
-      {c.kit && (
+      {(c.incluye.length > 0 || bonosOf(c).length > 0) && (
         <div className="mt-7 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">Incluye</p>
-          <p className="mt-1 font-semibold">{c.kit.title}</p>
-          {c.kit.perks.length > 0 && <p className="mt-1 text-sm text-white/55">{c.kit.perks.join(" · ")}</p>}
-          {c.includes.length > 0 && (
-            <ul className="mt-4 flex flex-wrap gap-2 border-t border-white/10 pt-4">
-              {c.includes.map((it) => (
+          {c.incluye.length > 0 && (
+            <>
+              <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">Incluye</p>
+              <ul className="mt-3 grid gap-2 text-sm text-white/85 sm:grid-cols-2">
+                {c.incluye.map((it) => (
+                  <li key={it} className="flex items-center gap-2.5">
+                    <ItemIcon text={it} className="size-4 text-white/70" />
+                    {it}
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
+          {bonosOf(c).length > 0 && (
+            <>
+            <p className="mt-4 border-t border-white/10 pt-4 text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">
+              Bonos
+            </p>
+            <ul className="mt-3 flex flex-wrap gap-2">
+              {bonosOf(c).map((it) => (
                 <li
                   key={it}
                   className="inline-flex items-center gap-2 rounded-full border border-white/10 py-1.5 pr-3 pl-2.5 text-xs text-white/75"
@@ -145,6 +159,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
                 </li>
               ))}
             </ul>
+            </>
           )}
         </div>
       )}
@@ -181,16 +196,6 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
             Ver temario completo
             <IconArrow className="size-3.5 transition-transform group-hover/l:translate-x-0.5" />
           </Link>
-          {c.images.flyer && (
-            <a
-              href={c.images.flyer}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-xs font-bold tracking-[0.1em] text-white/60 uppercase underline-offset-4 hover:text-white hover:underline"
-            >
-              Ver flyer
-            </a>
-          )}
         </div>
       </div>
     </div>

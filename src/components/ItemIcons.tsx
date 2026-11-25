@@ -129,7 +129,115 @@ export const IconCutter = ({ className }: P) => (
   </svg>
 );
 
+/** Caja de regalo (kit) */
+export const IconGiftBox = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <rect x="3.5" y="9" width="17" height="11.5" rx="1.5" />
+    <path d="M2.5 9h19V6.5h-19z" />
+    <path d="M12 6.5v14" />
+    <path d="M12 6.5C10.5 3 7 3 7 5s3 1.5 5 1.5ZM12 6.5C13.5 3 17 3 17 5s-3 1.5-5 1.5Z" />
+  </svg>
+);
+
+/** Kit cerámico: caja de regalo con frasco */
+export const IconKitCeramic = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3 10.5h12v10H3z" />
+    <path d="M2 10.5h14V8H2z" />
+    <path d="M9 8v12.5" />
+    <path d="M18.5 4.5h2v2h-2z" />
+    <path d="M18 6.5h3l.5 1.5v8.5a1 1 0 0 1-1 1H18.5a1 1 0 0 1-1-1V8Z" />
+  </svg>
+);
+
+/** Kit PPF: caja de regalo con rollo de lámina */
+export const IconKitPPF = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3 10.5h11v10H3z" />
+    <path d="M2 10.5h13V8H2z" />
+    <path d="M8.5 8v12.5" />
+    <ellipse cx="18.5" cy="7" rx="1.7" ry="3" />
+    <path d="M18.5 4h2.2c.9 0 1.6 1.3 1.6 3s-.7 3-1.6 3h-2.2" />
+    <path d="M19.5 10v8.5" />
+  </svg>
+);
+
+/** Etiqueta de descuento (%) */
+export const IconDiscount = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3.5 12.2V4.5a1 1 0 0 1 1-1h7.7l8.3 8.3a1.5 1.5 0 0 1 0 2.1l-6.6 6.6a1.5 1.5 0 0 1-2.1 0Z" />
+    <path d="m9.5 14.5 5-5" />
+    <circle cx="9.7" cy="9.7" r="1" />
+    <circle cx="14.3" cy="14.3" r="1" />
+  </svg>
+);
+
+/** Reloj (duración) */
+export const IconTime = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <circle cx="12" cy="12" r="8.5" />
+    <path d="M12 7.5V12l3 2" />
+  </svg>
+);
+
+/** Documento impreso */
+export const IconPrinted = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M6 3.5h8l4 4v13H6z" />
+    <path d="M14 3.5v4h4" />
+    <path d="M9 12h6M9 15h6M9 18h4" />
+  </svg>
+);
+
+/** Caja de materiales */
+export const IconMaterials = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3 8 12 4l9 4-9 4z" />
+    <path d="M3 8v8.5l9 4 9-4V8" />
+    <path d="M12 12v8.5" />
+    <path d="m7.5 6 9 4" />
+  </svg>
+);
+
+/** Herramientas (llave) */
+export const IconWrench = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M14.5 6.5a4 4 0 0 0 5.2 5.2L12 19.4a2.1 2.1 0 0 1-3-3L16.7 8.7" />
+    <path d="M14.5 6.5 17 4l3 3-2.5 2.5" />
+    <path d="M3.5 20.5 7 17" />
+  </svg>
+);
+
+/** Refrigerio (taza) */
+export const IconCoffee = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M4 9h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5Z" />
+    <path d="M16 11h1.5a2.5 2.5 0 0 1 0 5H16" />
+    <path d="M8 3.5c-.8 1 .8 1.8 0 3M12 3.5c-.8 1 .8 1.8 0 3" />
+  </svg>
+);
+
+/** Ambiente equipado (taller con luces) */
+export const IconWorkshop = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <path d="M3 20.5V9l9-5.5L21 9v11.5" />
+    <path d="M7 20.5v-6h10v6" />
+    <path d="M9 10.5h6" />
+    <path d="M2 20.5h20" />
+  </svg>
+);
+
 const rules: [RegExp, React.ComponentType<P>[]][] = [
+  [/descuento|%\s*de\s*desc/i, [IconDiscount]],
+  [/kit cer[aá]mico/i, [IconKitCeramic]],
+  [/kit ppf/i, [IconKitPPF]],
+  [/^kit\b/i, [IconGiftBox]],
+  [/d[ií]as|teor[ií]a/i, [IconTime]],
+  [/impreso/i, [IconPrinted]],
+  [/herramient/i, [IconWrench]],
+  [/refrigerio|desayuno/i, [IconCoffee]],
+  [/ambiente/i, [IconWorkshop]],
+  [/^material/i, [IconMaterials]],
   [/certific/i, [IconCertificate]],
   [/video/i, [IconVideoCam]],
   [/soporte/i, [IconHeadset]],

@@ -13,6 +13,8 @@ export type CourseStatus = "abierto" | "proximamente" | "lleno";
 
 export type Kit = {
   title: string;
+  /** Nombre corto que se muestra en «Bonos» (p. ej. «Kit Cerámico»). */
+  label: string;
   /** Marca que provee el kit (debe existir en content/media.ts → brands). */
   brand: string;
   items: string[];
@@ -41,7 +43,9 @@ export type Course = {
   audience: string;
   /** Lo que aprenderás (temario). */
   modules: string[];
-  /** Lo que incluye el curso además de las clases. */
+  /** Lo que incluye el curso (sección «Incluye»). */
+  incluye: string[];
+  /** Bonos extra del curso (se muestran junto al kit y sus descuentos en «Bonos»). */
   includes: string[];
   /** Porcentaje de teoría y práctica. null = no se muestra. */
   split: { theory: number; practice: number } | null;
@@ -54,6 +58,16 @@ export type Course = {
 };
 
 const commonIncludes = ["Certificación", "Video de tus prácticas", "Soporte técnico", "Merch"];
+
+/** Lo que incluyen los cursos presenciales. */
+const commonIncluye = [
+  "2 días · 20% teoría y 80% práctica",
+  "Material informativo impreso",
+  "Material",
+  "Herramientas",
+  "Refrigerio (desayuno, almuerzo, postre y bebidas)",
+  "Ambiente equipado de alto nivel",
+];
 
 export const courses: Course[] = [
   {
@@ -80,10 +94,12 @@ export const courses: Course[] = [
       "Preparación de la superficie",
       "Aplicación de recubrimiento cerámico",
     ],
+    incluye: commonIncluye,
     includes: commonIncludes,
     split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit Alcance Pro para tus primeros servicios",
+      label: "Kit Cerámico",
       brand: "Alcance Pro",
       items: [
         "Aquo Alcalino 500 ml",
@@ -129,10 +145,12 @@ export const courses: Course[] = [
       "Instalación de PPF en piezas complejas",
       "Instalación de PPF interior y exterior",
     ],
+    incluye: commonIncluye,
     includes: commonIncludes,
     split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit PPF para tus primeros servicios",
+      label: "Kit PPF",
       brand: "Película Da Vida",
       items: ["2.5 metros lineales de PPF de regalo", "Magic Gel 1 L", "Magic Activator 1 L", "Kit de paletas", "Cuchilla"],
       perks: ["10% de descuento en PPF", "20% de descuento en gel + activador"],
@@ -165,6 +183,7 @@ export const courses: Course[] = [
     presalePrice: null,
     audience: "",
     modules: [],
+    incluye: [],
     includes: [],
     split: null,
     kit: null,
@@ -183,6 +202,9 @@ export const bundle = {
 };
 
 export const getCourse = (slug: string) => courses.find((c) => c.slug === slug);
+
+/** Bonos de un curso: su kit, los descuentos del kit y los bonos comunes. */
+export const bonosOf = (c: Course) => [...(c.kit ? [c.kit.label, ...c.kit.perks] : []), ...c.includes];
 
 export const statusLabel: Record<CourseStatus, string> = {
   abierto: "Inscripciones abiertas",
