@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from "react";
 import { bundle, courses, soles, statusLabel } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { INTRO_MS } from "./IntroSplash";
+import { ItemIcon } from "./ItemIcons";
 import { LogoMark } from "./Logo";
 import { IconArrow, IconCalendar, IconClose, IconPin, IconWhatsApp } from "./Icons";
 
@@ -16,6 +17,7 @@ export function AnnouncementModal() {
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
+  const includes = courses.find((c) => c.includes.length)?.includes ?? [];
   const upcoming = courses
     .filter((c) => c.featured)
     .sort((a, b) => (a.startDate ?? "9999").localeCompare(b.startDate ?? "9999"));
@@ -77,7 +79,7 @@ export function AnnouncementModal() {
         </button>
 
         <div className="relative grid gap-0 overflow-y-auto overscroll-contain sm:grid-cols-[0.9fr_1.1fr]">
-          <div className="flex flex-col justify-between border-b border-white/10 bg-white p-6 pr-16 text-black sm:border-r sm:border-b-0 sm:p-9">
+          <div className="flex flex-col border-b border-white/10 bg-white p-6 pr-16 text-black sm:border-r sm:border-b-0 sm:p-9">
             <div>
               <span className="inline-flex items-center gap-2 rounded-full bg-black px-3 py-1 text-[10px] font-bold tracking-[0.2em] text-white uppercase">
                 <span className="size-1.5 animate-pulse rounded-full bg-white" />
@@ -95,7 +97,25 @@ export function AnnouncementModal() {
                 Cursos intensivos de detailing con kit de productos y certificación. Dictados por AlexAF.
               </p>
             </div>
-            <p className="mt-8 hidden text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase sm:block">AF Academy</p>
+            {/* Solo en pantallas grandes: refuerza la decisión con lo que incluye y una foto real */}
+            <div className="mt-8 hidden sm:block">
+              <p className="text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">Todos los cursos incluyen</p>
+              <ul className="mt-3 space-y-2.5">
+                {[...includes, "Kit de productos para tus primeros servicios"].map((it) => (
+                  <li key={it} className="flex items-center gap-3 text-sm font-medium">
+                    <span className="grid size-8 shrink-0 place-items-center rounded-lg bg-black text-white">
+                      <ItemIcon text={it} className="size-4" />
+                    </span>
+                    {it}
+                  </li>
+                ))}
+              </ul>
+              <div className="relative mt-6 aspect-[16/9] overflow-hidden rounded-2xl">
+                <Image src="/alumnos/grupo.jpg" alt="Alumnos certificados de AF Academy" fill sizes="320px" className="object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <p className="absolute bottom-3 left-3 text-xs font-semibold text-white">Alumnos certificados · AF Academy</p>
+              </div>
+            </div>
           </div>
 
           <ul className="divide-y divide-white/10 p-3 pb-24 sm:p-4 sm:pr-14 sm:pb-24">
