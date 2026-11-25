@@ -82,7 +82,7 @@ export const site = {
 
   social: {
     tiktok: "https://www.tiktok.com/@alexaf___",
-    instagram: "",
+    instagram: "https://www.instagram.com/alexaf_______",
     facebook: "",
     youtube: "",
   },

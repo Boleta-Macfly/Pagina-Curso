@@ -2,7 +2,7 @@ import Image from "next/image";
 import { site } from "@/config/site";
 import { LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
-import { IconArrow, IconTikTok } from "../Icons";
+import { IconArrow, IconInstagram, IconTikTok } from "../Icons";
 
 export function About() {
   const { coach } = site;
@@ -63,6 +63,17 @@ export function About() {
               Sígueme en TikTok
               <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
+            {site.social.instagram && (
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 rounded-full border border-black/20 px-6 py-3.5 text-xs font-bold tracking-[0.12em] uppercase transition hover:border-black"
+              >
+                <IconInstagram className="size-4" />
+                Instagram
+              </a>
+            )}
           </div>
         </Reveal>
       </div>

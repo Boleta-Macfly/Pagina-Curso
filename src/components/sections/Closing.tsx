@@ -7,7 +7,7 @@ import { HexLights } from "../HexLights";
 import { Logo, LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
 import { WhatsAppForm } from "../WhatsAppForm";
-import { IconArrow, IconChevron, IconPin, IconTikTok, IconWhatsApp } from "../Icons";
+import { IconArrow, IconChevron, IconInstagram, IconPin, IconTikTok, IconWhatsApp } from "../Icons";
 
 /* ---------- AF Academy Online (próximamente) ---------- */
 export function OnlineSoon() {
@@ -118,8 +118,19 @@ export function Contact() {
               className="inline-flex items-center gap-3 rounded-full border border-white/20 px-7 py-4 text-sm font-bold tracking-[0.12em] uppercase transition hover:border-white"
             >
               <IconTikTok className="size-5" />
-              {site.coach.handle}
+              TikTok
             </a>
+            {site.social.instagram && (
+              <a
+                href={site.social.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 rounded-full border border-white/20 px-7 py-4 text-sm font-bold tracking-[0.12em] uppercase transition hover:border-white"
+              >
+                <IconInstagram className="size-5" />
+                Instagram
+              </a>
+            )}
           </div>
           <ul className="mt-10 grid gap-3 sm:grid-cols-2">
             {site.advisors.map((a) => (
@@ -242,6 +253,25 @@ export function Footer() {
             <IconPin className="mt-0.5 size-4 shrink-0" />
             {site.address.street}, {site.address.district}
           </a>
+          <div className="mt-6 flex gap-2">
+            {[
+              { href: site.social.tiktok, label: "TikTok", Icon: IconTikTok },
+              { href: site.social.instagram, label: "Instagram", Icon: IconInstagram },
+            ]
+              .filter((s) => s.href)
+              .map(({ href, label, Icon }) => (
+                <a
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`AlexAF en ${label}`}
+                  className="grid size-10 place-items-center rounded-full border border-white/15 text-white/75 transition hover:border-white hover:text-white"
+                >
+                  <Icon className="size-4" />
+                </a>
+              ))}
+          </div>
         </div>
         <FooterCol title="Cursos" items={courses.map((c) => ({ href: `/cursos/${c.slug}`, label: c.title }))} />
         <FooterCol title="Marcas" items={brands.map((b) => ({ href: "/#marcas", label: b.name }))} />

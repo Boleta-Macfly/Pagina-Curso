@@ -85,3 +85,10 @@ export const IconTikTok = ({ className }: P) => (
     <path d="M16.6 3c.3 2.3 1.7 3.8 4 3.9v2.6c-1.4.1-2.7-.3-4-1.1v5.1c0 6.4-7 8.4-9.8 3.8-1.8-3-.7-8.2 5.1-8.4v2.7c-.4.1-.9.2-1.3.3-1.3.4-2 1.3-1.8 2.8.4 2.7 5.4 3.5 5-1.8V3h2.8Z" />
   </svg>
 );
+export const IconInstagram = ({ className }: P) => (
+  <svg viewBox="0 0 24 24" className={className} {...base}>
+    <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+    <circle cx="12" cy="12" r="4" />
+    <circle cx="17.2" cy="6.8" r="0.9" fill="currentColor" stroke="none" />
+  </svg>
+);
