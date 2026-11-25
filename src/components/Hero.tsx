@@ -5,7 +5,8 @@ import { courses } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { HexLights } from "./HexLights";
 import { LogoMark } from "./Logo";
-import { IconArrow, IconCalendar, IconPlay } from "./Icons";
+import { HeroVideoButton } from "./HeroVideoButton";
+import { IconArrow, IconCalendar } from "./Icons";
 
 export function Hero() {
   const next = courses.find((c) => c.status === "abierto" && c.startDate);
@@ -78,7 +79,7 @@ export function Hero() {
           )}
         </div>
 
-        {/* Retrato del coach (reemplazar por foto real en /public/coach/alex.jpg) */}
+        {/* Video destacado: se configura en site.heroVideo */}
         <div className="relative mx-auto w-full max-w-md animate-fade-up [animation-delay:200ms] lg:mx-0 lg:ml-auto">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[28px] border border-white/15 bg-ink-3 shadow-[0_50px_100px_-30px_rgba(0,0,0,0.9)]">
             <Image
@@ -94,15 +95,7 @@ export function Hero() {
               <LogoMark className="w-14 text-white/90" />
               <p className="text-[11px] font-semibold tracking-[0.2em] text-white/80 uppercase">Mira a Alex en acción</p>
             </div>
-            <a
-              href={site.social.tiktok}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group absolute top-1/2 left-1/2 grid size-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black shadow-[0_0_0_10px_rgba(255,255,255,0.08)] transition hover:scale-105"
-              aria-label="Ver videos de Alex en TikTok"
-            >
-              <IconPlay className="ml-1 size-7" />
-            </a>
+            <HeroVideoButton />
           </div>
           <div className="absolute -bottom-5 -left-4 rounded-2xl bg-white px-5 py-4 text-black shadow-2xl sm:-left-8">
             <p className="font-display text-3xl leading-none font-extrabold italic">2.6M</p>

@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useState } from "react";
 import { site } from "@/config/site";
 import { tiktokUrl, videos, type Video, type VideoCategory } from "@/content/media";
 import { HexLights } from "../HexLights";
-import { IconArrow, IconClose, IconPlay, IconTikTok } from "../Icons";
+import { IconArrow, IconPlay, IconTikTok } from "../Icons";
+import { TikTokPlayer } from "../TikTokPlayer";
 
 // Solo se muestran los filtros que tienen videos.
 const categories = Array.from(new Set(videos.map((v) => v.category)));
@@ -15,16 +16,7 @@ export function Videos() {
   const [playing, setPlaying] = useState<Video | null>(null);
   const list = active === "Todos" ? videos : videos.filter((v) => v.category === active);
 
-  useEffect(() => {
-    if (!playing) return;
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setPlaying(null);
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [playing]);
+  const close = useCallback(() => setPlaying(null), []);
 
   return (
     <section id="videos" className="bg-ink py-24 sm:py-32">
@@ -114,41 +106,7 @@ export function Videos() {
       </div>
 
       {/* Reproductor: el video de TikTok se carga solo al abrirlo */}
-      {playing && (
-        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/90 p-4" role="dialog" aria-modal="true" aria-label={playing.title}>
-          <button type="button" aria-label="Cerrar video" className="absolute inset-0" onClick={() => setPlaying(null)} />
-          <div className="relative flex h-full max-h-[86dvh] w-full max-w-[400px] flex-col">
-            <div className="relative flex-1 overflow-hidden rounded-2xl bg-black">
-              <iframe
-                src={`https://www.tiktok.com/embed/v2/${playing.tiktokId}`}
-                title={playing.title}
-                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
-                allowFullScreen
-                className="absolute inset-0 h-full w-full"
-              />
-            </div>
-            <div className="mt-3 flex items-center justify-between gap-3">
-              <p className="text-sm font-semibold">{playing.title}</p>
-              <a
-                href={tiktokUrl(playing)}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="shrink-0 rounded-full border border-white/20 px-3 py-1.5 text-xs font-bold uppercase hover:border-white"
-              >
-                Abrir en TikTok
-              </a>
-            </div>
-          </div>
-          <button
-            type="button"
-            onClick={() => setPlaying(null)}
-            aria-label="Cerrar"
-            className="absolute top-4 right-4 grid size-11 place-items-center rounded-full bg-white text-black"
-          >
-            <IconClose className="size-5" />
-          </button>
-        </div>
-      )}
+      {playing && <TikTokPlayer tiktokId={playing.tiktokId} title={playing.title} onClose={close} />}
     </section>
   );
 }

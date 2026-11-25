@@ -77,6 +77,9 @@ export const site = {
   /** PENDIENTE: horarios de atención. */
   hours: "",
 
+  /** Video destacado del inicio ("Mira a Alex en acción"). ID = número del enlace de TikTok. */
+  heroVideo: { tiktokId: "7711468828307311890", title: "Mira a Alex en acción" },
+
   /** Medios de pago aceptados. */
   paymentMethods: ["Yape", "Plin", "Transferencia bancaria", "Pago con tarjeta"],
 
