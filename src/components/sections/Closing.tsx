@@ -280,7 +280,7 @@ export function Footer() {
           </div>
         </div>
         <FooterCol title="Cursos" items={courses.map((c) => ({ href: `/cursos/${c.slug}`, label: c.title }))} />
-        <FooterCol title="Marcas" items={brands.map((b) => ({ label: b.name }))} />
+        <FooterCol title="Marcas" items={brands.map((b) => ({ href: b.url, label: b.name }))} />
         <FooterCol
           title="Academia"
           items={[
@@ -312,7 +312,11 @@ function FooterCol({ title, items }: { title: string; items: { href?: string; la
       <ul className="mt-4 space-y-2.5 text-sm">
         {items.map((i) => (
           <li key={i.label}>
-            {i.href ? (
+            {i.href?.startsWith("http") ? (
+              <a href={i.href} target="_blank" rel="noopener noreferrer" className="text-white/70 transition hover:text-white">
+                {i.label}
+              </a>
+            ) : i.href ? (
               <Link href={i.href} className="text-white/70 transition hover:text-white">
                 {i.label}
               </Link>

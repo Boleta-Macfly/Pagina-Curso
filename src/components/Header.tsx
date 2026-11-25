@@ -174,8 +174,12 @@ export function Header() {
           </p>
           <div className="grid grid-cols-3 gap-6">
             {brands.map((b) => (
-              <div
+              <a
                 key={b.name}
+                href={b.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${b.name} en TikTok`}
                 className="group flex h-36 flex-col items-center justify-center gap-3 rounded-2xl border border-black/10 px-6 transition hover:border-black hover:shadow-lg"
               >
                 <Image
@@ -187,7 +191,7 @@ export function Header() {
                   className={`w-auto transition group-hover:scale-105 ${b.logo.height / b.logo.width < 0.2 ? "h-7" : "h-16"}`}
                 />
                 {b.note && <span className="text-center text-xs text-black/50">{b.note}</span>}
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -229,7 +233,14 @@ export function Header() {
           </MobileGroup>
           <MobileGroup title="Marcas">
             {brands.map((b) => (
-              <div key={b.name} className="flex items-center py-3">
+              <a
+                key={b.name}
+                href={b.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`${b.name} en TikTok`}
+                className="flex items-center gap-3 py-3"
+              >
                 <Image
                   src={b.logo.light}
                   alt={b.name}
@@ -238,7 +249,8 @@ export function Header() {
                   sizes="180px"
                   className={`w-auto opacity-85 ${b.logo.height / b.logo.width < 0.2 ? "h-4" : "h-9"}`}
                 />
-              </div>
+                {b.note && <span className="text-xs text-white/50">{b.note}</span>}
+              </a>
             ))}
           </MobileGroup>
           {links.map((l) => (
