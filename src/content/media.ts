@@ -25,12 +25,12 @@ export const tiktokUrl = (v: Video) => `https://www.tiktok.com/@alexaf___/video/
  * El primero de la lista es el destacado.
  */
 export const videos: Video[] = [
-  { title: "PPF en espejos · Parte 1", category: "PPF", tiktokId: "7699244885051772168", thumbnail: "" },
-  { title: "PPF en espejos · Parte 2", category: "PPF", tiktokId: "7701106528320883989", thumbnail: "" },
-  { title: "Aprende a instalar PPF en capó", category: "PPF", tiktokId: "7701838186544188690", thumbnail: "" },
-  { title: "Aprende a instalar PPF en parachoque", category: "PPF", tiktokId: "7704412155294125320", thumbnail: "" },
+  { title: "PPF en espejos · Parte 1", category: "PPF", tiktokId: "7699244885051772168", thumbnail: "/videos/ppf-espejos-1.jpg" },
+  { title: "PPF en espejos · Parte 2", category: "PPF", tiktokId: "7701106528320883989", thumbnail: "/videos/ppf-espejos-2.jpg" },
+  { title: "Aprende a instalar PPF en capó", category: "PPF", tiktokId: "7701838186544188690", thumbnail: "/videos/ppf-capo.jpg" },
+  { title: "Aprende a instalar PPF en parachoque", category: "PPF", tiktokId: "7704412155294125320", thumbnail: "/videos/ppf-parachoque.jpg" },
   { title: "Aplicación de recubrimiento cerámico regenerativo", category: "Cerámico", tiktokId: "7691416555317464327", thumbnail: "" },
-  { title: "Cómo instalar PPF mate", category: "PPF", tiktokId: "7676968261228973319", thumbnail: "" },
+  { title: "Cómo instalar PPF mate", category: "PPF", tiktokId: "7676968261228973319", thumbnail: "/videos/ppf-mate.jpg" },
 ];
 
 export type Brand = {

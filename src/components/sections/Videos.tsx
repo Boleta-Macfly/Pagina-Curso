@@ -68,7 +68,7 @@ export function Videos() {
                 e.preventDefault();
                 setPlaying(v);
               }}
-              className="group relative aspect-[9/14] overflow-hidden rounded-2xl border border-white/10 bg-ink-3"
+              className="group relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-ink-3"
               aria-label={`Ver video: ${v.title}`}
             >
               {v.thumbnail ? (
@@ -77,22 +77,25 @@ export function Videos() {
                   src={v.thumbnail}
                   alt=""
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                  className="absolute inset-0 h-full w-full object-cover object-bottom transition duration-700 group-hover:scale-105"
                 />
               ) : (
                 <HexLights className="absolute inset-0 h-full w-full opacity-20 transition duration-700 group-hover:scale-110 group-hover:opacity-35" />
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
-              <span className="absolute top-3 left-3 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur">
+              {!v.thumbnail && <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />}
+              <span className="absolute top-3 left-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur">
                 {v.category}
               </span>
               <IconTikTok className="absolute top-3 right-3 size-5 text-white/70" />
-              <span className="absolute top-1/2 left-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black opacity-90 transition group-hover:scale-110 group-hover:opacity-100">
+              <span className={`absolute left-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black shadow-xl transition group-hover:scale-110 ${v.thumbnail ? "top-[38%] opacity-0 group-hover:opacity-100 max-md:opacity-90" : "top-1/2 opacity-90"}`}>
                 <IconPlay className="ml-0.5 size-5" />
               </span>
-              <div className="absolute inset-x-0 bottom-0 p-4">
-                <p className="font-display text-lg leading-tight font-bold uppercase italic sm:text-xl">{v.title}</p>
-              </div>
+              {/* Si la portada ya trae el título, no se repite encima */}
+              {!v.thumbnail && (
+                <div className="absolute inset-x-0 bottom-0 p-4">
+                  <p className="font-display text-lg leading-tight font-bold uppercase italic sm:text-xl">{v.title}</p>
+                </div>
+              )}
             </a>
           ))}
         </div>
