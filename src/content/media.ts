@@ -91,7 +91,10 @@ export const faqs: Faq[] = [
     q: "¿Qué pasa si no puedo asistir?",
     a: "Si nos avisas con al menos 7 días de anticipación, puedes pasar tu separación a la siguiente edición del mismo curso, una sola vez. La separación no es reembolsable. Revisa los términos y condiciones para más detalles.",
   },
-  { q: "¿Necesito experiencia previa?", a: "" }, // PENDIENTE
+  {
+    q: "¿Necesito experiencia previa?",
+    a: "No es necesario. Los cursos están diseñados tanto para quienes empiezan desde cero como para quienes ya trabajan en el rubro. Si eres principiante, aprenderás las técnicas paso a paso desde la base; si ya tienes experiencia, perfeccionarás tu método e incorporarás nuevas técnicas profesionales para elevar la calidad de tus servicios.",
+  },
   {
     q: "¿Qué medios de pago aceptan?",
     a: "Aceptamos Yape, Plin, transferencia bancaria y pago con tarjeta. Tu asesor te indicará los datos para realizar el pago de la separación y del saldo.",
