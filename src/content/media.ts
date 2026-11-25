@@ -9,24 +9,28 @@ export type VideoCategory = "PPF" | "Cerámico" | "Corrección" | "Cursos";
 export type Video = {
   title: string;
   category: VideoCategory;
-  /** Reproducciones visibles en TikTok (21/11/2026). */
-  views: string;
-  /** Enlace directo al video. PENDIENTE: pegar el enlace de cada uno. */
-  url: string;
-  /** Imagen de portada en /public/videos/. PENDIENTE. */
+  /** ID del video de TikTok (el número al final del enlace). */
+  tiktokId: string;
+  /** Portada opcional en /public/videos/ ("" = fondo de marca). */
   thumbnail: string;
 };
 
-// Títulos y reproducciones tomados del perfil de TikTok del coach.
+/** Enlace público del video en TikTok. */
+export const tiktokUrl = (v: Video) => `https://www.tiktok.com/@alexaf___/video/${v.tiktokId}`;
+
+/**
+ * GALERÍA DE VIDEOS
+ * Para agregar uno: copia el enlace en TikTok (Compartir → Copiar enlace)
+ * y pega aquí el número que aparece después de /video/.
+ * El primero de la lista es el destacado.
+ */
 export const videos: Video[] = [
-  { title: "Aprende a instalar PPF", category: "PPF", views: "2.6M", url: "", thumbnail: "" },
-  { title: "Corrigiendo un auto de gama alta", category: "Corrección", views: "24.4K", url: "", thumbnail: "" },
-  { title: "PPF en faro · Parte 1", category: "PPF", views: "9377", url: "", thumbnail: "" },
-  { title: "Tratamiento cerámico: brillo y protección PRO", category: "Cerámico", views: "354", url: "", thumbnail: "" },
-  { title: "¡Así se instala el PPF en una maletera! · Parte 1", category: "PPF", views: "1563", url: "", thumbnail: "" },
-  { title: "PPF en faros · Parte 2", category: "PPF", views: "1332", url: "", thumbnail: "" },
-  { title: "Curso de PPF · 11 y 12 de diciembre", category: "Cursos", views: "1183", url: "", thumbnail: "" },
-  { title: "Aprende a instalar PPF en parachoque", category: "PPF", views: "1421", url: "", thumbnail: "" },
+  { title: "PPF en espejos · Parte 1", category: "PPF", tiktokId: "7699244885051772168", thumbnail: "" },
+  { title: "PPF en espejos · Parte 2", category: "PPF", tiktokId: "7701106528320883989", thumbnail: "" },
+  { title: "Aprende a instalar PPF en capó", category: "PPF", tiktokId: "7701838186544188690", thumbnail: "" },
+  { title: "Aprende a instalar PPF en parachoque", category: "PPF", tiktokId: "7704412155294125320", thumbnail: "" },
+  { title: "Aplicación de recubrimiento cerámico regenerativo", category: "Cerámico", tiktokId: "7691416555317464327", thumbnail: "" },
+  { title: "Cómo instalar PPF mate", category: "PPF", tiktokId: "7676968261228973319", thumbnail: "" },
 ];
 
 export type Brand = {

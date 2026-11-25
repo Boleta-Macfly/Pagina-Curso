@@ -1,16 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { site } from "@/config/site";
-import { videos, type VideoCategory } from "@/content/media";
+import { tiktokUrl, videos, type Video, type VideoCategory } from "@/content/media";
 import { HexLights } from "../HexLights";
-import { IconArrow, IconPlay, IconTikTok } from "../Icons";
+import { IconArrow, IconClose, IconPlay, IconTikTok } from "../Icons";
 
-const filters: ("Todos" | VideoCategory)[] = ["Todos", "PPF", "Cerámico", "Corrección", "Cursos"];
+// Solo se muestran los filtros que tienen videos.
+const categories = Array.from(new Set(videos.map((v) => v.category)));
+const filters: ("Todos" | VideoCategory)[] = categories.length > 1 ? ["Todos", ...categories] : [];
 
 export function Videos() {
-  const [active, setActive] = useState<(typeof filters)[number]>("Todos");
+  const [active, setActive] = useState<"Todos" | VideoCategory>("Todos");
+  const [playing, setPlaying] = useState<Video | null>(null);
   const list = active === "Todos" ? videos : videos.filter((v) => v.category === active);
+
+  useEffect(() => {
+    if (!playing) return;
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setPlaying(null);
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [playing]);
 
   return (
     <section id="videos" className="bg-ink py-24 sm:py-32">
@@ -22,41 +36,48 @@ export function Videos() {
               Aprende <span className="text-outline">gratis</span>
             </h2>
           </div>
-          <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar videos">
-            {filters.map((f) => (
-              <button
-                key={f}
-                type="button"
-                role="tab"
-                aria-selected={active === f}
-                onClick={() => setActive(f)}
-                className={`rounded-full px-4 py-2 text-xs font-bold tracking-[0.1em] uppercase transition ${
-                  active === f ? "bg-white text-black" : "border border-white/15 text-white/70 hover:border-white/40"
-                }`}
-              >
-                {f}
-              </button>
-            ))}
-          </div>
+          {filters.length > 0 && (
+            <div className="flex flex-wrap gap-2" role="tablist" aria-label="Filtrar videos">
+              {filters.map((f) => (
+                <button
+                  key={f}
+                  type="button"
+                  role="tab"
+                  aria-selected={active === f}
+                  onClick={() => setActive(f)}
+                  className={`rounded-full px-4 py-2 text-xs font-bold tracking-[0.1em] uppercase transition ${
+                    active === f ? "bg-white text-black" : "border border-white/15 text-white/70 hover:border-white/40"
+                  }`}
+                >
+                  {f}
+                </button>
+              ))}
+            </div>
+          )}
         </div>
 
-        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-4">
+        <div className="mt-12 grid grid-cols-2 gap-3 sm:gap-4 md:grid-cols-3">
           {list.map((v) => (
             <a
-              key={v.title}
-              href={v.url || site.social.tiktok}
+              key={v.tiktokId}
+              href={tiktokUrl(v)}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={(e) => {
+                if (e.metaKey || e.ctrlKey || e.shiftKey) return;
+                e.preventDefault();
+                setPlaying(v);
+              }}
               className="group relative aspect-[9/14] overflow-hidden rounded-2xl border border-white/10 bg-ink-3"
+              aria-label={`Ver video: ${v.title}`}
             >
-              {/* Miniatura: se usa la imagen si existe; si no, un fondo de marca */}
               {v.thumbnail ? (
                 // eslint-disable-next-line @next/next/no-img-element
                 <img
                   src={v.thumbnail}
                   alt=""
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover grayscale transition duration-700 group-hover:scale-105 group-hover:grayscale-0"
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
               ) : (
                 <HexLights className="absolute inset-0 h-full w-full opacity-20 transition duration-700 group-hover:scale-110 group-hover:opacity-35" />
@@ -65,12 +86,12 @@ export function Videos() {
               <span className="absolute top-3 left-3 rounded-full bg-white/10 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur">
                 {v.category}
               </span>
+              <IconTikTok className="absolute top-3 right-3 size-5 text-white/70" />
               <span className="absolute top-1/2 left-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black opacity-90 transition group-hover:scale-110 group-hover:opacity-100">
                 <IconPlay className="ml-0.5 size-5" />
               </span>
               <div className="absolute inset-x-0 bottom-0 p-4">
                 <p className="font-display text-lg leading-tight font-bold uppercase italic sm:text-xl">{v.title}</p>
-                <p className="mt-1 text-xs text-white/55">▶ {v.views} reproducciones</p>
               </div>
             </a>
           ))}
@@ -87,6 +108,43 @@ export function Videos() {
           <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
         </a>
       </div>
+
+      {/* Reproductor: el video de TikTok se carga solo al abrirlo */}
+      {playing && (
+        <div className="fixed inset-0 z-[70] flex items-center justify-center bg-black/90 p-4" role="dialog" aria-modal="true" aria-label={playing.title}>
+          <button type="button" aria-label="Cerrar video" className="absolute inset-0" onClick={() => setPlaying(null)} />
+          <div className="relative flex h-full max-h-[86dvh] w-full max-w-[400px] flex-col">
+            <div className="relative flex-1 overflow-hidden rounded-2xl bg-black">
+              <iframe
+                src={`https://www.tiktok.com/embed/v2/${playing.tiktokId}`}
+                title={playing.title}
+                allow="autoplay; encrypted-media; fullscreen; picture-in-picture"
+                allowFullScreen
+                className="absolute inset-0 h-full w-full"
+              />
+            </div>
+            <div className="mt-3 flex items-center justify-between gap-3">
+              <p className="text-sm font-semibold">{playing.title}</p>
+              <a
+                href={tiktokUrl(playing)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0 rounded-full border border-white/20 px-3 py-1.5 text-xs font-bold uppercase hover:border-white"
+              >
+                Abrir en TikTok
+              </a>
+            </div>
+          </div>
+          <button
+            type="button"
+            onClick={() => setPlaying(null)}
+            aria-label="Cerrar"
+            className="absolute top-4 right-4 grid size-11 place-items-center rounded-full bg-white text-black"
+          >
+            <IconClose className="size-5" />
+          </button>
+        </div>
+      )}
     </section>
   );
 }
