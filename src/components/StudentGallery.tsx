@@ -104,7 +104,7 @@ function Tile({
       type="button"
       onClick={onClick}
       className={`group relative block w-full overflow-hidden rounded-2xl bg-ink-3 ${className}`}
-      aria-label={`Ampliar: ${photo.alt}`}
+      aria-label={`${label ? `${label}. ` : ""}${photo.kind === "certificado" ? "Certificado. " : ""}Ampliar: ${photo.alt}`}
     >
       <Image
         src={photo.src}

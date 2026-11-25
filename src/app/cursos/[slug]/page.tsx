@@ -168,7 +168,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 <ol className="divide-y divide-black/10 border-y border-black/10">
                   {c.modules.map((m, i) => (
                     <li key={m} className="flex items-baseline gap-5 py-4 text-lg">
-                      <span className="font-display w-8 shrink-0 font-bold text-black/35 italic">
+                      <span className="font-display w-8 shrink-0 font-bold text-black/55 italic">
                         {String(i + 1).padStart(2, "0")}
                       </span>
                       {m}
