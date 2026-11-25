@@ -93,7 +93,7 @@ export const courses: Course[] = [
         "Claybar 75 g",
         "VX45 20 ml × 2",
       ],
-      perks: [],
+      perks: ["20% de descuento en tu primera compra de productos Alcance Pro"],
     },
     images: {
       hero: "/cursos/ceramico-portada.jpg",
