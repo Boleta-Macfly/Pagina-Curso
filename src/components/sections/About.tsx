@@ -28,7 +28,7 @@ export function About() {
         </Reveal>
 
         <Reveal delay={120}>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/45 uppercase">Sobre el coach</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/60 uppercase">Sobre el coach</p>
           <h2 className="font-display mt-3 text-6xl leading-[0.88] font-extrabold uppercase italic sm:text-8xl">
             {coach.name}
           </h2>

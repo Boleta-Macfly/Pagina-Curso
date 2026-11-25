@@ -39,7 +39,7 @@ function Edition({ ed }: { ed: (typeof studentEditions)[number] }) {
   return (
     <div>
         <p className="font-display mb-5 text-2xl font-bold uppercase italic sm:text-3xl">
-          {course?.title} <span className="text-base font-semibold text-white/45 not-italic normal-case">· {ed.label}</span>
+          {course?.title} <span className="text-base font-semibold text-white/60 not-italic normal-case">· {ed.label}</span>
         </p>
         <div className="grid gap-3 lg:grid-cols-[1.6fr_1fr]">
           {group && (

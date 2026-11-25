@@ -71,7 +71,7 @@ export default function Terminos() {
   return (
     <PageShell>
       <article className="mx-auto max-w-3xl px-4 pb-24 sm:px-6">
-        <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">Última actualización: {UPDATED}</p>
+        <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">Última actualización: {UPDATED}</p>
         <h1 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-6xl">
           Términos y condiciones
         </h1>
@@ -111,7 +111,7 @@ export default function Terminos() {
                 </li>
               ))}
             </ul>
-            <p className="mt-6 text-sm text-white/45">
+            <p className="mt-6 text-sm text-white/60">
               Consulta también nuestra{" "}
               <Link href="/privacidad" className="underline underline-offset-4 hover:text-white">
                 política de privacidad

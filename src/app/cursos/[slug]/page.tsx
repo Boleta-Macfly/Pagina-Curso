@@ -76,21 +76,21 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
           <dl className="mt-12 grid gap-px overflow-hidden rounded-[28px] border border-white/10 bg-white/10 sm:grid-cols-2">
             {facts.map(({ icon: Icon, k, v }) => (
               <div key={k} className="bg-ink p-6">
-                <dt className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-white/45 uppercase">
+                <dt className="flex items-center gap-2 text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">
                   <Icon className="size-4" /> {k}
                 </dt>
                 <dd className="font-display mt-2 text-2xl font-bold uppercase italic">{v}</dd>
               </div>
             ))}
             <div className="bg-white p-6 text-black">
-              <dt className="text-[11px] font-semibold tracking-[0.2em] text-black/45 uppercase">
+              <dt className="text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">
                 {c.presalePrice ? "Preventa" : "Inversión"}
               </dt>
               <dd className="mt-1 flex items-baseline gap-3">
                 <span className="font-display text-3xl font-extrabold italic">
                   {c.presalePrice ? soles(c.presalePrice) : c.price ? soles(c.price) : c.status === "proximamente" ? "Muy pronto" : "Consultar"}
                 </span>
-                {c.presalePrice && c.price && <s className="text-black/40">{soles(c.price)}</s>}
+                {c.presalePrice && c.price && <s className="text-black/60">{soles(c.price)}</s>}
               </dd>
             </div>
           </dl>
@@ -196,7 +196,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                       />
                     </div>
                   )}
-                  <p className="text-[11px] font-semibold tracking-[0.2em] text-white/45 uppercase">{c.kit.brand}</p>
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{c.kit.brand}</p>
                   <ul className="mt-4 grid gap-3 sm:grid-cols-2">
                     {c.kit.items.map((it) => (
                       <li key={it} className="flex items-center gap-3 rounded-xl border border-white/10 px-4 py-3">
@@ -273,7 +273,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
               </Link>
               <div className="mt-6 border-t border-white/10 pt-5">
-                <p className="text-[10px] font-semibold tracking-[0.2em] text-white/45 uppercase">Medios de pago</p>
+                <p className="text-[10px] font-semibold tracking-[0.2em] text-white/60 uppercase">Medios de pago</p>
                 <ul className="mt-2 flex flex-wrap gap-1.5">
                   {site.paymentMethods.map((m) => (
                     <li key={m} className="rounded-full border border-white/15 px-2.5 py-1 text-xs text-white/75">
@@ -281,13 +281,13 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                     </li>
                   ))}
                 </ul>
-                <p className="mt-3 text-xs text-white/45">Separa tu cupo desde S/ 150.</p>
+                <p className="mt-3 text-xs text-white/60">Separa tu cupo desde S/ 150.</p>
               </div>
             </div>
             )}
             {inBundle && (
               <div className="rounded-[28px] border-2 border-black p-6">
-                <p className="text-[11px] font-semibold tracking-[0.2em] text-black/45 uppercase">{bundle.title}</p>
+                <p className="text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">{bundle.title}</p>
                 <p className="font-display mt-1 text-3xl font-extrabold italic">{soles(bundle.price)}</p>
                 <p className="text-sm text-black/60">Cerámico + PPF · Ahorra {soles(bundle.savings)}</p>
               </div>
@@ -301,7 +301,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="mb-10 flex flex-col justify-between gap-4 md:flex-row md:items-end">
               <div>
-                <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">{ed.label}</p>
+                <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">{ed.label}</p>
                 <h2 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
                   Alumnos <span className="text-outline">certificados</span>
                 </h2>

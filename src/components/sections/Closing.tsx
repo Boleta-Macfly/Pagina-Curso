@@ -65,7 +65,7 @@ export function Faq() {
     <section id="preguntas" className="bg-paper py-24 text-black sm:py-32">
       <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8">
         <Reveal>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/45 uppercase">Dudas</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/60 uppercase">Dudas</p>
           <h2 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
             Preguntas <span className="text-outline-dark">frecuentes</span>
           </h2>
@@ -145,7 +145,7 @@ export function Contact() {
                     <IconWhatsApp className="size-5" />
                   </span>
                   <span className="text-sm">
-                    <span className="block text-[10px] font-bold tracking-[0.18em] text-white/45 uppercase">{a.channel}</span>
+                    <span className="block text-[10px] font-bold tracking-[0.18em] text-white/60 uppercase">{a.channel}</span>
                     <span className="block font-semibold">{a.name}</span>
                     <span className="block text-white/60">{a.display}</span>
                   </span>
@@ -183,7 +183,7 @@ function Location() {
       <div className="grid overflow-hidden rounded-[28px] border border-white/10 lg:grid-cols-[0.8fr_1.2fr]">
         <div className="flex flex-col justify-between gap-8 bg-ink-2 p-7 sm:p-10">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">Dónde se dictan los cursos</p>
+            <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">Dónde se dictan los cursos</p>
             <p className="font-display mt-3 text-4xl leading-none font-extrabold uppercase italic">{address.street}</p>
             <p className="mt-2 text-white/60">
               {address.district}, {address.city}
@@ -230,7 +230,7 @@ function Location() {
 function Info({ k, v }: { k: string; v: string }) {
   return (
     <div>
-      <dt className="text-[11px] font-semibold tracking-[0.2em] text-white/40 uppercase">{k}</dt>
+      <dt className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{k}</dt>
       <dd className="mt-1 text-white/85">{v}</dd>
     </div>
   );
@@ -286,7 +286,7 @@ export function Footer() {
         />
       </div>
       <div className="border-t border-white/10">
-        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-white/40 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
+        <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-white/60 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
           <p>© 2026 {site.name}. Todos los derechos reservados.</p>
           <p className="flex gap-5">
             <Link href="/privacidad" className="hover:text-white">Política de privacidad</Link>
@@ -301,7 +301,7 @@ export function Footer() {
 function FooterCol({ title, items }: { title: string; items: { href: string; label: string }[] }) {
   return (
     <div>
-      <p className="text-[11px] font-semibold tracking-[0.2em] text-white/40 uppercase">{title}</p>
+      <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{title}</p>
       <ul className="mt-4 space-y-2.5 text-sm">
         {items.map((i) => (
           <li key={i.label}>

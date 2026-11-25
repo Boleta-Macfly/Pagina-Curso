@@ -15,7 +15,7 @@ export function Courses() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] text-black/45 uppercase">
+            <p className="text-[11px] font-semibold tracking-[0.28em] text-black/60 uppercase">
               Cursos intensivos de detailing
             </p>
             <h2 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
@@ -113,7 +113,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
 
       {c.modules.length > 0 && (
         <div className="mt-8">
-          <p className="text-[11px] font-semibold tracking-[0.2em] text-white/40 uppercase">Aprenderás</p>
+          <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">Aprenderás</p>
           <ul className="mt-3 space-y-2 text-white/75">
             {c.modules.slice(0, 4).map((m) => (
               <li key={m} className="flex gap-3">
@@ -122,7 +122,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
               </li>
             ))}
             {c.modules.length > 4 && (
-              <li className="pl-6 text-sm text-white/45">+ {c.modules.length - 4} {c.modules.length - 4 === 1 ? "tema más" : "temas más"}</li>
+              <li className="pl-6 text-sm text-white/60">+ {c.modules.length - 4} {c.modules.length - 4 === 1 ? "tema más" : "temas más"}</li>
             )}
           </ul>
         </div>
@@ -130,7 +130,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
 
       {c.kit && (
         <div className="mt-7 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
-          <p className="text-[11px] font-semibold tracking-[0.2em] text-white/40 uppercase">Incluye</p>
+          <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">Incluye</p>
           <p className="mt-1 font-semibold">{c.kit.title}</p>
           {c.kit.perks.length > 0 && <p className="mt-1 text-sm text-white/55">{c.kit.perks.join(" · ")}</p>}
           {c.includes.length > 0 && (
@@ -152,7 +152,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
       <div className="mt-auto pt-9">
         <div className="flex items-end gap-4">
           {c.presalePrice && c.price && (
-            <span className="text-white/40">
+            <span className="text-white/60">
               <span className="block text-[10px] font-semibold tracking-[0.18em] uppercase">Precio normal</span>
               <s className="text-lg">{soles(c.price)}</s>
             </span>
@@ -203,7 +203,7 @@ function Bundle() {
     <Reveal className="mt-5">
       <div className="relative flex flex-col items-start gap-6 overflow-hidden rounded-[28px] border-2 border-black p-7 sm:p-10 lg:flex-row lg:items-center lg:justify-between">
         <div>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/45 uppercase">Promoción</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/60 uppercase">Promoción</p>
           <h3 className="font-display mt-2 text-4xl font-extrabold uppercase italic sm:text-5xl">{bundle.title}</h3>
           <p className="mt-2 text-black/60">{names.join(" + ")}</p>
         </div>

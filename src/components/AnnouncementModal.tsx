@@ -95,7 +95,7 @@ export function AnnouncementModal() {
                 Cursos intensivos de detailing con kit de productos y certificación. Dictados por AlexAF.
               </p>
             </div>
-            <p className="mt-8 hidden text-[11px] font-semibold tracking-[0.2em] text-black/40 uppercase sm:block">AF Academy</p>
+            <p className="mt-8 hidden text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase sm:block">AF Academy</p>
           </div>
 
           <ul className="divide-y divide-white/10 p-3 sm:p-4 sm:pr-14">
@@ -112,7 +112,7 @@ export function AnnouncementModal() {
                   </Link>
                 )}
                 <div className="min-w-0 flex-1">
-                <p className="text-[11px] font-semibold tracking-[0.18em] text-white/45 uppercase">
+                <p className="text-[11px] font-semibold tracking-[0.18em] text-white/60 uppercase">
                   {statusLabel[c.status]}
                 </p>
                 <h3 className="font-display mt-1 text-2xl font-bold uppercase italic">{c.title}</h3>
@@ -130,7 +130,7 @@ export function AnnouncementModal() {
                 {c.presalePrice && (
                   <p className="mt-2 text-sm">
                     <span className="font-display text-xl font-extrabold italic">Preventa {soles(c.presalePrice)}</span>
-                    {c.price && <s className="ml-2 text-white/40">{soles(c.price)}</s>}
+                    {c.price && <s className="ml-2 text-white/60">{soles(c.price)}</s>}
                   </p>
                 )}
                 <div className="mt-4 flex flex-wrap gap-2">

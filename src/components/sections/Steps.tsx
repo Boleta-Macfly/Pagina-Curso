@@ -13,7 +13,7 @@ export function Steps() {
     <section className="bg-paper py-24 text-black sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/45 uppercase">Inscripción</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] text-black/60 uppercase">Inscripción</p>
           <h2 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
             5 pasos <span className="text-outline-dark">y listo</span>
           </h2>

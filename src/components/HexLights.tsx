@@ -28,24 +28,13 @@ export function HexLights({ className = "" }: { className?: string }) {
       aria-hidden="true"
       preserveAspectRatio="xMidYMid slice"
     >
-      <defs>
-        <filter id="hex-glow" x="-20%" y="-20%" width="140%" height="140%">
-          <feGaussianBlur stdDeviation="3.5" result="b" />
-          <feMerge>
-            <feMergeNode in="b" />
-            <feMergeNode in="SourceGraphic" />
-          </feMerge>
-        </filter>
-      </defs>
-      <g filter="url(#hex-glow)" fill="none" stroke="#fff" strokeLinecap="round">
+      {/* Brillo sin filtros (más liviano en celulares): trazo ancho tenue + trazo fino */}
+      <g fill="none" stroke="#fff" strokeLinecap="round" strokeLinejoin="round">
         {hexes.map((h, i) => (
-          <polygon
-            key={i}
-            points={pts}
-            transform={`translate(${h.x.toFixed(1)} ${h.y.toFixed(1)})`}
-            strokeWidth={h.on ? 3.2 : 1}
-            strokeOpacity={h.on ? 0.95 : 0.15}
-          />
+          <g key={i} transform={`translate(${h.x.toFixed(1)} ${h.y.toFixed(1)})`}>
+            {h.on && <polygon points={pts} strokeWidth={9} strokeOpacity={0.12} />}
+            <polygon points={pts} strokeWidth={h.on ? 3.2 : 1} strokeOpacity={h.on ? 0.95 : 0.15} />
+          </g>
         ))}
       </g>
     </svg>

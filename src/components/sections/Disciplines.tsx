@@ -34,7 +34,7 @@ export function Disciplines() {
     <section className="relative overflow-hidden bg-ink py-24 sm:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <Reveal>
-          <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">Lo que aprenderás</p>
+          <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">Lo que aprenderás</p>
           <h2 className="font-display mt-3 max-w-3xl text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
             Técnica de <span className="text-outline">taller real</span>
           </h2>
@@ -60,10 +60,10 @@ export function Disciplines() {
                   <span className="grid size-12 place-items-center rounded-2xl bg-white text-black">
                     <Icon className="size-6" />
                   </span>
-                  <span className="font-display text-sm font-bold text-white/40 italic">{n}</span>
+                  <span className="font-display text-sm font-bold text-white/60 italic">{n}</span>
                 </div>
                 <div className="mt-16 lg:mt-auto">
-                  <p className="text-[11px] font-semibold tracking-[0.2em] text-white/45 uppercase">{sub}</p>
+                  <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{sub}</p>
                   <h3 className="font-display mt-2 text-5xl font-extrabold uppercase italic lg:text-[32px] lg:group-hover:text-5xl lg:transition-[font-size] lg:duration-500">{title}</h3>
                   <p className="mt-4 max-w-sm text-white/75 transition-all duration-700 lg:max-h-0 lg:opacity-0 lg:group-hover:max-h-40 lg:group-hover:opacity-100">
                     {text}

@@ -23,7 +23,7 @@ export function Videos() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
           <div>
-            <p className="text-[11px] font-semibold tracking-[0.28em] text-white/45 uppercase">Videos y tutoriales</p>
+            <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">Videos y tutoriales</p>
             <h2 className="font-display mt-3 text-5xl leading-[0.9] font-extrabold uppercase italic sm:text-7xl">
               Aprende <span className="text-outline">gratis</span>
             </h2>

@@ -149,7 +149,7 @@ export function Header() {
                 <span>
                   <span className="block font-semibold leading-snug">{c.title}</span>
                   <span className="mt-1 block text-sm text-black/55">{c.short}</span>
-                  <span className="mt-2 inline-block text-[11px] font-semibold tracking-[0.12em] text-black/45 uppercase">
+                  <span className="mt-2 inline-block text-[11px] font-semibold tracking-[0.12em] text-black/60 uppercase">
                     {c.dateLabel || statusLabel[c.status]}{c.location ? ` · ${c.location}` : ` · ${c.modality}`}
                   </span>
                 </span>
@@ -169,7 +169,7 @@ export function Header() {
         </div>
 
         <div id="menu-marcas" hidden={open !== "marcas"} className="mx-auto max-w-7xl px-8 py-10">
-          <p className="mb-6 text-[11px] font-semibold tracking-[0.2em] text-black/45 uppercase">
+          <p className="mb-6 text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">
             Marcas con las que trabaja la academia
           </p>
           <div className="grid grid-cols-3 gap-6">
@@ -225,7 +225,7 @@ export function Header() {
                 className="block py-3 text-white/80"
               >
                 {c.title}
-                <span className="block text-xs text-white/45">{c.dateLabel || statusLabel[c.status]}</span>
+                <span className="block text-xs text-white/60">{c.dateLabel || statusLabel[c.status]}</span>
               </Link>
             ))}
           </MobileGroup>

@@ -52,7 +52,7 @@ export function AdvisorChooser() {
         >
           <IconClose className="size-4" />
         </button>
-        <p className="text-[11px] font-semibold tracking-[0.2em] text-black/45 uppercase">WhatsApp</p>
+        <p className="text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">WhatsApp</p>
         <h2 id="asesor-titulo" className="font-display mt-1 pr-12 text-3xl leading-none font-extrabold uppercase italic">
           Elige a tu asesor
         </h2>
@@ -73,7 +73,7 @@ export function AdvisorChooser() {
                   <IconWhatsApp className="size-6" />
                 </span>
                 <span className="min-w-0 flex-1">
-                  <span className="block text-[10px] font-bold tracking-[0.18em] text-black/45 uppercase group-hover:text-white/60">
+                  <span className="block text-[10px] font-bold tracking-[0.18em] text-black/60 uppercase group-hover:text-white/60">
                     {a.channel}
                   </span>
                   <span className="block text-lg leading-tight font-bold">{a.name}</span>

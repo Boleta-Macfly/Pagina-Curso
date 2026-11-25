@@ -14,12 +14,14 @@ export const site = {
   description:
     "Academia de detailing profesional dirigida por Alex, CEO de AF Detailing y Trainer Oficial Feynlab Perú. Cursos prácticos de PPF y tratamiento cerámico.",
   /**
-   * URL pública de la web. Se toma de la variable NEXT_PUBLIC_SITE_URL o,
-   * en Vercel, del dominio de producción asignado automáticamente.
+   * URL pública de la web. Se toma de NEXT_PUBLIC_SITE_URL o, si no existe,
+   * del dominio que asigna automáticamente Netlify (URL) o Vercel.
    * Cuando tengan dominio propio, configúrenlo en NEXT_PUBLIC_SITE_URL.
    */
   url:
     process.env.NEXT_PUBLIC_SITE_URL ??
+    // Netlify define URL con el dominio principal del sitio durante el build.
+    process.env.URL ??
     (process.env.VERCEL_PROJECT_PRODUCTION_URL
       ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
       : "http://localhost:3000"),
