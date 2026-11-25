@@ -249,7 +249,8 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               <p className="font-display text-3xl font-extrabold uppercase italic">Reserva tu cupo</p>
               <p className="mt-3 text-sm text-white/60">
                 {c.dateLabel ? `${c.dateLabel} · ` : ""}
-                {c.location || c.modality}. Escríbenos por WhatsApp y te confirmamos tu inscripción.
+                {c.location ? `${site.address.street}, ${site.address.district}` : c.modality}. Escríbenos por WhatsApp y te
+                confirmamos tu inscripción.
               </p>
               <a
                 {...wa}
@@ -324,6 +325,26 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
             name: c.title,
             description: c.description,
             provider: { "@type": "Organization", name: site.name, sameAs: site.url },
+            ...(c.startDate && c.location
+              ? {
+                  hasCourseInstance: {
+                    "@type": "CourseInstance",
+                    courseMode: "onsite",
+                    startDate: c.startDate,
+                    location: {
+                      "@type": "Place",
+                      name: site.name,
+                      address: {
+                        "@type": "PostalAddress",
+                        streetAddress: site.address.street,
+                        addressLocality: site.address.district,
+                        addressRegion: site.address.city,
+                        addressCountry: "PE",
+                      },
+                    },
+                  },
+                }
+              : {}),
             ...(c.presalePrice || c.price
               ? { offers: { "@type": "Offer", price: c.presalePrice ?? c.price, priceCurrency: "PEN", category: "Paid" } }
               : {}),

@@ -63,8 +63,17 @@ export const site = {
 
   /** PENDIENTE: correo de contacto. */
   email: "",
-  /** PENDIENTE: ciudad / dirección del taller, si corresponde. */
+  /** Distrito (se muestra en tarjetas y fechas de cursos). */
   location: "San Miguel",
+  /** Dirección del taller donde se dictan los cursos. */
+  address: {
+    street: "Av. Rafael Escardó 385",
+    district: "San Miguel",
+    city: "Lima",
+    lat: -12.07906,
+    lng: -77.094337,
+    mapsUrl: "https://maps.google.com/?q=-12.079060,-77.094337",
+  },
   /** PENDIENTE: horarios de atención. */
   hours: "",
 

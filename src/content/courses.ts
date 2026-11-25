@@ -65,7 +65,7 @@ export const courses: Course[] = [
     modality: "Presencial",
     status: "abierto",
     dateLabel: "9 y 10 de diciembre",
-    startDate: "2026-12-09", // CONFIRMAR año
+    startDate: "2026-12-09",
     duration: "2 días",
     location: "San Miguel",
     price: 1500,
@@ -116,7 +116,7 @@ export const courses: Course[] = [
     modality: "Presencial",
     status: "abierto",
     dateLabel: "11 y 12 de diciembre",
-    startDate: "2026-12-11", // CONFIRMAR año
+    startDate: "2026-12-11",
     duration: "2 días",
     location: "San Miguel",
     price: 3300,

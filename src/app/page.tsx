@@ -19,6 +19,15 @@ export default function Home() {
     name: site.name,
     url: site.url,
     description: site.description,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: site.address.street,
+      addressLocality: site.address.district,
+      addressRegion: site.address.city,
+      addressCountry: "PE",
+    },
+    geo: { "@type": "GeoCoordinates", latitude: site.address.lat, longitude: site.address.lng },
+    telephone: site.advisors.map((a) => `+${a.phone}`),
     sameAs: Object.values(site.social).filter(Boolean),
     hasCourse: courses.map((c) => ({
       "@type": "Course",
