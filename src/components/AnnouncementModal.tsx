@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { bundle, courses, soles, statusLabel } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
+import { INTRO_MS } from "./IntroSplash";
 import { LogoMark } from "./Logo";
 import { IconArrow, IconCalendar, IconClose, IconPin, IconWhatsApp } from "./Icons";
 
@@ -25,7 +26,9 @@ export function AnnouncementModal() {
       seen = sessionStorage.getItem(STORAGE_KEY) === "1";
     } catch {}
     if (seen || upcoming.length === 0) return;
-    const t = setTimeout(() => setOpen(true), 900);
+    // Espera a que termine la intro del logo (si se está mostrando).
+    const introShowing = !document.documentElement.classList.contains("no-intro");
+    const t = setTimeout(() => setOpen(true), introShowing ? INTRO_MS + 200 : 900);
     return () => clearTimeout(t);
   }, [upcoming.length]);
 

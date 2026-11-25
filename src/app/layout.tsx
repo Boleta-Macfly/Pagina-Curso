@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Saira } from "next/font/google";
 import { site } from "@/config/site";
 import { AdvisorChooser } from "@/components/AdvisorChooser";
+import { IntroSplash } from "@/components/IntroSplash";
 import "./globals.css";
 
 const saira = Saira({
@@ -50,8 +51,18 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es" className={`${saira.variable} ${inter.variable} antialiased`}>
+    <html lang="es" className={`${saira.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
+      <head>
+        {/* Omite la intro si ya se vio en esta sesión o si se prefiere menos movimiento */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html:
+              "try{if(sessionStorage.getItem('afa-intro-vista')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-intro')}catch(e){}",
+          }}
+        />
+      </head>
       <body className="min-h-dvh">
+        <IntroSplash />
         {children}
         <AdvisorChooser />
       </body>
