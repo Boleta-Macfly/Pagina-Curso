@@ -25,7 +25,7 @@ export function Hero() {
         <div className="animate-fade-up">
           <p className="inline-flex items-center gap-3 text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">
             <span className="h-px w-8 bg-white/40" />
-            {site.coach.roles[1]}
+            {site.coach.roles[2]}
           </p>
 
           <h1 className="font-display mt-6 text-[52px] leading-[0.88] font-extrabold tracking-[-0.01em] uppercase italic sm:text-[84px] lg:text-[104px]">
@@ -113,9 +113,9 @@ export function Hero() {
 
       {/* Cifras reales */}
       <div className="border-t border-white/10">
-        <dl className="mx-auto grid max-w-7xl grid-cols-3 divide-x divide-white/10 px-4 sm:px-6 lg:px-8">
+        <dl className="mx-auto grid max-w-7xl grid-cols-2 gap-px bg-white/10 sm:grid-cols-4">
           {site.stats.map((s) => (
-            <div key={s.label} className="flex flex-col-reverse px-3 py-6 sm:px-8 sm:py-8">
+            <div key={s.label} className="flex flex-col-reverse bg-ink px-4 py-6 sm:px-8 sm:py-8">
               <dt className="mt-1 text-[11px] leading-snug text-white/50 sm:text-sm">{s.label}</dt>
               <dd className="font-display text-3xl font-extrabold italic sm:text-5xl">{s.value}</dd>
             </div>
