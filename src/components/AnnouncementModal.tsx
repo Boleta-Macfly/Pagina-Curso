@@ -148,9 +148,9 @@ export function AnnouncementModal() {
                   {c.split && <span>{c.split.practice}% práctico</span>}
                 </div>
                 {c.presalePrice && (
-                  <p className="mt-2 text-sm">
-                    <span className="font-display text-xl font-extrabold italic">Preventa {soles(c.presalePrice)}</span>
-                    {c.price && <s className="ml-2 text-white/60">{soles(c.price)}</s>}
+                  <p className="mt-2 flex flex-wrap items-baseline gap-x-2 text-sm">
+                    <span className="font-display text-xl font-extrabold whitespace-nowrap italic">Preventa {soles(c.presalePrice)}</span>
+                    {c.price && <s className="whitespace-nowrap text-white/60">{soles(c.price)}</s>}
                   </p>
                 )}
                 <div className="mt-4 flex flex-wrap gap-2">
