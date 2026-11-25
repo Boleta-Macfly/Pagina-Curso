@@ -56,11 +56,16 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html lang="es" className={`${saira.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
       <head>
         <link rel="author" href="/humans.txt" />
-        {/* Omite la intro si ya se vio en esta sesión o si se prefiere menos movimiento */}
+        {/*
+          1) Omite la intro si ya se vio en esta sesión o si se prefiere menos movimiento.
+          2) Quita los comentarios que el hosting inserta en <head> (p. ej. Netlify):
+             React los detecta como diferencias y volvería a dibujar toda la página.
+        */}
         <script
           dangerouslySetInnerHTML={{
             __html:
-              "try{if(sessionStorage.getItem('afa-intro-vista')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-intro')}catch(e){}",
+              "try{if(sessionStorage.getItem('afa-intro-vista')==='1'||matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('no-intro')}catch(e){}" +
+              "try{[].slice.call(document.head.childNodes).forEach(function(n){if(n.nodeType===8||(n.nodeType===3&&!n.textContent.trim()))n.remove()})}catch(e){}",
           }}
         />
       </head>

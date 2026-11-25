@@ -325,11 +325,11 @@ function DevCredit() {
     </>
   );
   return url ? (
-    <a href={url} target="_blank" rel="noopener" className="group text-white/45 transition hover:text-white/80">
+    <a href={url} target="_blank" rel="noopener" className="group text-white/60 transition hover:text-white">
       {label}
     </a>
   ) : (
-    <span className="group text-white/45">{label}</span>
+    <span className="group text-white/60">{label}</span>
   );
 }
 
