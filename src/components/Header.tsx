@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { courses, statusLabel } from "@/content/courses";
@@ -177,10 +178,17 @@ export function Header() {
                 key={b.name}
                 href="/#marcas"
                 onClick={() => setOpen(null)}
-                className="group flex h-28 flex-col items-center justify-center rounded-2xl border border-black/10 transition hover:border-black hover:shadow-lg"
+                className="group flex h-36 flex-col items-center justify-center gap-3 rounded-2xl border border-black/10 px-6 transition hover:border-black hover:shadow-lg"
               >
-                <span className="font-display text-2xl font-bold tracking-wide uppercase">{b.name}</span>
-                {b.note && <span className="mt-1 text-xs text-black/50">{b.note}</span>}
+                <Image
+                  src={b.logo.dark}
+                  alt={b.name}
+                  width={b.logo.width}
+                  height={b.logo.height}
+                  sizes="220px"
+                  className={`w-auto transition group-hover:scale-105 ${b.logo.height / b.logo.width < 0.2 ? "h-7" : "h-16"}`}
+                />
+                {b.note && <span className="text-center text-xs text-black/50">{b.note}</span>}
               </Link>
             ))}
           </div>
@@ -223,8 +231,15 @@ export function Header() {
           </MobileGroup>
           <MobileGroup title="Marcas">
             {brands.map((b) => (
-              <Link key={b.name} href="/#marcas" onClick={() => setMobile(false)} className="block py-3 text-white/80">
-                {b.name}
+              <Link key={b.name} href="/#marcas" onClick={() => setMobile(false)} className="flex items-center py-3" aria-label={b.name}>
+                <Image
+                  src={b.logo.light}
+                  alt={b.name}
+                  width={b.logo.width}
+                  height={b.logo.height}
+                  sizes="180px"
+                  className={`w-auto opacity-85 ${b.logo.height / b.logo.width < 0.2 ? "h-4" : "h-9"}`}
+                />
               </Link>
             ))}
           </MobileGroup>

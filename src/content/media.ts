@@ -29,13 +29,34 @@ export const videos: Video[] = [
   { title: "Aprende a instalar PPF en parachoque", category: "PPF", views: "1421", url: "", thumbnail: "" },
 ];
 
-export type Brand = { name: string; logo: string; url: string; note: string };
+export type Brand = {
+  name: string;
+  /** Logos en /public/brands/: versión blanca (fondo oscuro) y negra (fondo claro). */
+  logo: { light: string; dark: string; width: number; height: number };
+  url: string;
+  note: string;
+};
 
 /** Marcas con las que trabaja la academia. Logos PENDIENTES en /public/brands/. */
 export const brands: Brand[] = [
-  { name: "Feynlab", logo: "", url: "", note: "Alex es Trainer Oficial Feynlab Perú" },
-  { name: "Alcance Pro", logo: "", url: "", note: "" },
-  { name: "Película Da Vida", logo: "", url: "", note: "" },
+  {
+    name: "Feynlab",
+    logo: { light: "/brands/feynlab-blanco.png", dark: "/brands/feynlab-negro.png", width: 468, height: 400 },
+    url: "",
+    note: "Alex es Trainer Oficial Feynlab Perú",
+  },
+  {
+    name: "Alcance Pro",
+    logo: { light: "/brands/alcance-pro-blanco.png", dark: "/brands/alcance-pro-negro.png", width: 900, height: 335 },
+    url: "",
+    note: "Kit del curso de Tratamiento Cerámico",
+  },
+  {
+    name: "Película Da Vida",
+    logo: { light: "/brands/pelicula-da-vida-blanco.png", dark: "/brands/pelicula-da-vida-negro.png", width: 808, height: 86 },
+    url: "",
+    note: "Kit del curso de Instalación de PPF",
+  },
 ];
 
 export type Faq = { q: string; a: string };
