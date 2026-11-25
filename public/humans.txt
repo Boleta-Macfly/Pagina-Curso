@@ -1,0 +1,11 @@
+/* TEAM */
+Diseño y desarrollo web: Macfly.Org
+Ubicación: Lima, Perú
+
+/* CLIENTE */
+AF Academy · Cursos de PPF y tratamiento cerámico
+
+/* SITE */
+Última actualización: 2026/11/25
+Idioma: Español
+Tecnología: Next.js, React, TypeScript, Tailwind CSS

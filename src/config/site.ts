@@ -112,6 +112,15 @@ export const site = {
     { value: "2.6M", label: "Vistas en un solo tutorial de PPF" },
   ],
 
+
+  /**
+   * Créditos del desarrollador (firma discreta en el pie de página).
+   * Cuando tengas redes o portafolio, pon el enlace en `url`.
+   */
+  credits: {
+    name: "Macfly.Org",
+    url: "",
+  },
 } as const;
 
 export type Site = typeof site;

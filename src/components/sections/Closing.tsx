@@ -288,9 +288,10 @@ export function Footer() {
       <div className="border-t border-white/10">
         <div className="mx-auto flex max-w-7xl flex-col gap-3 px-4 py-6 text-xs text-white/60 sm:flex-row sm:justify-between sm:px-6 lg:px-8">
           <p>© 2026 {site.name}. Todos los derechos reservados.</p>
-          <p className="flex gap-5">
+          <p className="flex flex-wrap gap-x-5 gap-y-2">
             <Link href="/privacidad" className="hover:text-white">Política de privacidad</Link>
             <Link href="/terminos" className="hover:text-white">Términos y condiciones</Link>
+            <DevCredit />
           </p>
         </div>
       </div>
@@ -312,6 +313,23 @@ function FooterCol({ title, items }: { title: string; items: { href: string; lab
         ))}
       </ul>
     </div>
+  );
+}
+
+/* ---------- Firma del desarrollador ---------- */
+function DevCredit() {
+  const { name, url } = site.credits;
+  const label = (
+    <>
+      Web por <span className="font-semibold tracking-wide text-white/75 transition group-hover:text-white">{name}</span>
+    </>
+  );
+  return url ? (
+    <a href={url} target="_blank" rel="noopener" className="group text-white/45 transition hover:text-white/80">
+      {label}
+    </a>
+  ) : (
+    <span className="group text-white/45">{label}</span>
   );
 }
 

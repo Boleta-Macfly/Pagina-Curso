@@ -20,6 +20,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
+  authors: [{ name: site.credits.name, ...(site.credits.url ? { url: site.credits.url } : {}) }],
+  creator: site.credits.name,
   title: {
     default: `${site.name} | Cursos de PPF y Tratamiento Cerámico en Perú`,
     template: `%s | ${site.name}`,
@@ -53,6 +55,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${saira.variable} ${inter.variable} antialiased`} suppressHydrationWarning>
       <head>
+        <link rel="author" href="/humans.txt" />
         {/* Omite la intro si ya se vio en esta sesión o si se prefiere menos movimiento */}
         <script
           dangerouslySetInnerHTML={{
