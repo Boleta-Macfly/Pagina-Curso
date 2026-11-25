@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { whatsappLink } from "@/lib/whatsapp";
+import { openAdvisorChooser } from "@/lib/whatsapp";
 import { IconWhatsApp } from "./Icons";
 
 type Props = {
@@ -34,7 +34,7 @@ export function WhatsAppForm({ intro, submitLabel, withMessage = false, tone = "
     if (Object.keys(next).length) return;
 
     const text = `${intro}\n\nNombre: ${name}\nTeléfono: ${phone}${msg ? `\nMensaje: ${msg}` : ""}`;
-    window.open(whatsappLink(text), "_blank", "noopener,noreferrer");
+    openAdvisorChooser(text);
     setSent(true);
     e.currentTarget.reset();
   }
@@ -77,7 +77,7 @@ export function WhatsAppForm({ intro, submitLabel, withMessage = false, tone = "
         {submitLabel}
       </button>
       <p role="status" aria-live="polite" className={`min-h-5 text-sm ${dark ? "text-white/70" : "text-black/70"}`}>
-        {sent && "¡Listo! Se abrió WhatsApp con tu mensaje. Solo presiona enviar y te responderemos pronto."}
+        {sent && "¡Listo! Elige a tu asesor; se abrirá WhatsApp con tu mensaje. Solo presiona enviar y te responderemos pronto."}
       </p>
     </form>
   );

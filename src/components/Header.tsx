@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { courses, statusLabel } from "@/content/courses";
 import { brands } from "@/content/media";
-import { whatsappLink } from "@/lib/whatsapp";
+import { waProps } from "@/lib/whatsapp";
 import { Logo } from "./Logo";
 import { IconArrow, IconCap, IconChevron, IconClose, IconMenu } from "./Icons";
 
@@ -111,9 +111,7 @@ export function Header() {
 
         <div className="flex items-center gap-2">
           <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...waProps()}
             className="hidden rounded-full bg-white px-5 py-2.5 text-[13px] font-bold tracking-[0.1em] text-black uppercase transition hover:bg-white/85 active:scale-[0.97] sm:inline-flex"
           >
             Inscríbete
@@ -157,9 +155,7 @@ export function Header() {
               </Link>
             ))}
             <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waProps()}
               className="group flex gap-3 rounded-xl bg-black p-5 text-white"
             >
               <span>
@@ -243,9 +239,7 @@ export function Header() {
             </Link>
           ))}
           <a
-            href={whatsappLink()}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...waProps()}
             className="mt-8 flex justify-center rounded-full bg-white py-4 font-bold tracking-[0.1em] text-black uppercase"
           >
             Inscríbete ahora

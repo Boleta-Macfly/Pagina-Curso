@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
-import { courseMessage, whatsappLink } from "@/lib/whatsapp";
+import { courseMessage, waitlistMessage, waProps } from "@/lib/whatsapp";
 import { ItemIcon } from "../ItemIcons";
 import { Reveal } from "../Reveal";
 import { IconArrow, IconCalendar, IconCap, IconPin, IconWhatsApp } from "../Icons";
@@ -50,9 +50,7 @@ export function Courses() {
                 <p className="mt-2 max-w-xl text-black/60">{c.description}</p>
               </div>
               <a
-                href={whatsappLink("Hola Alex, quiero unirme a la lista de espera de AF Academy Online.")}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...waProps(waitlistMessage)}
                 className="inline-flex shrink-0 items-center gap-2 rounded-full bg-black px-6 py-3.5 text-xs font-bold tracking-[0.1em] text-white uppercase transition hover:bg-black/80"
               >
                 <IconWhatsApp className="size-4" />
@@ -174,9 +172,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
-            href={whatsappLink(courseMessage(c.title, c.dateLabel))}
-            target="_blank"
-            rel="noopener noreferrer"
+            {...waProps(courseMessage(c.title, c.dateLabel))}
             className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 text-xs font-bold tracking-[0.1em] text-black uppercase transition hover:bg-white/85 active:scale-[0.97]"
           >
             <IconWhatsApp className="size-4" />
@@ -221,11 +217,9 @@ function Bundle() {
             Ahorra {soles(bundle.savings)}
           </span>
           <a
-            href={whatsappLink(
-              `Hola Alex, quiero inscribirme a ambos cursos (${names.join(" + ")}) por ${soles(bundle.price)}. ¿Me das más información?`,
+            {...waProps(
+              `¡Hola, {asesor}! Vengo de la página de AF Academy y me interesan ambos cursos (${names.join(" + ")}) por ${soles(bundle.price)}. ¿Me puedes asesorar?`,
             )}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full bg-black px-6 py-3.5 text-xs font-bold tracking-[0.1em] text-white uppercase transition hover:bg-black/80"
           >
             <IconWhatsApp className="size-4" />

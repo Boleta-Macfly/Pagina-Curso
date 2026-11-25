@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { site } from "@/config/site";
 import { courses } from "@/content/courses";
-import { courseMessage, whatsappLink } from "@/lib/whatsapp";
+import { courseMessage, waProps } from "@/lib/whatsapp";
 import { HexLights } from "./HexLights";
 import { LogoMark } from "./Logo";
 import { IconArrow, IconCalendar, IconPlay } from "./Icons";
@@ -43,9 +43,7 @@ export function Hero() {
 
           <div className="mt-9 flex flex-wrap gap-3">
             <a
-              href={whatsappLink(next ? courseMessage(next.title, next.dateLabel) : undefined)}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waProps(next ? courseMessage(next.title, next.dateLabel) : undefined)}
               className="group inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85 active:scale-[0.98]"
             >
               Inscríbete ahora

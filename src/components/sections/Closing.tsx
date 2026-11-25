@@ -2,7 +2,7 @@ import Link from "next/link";
 import { site } from "@/config/site";
 import { courses } from "@/content/courses";
 import { brands, faqs, testimonials } from "@/content/media";
-import { whatsappLink } from "@/lib/whatsapp";
+import { advisorLink, waProps, waitlistMessage } from "@/lib/whatsapp";
 import { HexLights } from "../HexLights";
 import { Logo, LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
@@ -32,7 +32,7 @@ export function OnlineWaitlist() {
         <Reveal delay={120} className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6 backdrop-blur sm:p-9">
           <p className="font-display mb-5 text-2xl font-bold uppercase italic">Únete a la lista de espera</p>
           <WhatsAppForm
-            intro="Hola Alex, quiero unirme a la lista de espera de AF Academy Online."
+            intro={waitlistMessage}
             submitLabel="Quiero enterarme primero"
           />
         </Reveal>
@@ -110,9 +110,7 @@ export function Contact() {
           </p>
           <div className="mt-10 flex flex-wrap gap-3">
             <a
-              href={whatsappLink()}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...waProps()}
               className="inline-flex items-center gap-3 rounded-full bg-white px-7 py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
             >
               <IconWhatsApp className="size-5" />
@@ -128,6 +126,27 @@ export function Contact() {
               {site.coach.handle}
             </a>
           </div>
+          <ul className="mt-10 grid gap-3 sm:grid-cols-2">
+            {site.advisors.map((a) => (
+              <li key={a.phone}>
+                <a
+                  href={advisorLink(a)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 rounded-2xl border border-white/10 p-4 transition hover:border-white"
+                >
+                  <span className="grid size-10 shrink-0 place-items-center rounded-full bg-wa text-white">
+                    <IconWhatsApp className="size-5" />
+                  </span>
+                  <span className="text-sm">
+                    <span className="block text-[10px] font-bold tracking-[0.18em] text-white/45 uppercase">{a.channel}</span>
+                    <span className="block font-semibold">{a.name}</span>
+                    <span className="block text-white/60">{a.display}</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
           <dl className="mt-12 grid gap-5 text-sm sm:grid-cols-2">
             {site.email && <Info k="Correo" v={site.email} />}
             {site.location && <Info k="Ubicación" v={site.location} />}
@@ -137,7 +156,7 @@ export function Contact() {
         <Reveal delay={120} className="rounded-[28px] bg-white p-6 text-black sm:p-9">
           <p className="font-display mb-5 text-2xl font-bold uppercase italic">Envíanos tu consulta</p>
           <WhatsAppForm
-            intro="Hola Alex, te escribo desde la web de AF Academy."
+            intro="¡Hola, {asesor}! Te escribo desde la página de AF Academy."
             submitLabel="Enviar por WhatsApp"
             withMessage
             tone="light"
@@ -212,9 +231,7 @@ function FooterCol({ title, items }: { title: string; items: { href: string; lab
 export function WhatsAppFloat() {
   return (
     <a
-      href={whatsappLink()}
-      target="_blank"
-      rel="noopener noreferrer"
+      {...waProps()}
       aria-label="Escríbenos por WhatsApp"
       className="group fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-wa p-4 text-white shadow-[0_15px_40px_-10px_rgba(37,211,102,0.6)] transition hover:scale-105 sm:right-6 sm:bottom-6"
     >

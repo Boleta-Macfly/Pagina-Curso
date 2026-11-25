@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { bundle, courses, soles, statusLabel } from "@/content/courses";
-import { courseMessage, whatsappLink } from "@/lib/whatsapp";
+import { courseMessage, waProps } from "@/lib/whatsapp";
 import { LogoMark } from "./Logo";
 import { IconArrow, IconCalendar, IconClose, IconPin, IconWhatsApp } from "./Icons";
 
@@ -132,9 +132,7 @@ export function AnnouncementModal() {
                 )}
                 <div className="mt-4 flex flex-wrap gap-2">
                   <a
-                    href={whatsappLink(courseMessage(c.title, c.dateLabel))}
-                    target="_blank"
-                    rel="noopener noreferrer"
+                    {...waProps(courseMessage(c.title, c.dateLabel))}
                     onClick={close}
                     className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-xs font-bold tracking-[0.08em] text-black uppercase transition hover:bg-white/85"
                   >

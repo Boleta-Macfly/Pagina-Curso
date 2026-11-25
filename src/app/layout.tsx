@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Saira } from "next/font/google";
 import { site } from "@/config/site";
+import { AdvisorChooser } from "@/components/AdvisorChooser";
 import "./globals.css";
 
 const saira = Saira({
@@ -50,7 +51,10 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="es" className={`${saira.variable} ${inter.variable} antialiased`}>
-      <body className="min-h-dvh">{children}</body>
+      <body className="min-h-dvh">
+        {children}
+        <AdvisorChooser />
+      </body>
     </html>
   );
 }

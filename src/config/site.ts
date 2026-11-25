@@ -30,12 +30,31 @@ export const site = {
   },
 
   /**
-   * WhatsApp en formato internacional, SOLO dígitos, sin "+" ni espacios.
-   * Ejemplo para Perú: "51987654321".
-   * PENDIENTE: mientras esté vacío, los botones abren WhatsApp con el
-   * mensaje listo pero sin destinatario.
+   * ASESORES DE VENTAS (WhatsApp)
+   * Número en formato internacional, SOLO dígitos (51 = Perú).
+   * Al tocar un botón de WhatsApp, la persona elige con qué asesor hablar.
+   * El primero de la lista se usa si el navegador no puede mostrar la elección.
+   * En los mensajes, {asesor} se reemplaza por el nombre del asesor elegido.
    */
-  whatsappNumber: "",
+  advisors: [
+    {
+      channel: "Canal 1",
+      name: "Rafael",
+      role: "Asesor de Cursos",
+      phone: "51967586506",
+      display: "967 586 506",
+      greeting: "¡Hola, {asesor}! Vengo de la página de AF Academy y deseo asesoría acerca de los cursos.",
+    },
+    {
+      channel: "Canal 2",
+      name: "Julio",
+      role: "Asesor de Cursos",
+      phone: "51915048343",
+      display: "915 048 343",
+      greeting:
+        "¡Hola, {asesor}! Vi los cursos en la página de AF Academy y quisiera información sobre fechas, precios y cupos disponibles.",
+    },
+  ],
 
   /** PENDIENTE: correo de contacto. */
   email: "",
@@ -58,9 +77,6 @@ export const site = {
     { value: "2.6M", label: "Vistas en un solo tutorial de PPF" },
   ],
 
-  /** Mensaje por defecto para WhatsApp. */
-  defaultWhatsappMessage:
-    "Hola Alex, quisiera recibir información sobre los cursos de AF Academy y conocer las próximas fechas.",
 } as const;
 
 export type Site = typeof site;

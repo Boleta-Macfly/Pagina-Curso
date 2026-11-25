@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site } from "@/config/site";
 import { bundle, courses, getCourse, soles, statusLabel } from "@/content/courses";
-import { courseMessage, whatsappLink } from "@/lib/whatsapp";
+import { courseMessage, shareLink, waProps } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { HexLights } from "@/components/HexLights";
 import { StudentGallery } from "@/components/StudentGallery";
@@ -35,7 +35,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
   const c = getCourse(slug);
   if (!c) notFound();
 
-  const wa = whatsappLink(courseMessage(c.title, c.dateLabel));
+  const wa = waProps(courseMessage(c.title, c.dateLabel));
   const facts = [
     { icon: IconCalendar, k: "Fecha", v: c.dateLabel || "Por confirmar" },
     { icon: IconPin, k: "Lugar", v: c.location || c.modality },
@@ -116,7 +116,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                   Descargar flyer
                 </a>
                 <a
-                  href={whatsappLink(`Mira este curso de AF Academy: ${c.title} (${c.dateLabel}) ${site.url}/cursos/${c.slug}`)}
+                  href={shareLink(`Mira este curso de AF Academy: ${c.title} (${c.dateLabel}) ${site.url}/cursos/${c.slug}`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex-1 rounded-full border border-white/20 py-3 text-center text-xs font-bold tracking-[0.12em] uppercase transition hover:border-white"
@@ -237,9 +237,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 {c.location || c.modality}. Escríbenos por WhatsApp y te confirmamos tu inscripción.
               </p>
               <a
-                href={wa}
-                target="_blank"
-                rel="noopener noreferrer"
+                {...wa}
                 className="mt-7 flex items-center justify-center gap-2 rounded-full bg-white py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
               >
                 <IconWhatsApp className="size-5" />
@@ -280,9 +278,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
             </div>
             <StudentGallery photos={ed.photos} label={ed.label} />
             <a
-              href={wa}
-              target="_blank"
-              rel="noopener noreferrer"
+              {...wa}
               className="mt-10 inline-flex items-center gap-2 rounded-full bg-white px-7 py-4 text-sm font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
             >
               <IconWhatsApp className="size-5" />
