@@ -77,7 +77,8 @@ export function Videos() {
                   src={v.thumbnail}
                   alt=""
                   loading="lazy"
-                  className="absolute inset-0 h-full w-full object-cover object-bottom transition duration-700 group-hover:scale-105"
+                  style={{ objectPosition: v.focus ?? "center bottom" }}
+                  className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
                 />
               ) : (
                 <HexLights className="absolute inset-0 h-full w-full opacity-20 transition duration-700 group-hover:scale-110 group-hover:opacity-35" />
@@ -86,7 +87,7 @@ export function Videos() {
               <span className="absolute top-3 left-3 rounded-full bg-black/60 px-2.5 py-1 text-[10px] font-bold tracking-[0.14em] uppercase backdrop-blur">
                 {v.category}
               </span>
-              <IconTikTok className="absolute top-3 right-3 size-5 text-white/70" />
+              <IconTikTok className="absolute right-3 bottom-3 size-5 text-white/80 drop-shadow" />
               <span className={`absolute left-1/2 grid size-14 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-white text-black shadow-xl transition group-hover:scale-110 ${v.thumbnail ? "top-[38%] opacity-0 group-hover:opacity-100 max-md:opacity-90" : "top-1/2 opacity-90"}`}>
                 <IconPlay className="ml-0.5 size-5" />
               </span>

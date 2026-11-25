@@ -13,6 +13,8 @@ export type Video = {
   tiktokId: string;
   /** Portada opcional en /public/videos/ ("" = fondo de marca). */
   thumbnail: string;
+  /** Encuadre de la portada (CSS object-position). Por defecto "center bottom". */
+  focus?: string;
 };
 
 /** Enlace público del video en TikTok. */
@@ -29,7 +31,7 @@ export const videos: Video[] = [
   { title: "PPF en espejos · Parte 2", category: "PPF", tiktokId: "7701106528320883989", thumbnail: "/videos/ppf-espejos-2.jpg" },
   { title: "Aprende a instalar PPF en capó", category: "PPF", tiktokId: "7701838186544188690", thumbnail: "/videos/ppf-capo.jpg" },
   { title: "Aprende a instalar PPF en parachoque", category: "PPF", tiktokId: "7704412155294125320", thumbnail: "/videos/ppf-parachoque.jpg" },
-  { title: "Aplicación de recubrimiento cerámico regenerativo", category: "Cerámico", tiktokId: "7691416555317464327", thumbnail: "" },
+  { title: "Aplicación de recubrimiento cerámico regenerativo", category: "Cerámico", tiktokId: "7691416555317464327", thumbnail: "/videos/ceramico-regenerativo.jpg", focus: "right top" },
   { title: "Cómo instalar PPF mate", category: "PPF", tiktokId: "7676968261228973319", thumbnail: "/videos/ppf-mate.jpg" },
 ];
 
