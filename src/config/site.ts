@@ -78,8 +78,6 @@ export const site = {
   /** Dirección del taller donde se dictan los cursos. */
   address: {
     street: "Av. Rafael Escardó 385",
-    /** Nombre del local donde se dictan los cursos. */
-    venue: "Batel Studio",
     district: "San Miguel",
     city: "Lima",
     lat: -12.07906,
