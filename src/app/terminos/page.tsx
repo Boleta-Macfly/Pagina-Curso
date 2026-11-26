@@ -85,7 +85,7 @@ export default function Terminos() {
           {sections.map((s, i) => (
             <li key={s.title} className="border-t border-white/10 pt-8">
               <h2 className="font-display flex items-baseline gap-4 text-2xl font-bold uppercase italic">
-                <span className="text-white/30">{String(i + 1).padStart(2, "0")}</span>
+                <span className="text-white/55">{String(i + 1).padStart(2, "0")}</span>
                 {s.title}
               </h2>
               <ul className="mt-4 space-y-3 text-white/70">
@@ -100,7 +100,7 @@ export default function Terminos() {
           ))}
           <li className="border-t border-white/10 pt-8">
             <h2 className="font-display flex items-baseline gap-4 text-2xl font-bold uppercase italic">
-              <span className="text-white/30">{String(sections.length + 1).padStart(2, "0")}</span>
+              <span className="text-white/55">{String(sections.length + 1).padStart(2, "0")}</span>
               Contacto
             </h2>
             <p className="mt-4 leading-relaxed text-white/70">Para consultas, cambios o reclamos, comunícate con nuestros asesores por WhatsApp:</p>
