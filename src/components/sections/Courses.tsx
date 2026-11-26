@@ -106,7 +106,7 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
         </li>
         {c.split && (
           <li className="inline-flex items-center gap-2 font-semibold text-white">
-            {c.split.practice}% práctico
+            {c.split.theory}% teórico · {c.split.practice}% práctico
           </li>
         )}
       </ul>

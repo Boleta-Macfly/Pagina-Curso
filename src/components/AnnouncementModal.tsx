@@ -145,7 +145,7 @@ export function AnnouncementModal() {
                     <IconPin className="size-4" />
                     {c.location || c.modality}
                   </span>
-                  {c.split && <span>{c.split.practice}% práctico</span>}
+                  {c.split && <span className="whitespace-nowrap">{c.split.theory}% teórico · {c.split.practice}% práctico</span>}
                 </div>
                 {c.presalePrice && (
                   <p className="mt-2 flex flex-wrap items-baseline gap-x-2 text-sm">
