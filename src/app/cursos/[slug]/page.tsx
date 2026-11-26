@@ -10,6 +10,7 @@ import { HexLights } from "@/components/HexLights";
 import { StudentGallery } from "@/components/StudentGallery";
 import { editionsFor } from "@/content/students";
 import { ItemIcon } from "@/components/ItemIcons";
+import { ScrollToTop } from "@/components/ScrollToTop";
 import { IconArrow, IconCalendar, IconClock, IconPin, IconWhatsApp } from "@/components/Icons";
 
 export function generateStaticParams() {
@@ -50,6 +51,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
 
   return (
     <PageShell>
+      <ScrollToTop />
       <section className="relative overflow-hidden pb-20">
         {c.images.hero ? (
           <div className="pointer-events-none absolute inset-x-0 top-0 h-[640px] [mask-image:linear-gradient(to_bottom,black_30%,transparent)]">
