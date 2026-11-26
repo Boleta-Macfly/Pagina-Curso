@@ -190,7 +190,15 @@ function Location() {
         <div className="flex flex-col justify-between gap-8 bg-ink-2 p-7 sm:p-10">
           <div>
             <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">Dónde se dictan los cursos</p>
-            <p className="font-display mt-3 text-4xl leading-none font-extrabold uppercase italic">{address.street}</p>
+            <p className="font-display mt-3 text-4xl leading-none font-extrabold uppercase italic">
+              {address.street}
+              {address.venue && (
+                <>
+                  {" "}
+                  <span className="text-white/50">·</span> <span className="text-outline whitespace-nowrap">{address.venue}</span>
+                </>
+              )}
+            </p>
             <p className="mt-2 text-white/60">
               {address.district}, {address.city}
             </p>
@@ -257,7 +265,7 @@ export function Footer() {
             className="mt-5 inline-flex items-start gap-2 text-sm text-white/70 hover:text-white"
           >
             <IconPin className="mt-0.5 size-4 shrink-0" />
-            {site.address.street}, {site.address.district}
+            {site.address.street}{site.address.venue ? ` · ${site.address.venue}` : ""}, {site.address.district}
           </a>
           <div className="mt-6 flex gap-2">
             {[
