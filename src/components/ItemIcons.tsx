@@ -129,6 +129,18 @@ export const IconCutter = ({ className }: P) => (
   </svg>
 );
 
+/** Grupo privado (personas con candado) */
+export const IconPrivateGroup = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <circle cx="8" cy="8" r="2.8" />
+    <path d="M2.5 19c0-3.2 2.5-5.5 5.5-5.5s5.5 2.3 5.5 5.5" />
+    <circle cx="15.5" cy="7" r="2.2" />
+    <path d="M15.5 11.5c1 0 2 .3 2.8.8" />
+    <rect x="15" y="15" width="6.5" height="5.5" rx="1" />
+    <path d="M16.5 15v-1.3a1.75 1.75 0 0 1 3.5 0V15" />
+  </svg>
+);
+
 /** Caja de regalo (kit) */
 export const IconGiftBox = ({ className }: P) => (
   <svg {...base} className={className}>
@@ -229,6 +241,7 @@ export const IconWorkshop = ({ className }: P) => (
 
 const rules: [RegExp, React.ComponentType<P>[]][] = [
   [/descuento|%\s*de\s*desc/i, [IconDiscount]],
+  [/grupo privado|comunidad/i, [IconPrivateGroup]],
   [/kit cer[aá]mico/i, [IconKitCeramic]],
   [/kit ppf/i, [IconKitPPF]],
   [/^kit\b/i, [IconGiftBox]],

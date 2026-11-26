@@ -57,7 +57,7 @@ export type Course = {
   seo?: { title?: string; description?: string };
 };
 
-const commonIncludes = ["Certificación", "Video de tus prácticas", "Soporte técnico", "Merch"];
+const commonIncludes = ["Certificación", "Video de tus prácticas", "Grupo privado durante 1 mes", "Merch"];
 
 /** Lo que incluyen los cursos presenciales. */
 const commonIncluye = [
