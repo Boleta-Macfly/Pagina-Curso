@@ -64,7 +64,7 @@ const commonIncluye = [
   "2 días · 20% teoría y 80% práctica",
   "Material informativo impreso",
   "Material de trabajo",
-  "Herramientas",
+  "Herramientas de trabajo",
   "Refrigerio (desayuno, almuerzo, postre y bebidas)",
   "Ambiente equipado de alto nivel",
 ];
