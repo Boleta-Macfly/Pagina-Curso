@@ -7,7 +7,7 @@ import { HexLights } from "../HexLights";
 import { Logo, LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
 import { WhatsAppForm } from "../WhatsAppForm";
-import { IconArrow, IconChevron, IconInstagram, IconPin, IconTikTok, IconWhatsApp } from "../Icons";
+import { IconChevron, IconInstagram, IconPin, IconTikTok, IconWhatsApp } from "../Icons";
 
 /* ---------- AF Academy Online (próximamente) ---------- */
 export function OnlineSoon() {
@@ -181,53 +181,24 @@ export function Contact() {
   );
 }
 
-/* ---------- Ubicación del taller ---------- */
+/* ---------- Zona donde se dictan los cursos (sin dirección exacta) ---------- */
 function Location() {
   const { address } = site;
   return (
     <div className="relative mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
-      <div className="grid overflow-hidden rounded-[28px] border border-white/10 lg:grid-cols-[0.8fr_1.2fr]">
-        <div className="flex flex-col justify-between gap-8 bg-ink-2 p-7 sm:p-10">
+      <div className="flex flex-col gap-6 overflow-hidden rounded-[28px] border border-white/10 bg-ink-2 p-7 sm:flex-row sm:items-center sm:justify-between sm:p-10">
+        <div className="flex items-center gap-5">
+          <span className="grid size-14 shrink-0 place-items-center rounded-2xl bg-white text-black">
+            <IconPin className="size-6" />
+          </span>
           <div>
             <p className="text-[11px] font-semibold tracking-[0.28em] text-white/60 uppercase">Dónde se dictan los cursos</p>
-            <p className="font-display mt-3 text-4xl leading-none font-extrabold uppercase italic">{address.street}</p>
-            <p className="mt-2 text-white/60">
+            <p className="font-display mt-1 text-3xl leading-none font-extrabold uppercase italic sm:text-4xl">
               {address.district}, {address.city}
             </p>
           </div>
-          <a
-            href={address.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group inline-flex w-fit items-center gap-2 rounded-full bg-white px-6 py-3.5 text-xs font-bold tracking-[0.12em] text-black uppercase transition hover:bg-white/85"
-          >
-            <IconPin className="size-4" />
-            Cómo llegar
-            <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
-          </a>
         </div>
-        <div className="relative h-72 bg-ink-3 lg:h-auto lg:min-h-80">
-          {/* Fondo de respaldo si el mapa no carga */}
-          <a
-            href={address.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute inset-0 grid place-items-center"
-            aria-label="Abrir ubicación en Google Maps"
-          >
-            <HexLights className="absolute inset-0 h-full w-full opacity-10" />
-            <span className="relative grid size-14 place-items-center rounded-full bg-white text-black">
-              <IconPin className="size-6" />
-            </span>
-          </a>
-          <iframe
-            title={`Mapa: ${address.street}, ${address.district}`}
-            src={`https://maps.google.com/maps?q=${address.lat},${address.lng}&z=16&output=embed`}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            className="absolute inset-0 h-full w-full border-0 grayscale invert-[0.9] hue-rotate-180"
-          />
-        </div>
+        <p className="max-w-sm text-sm text-white/60">Tu asesor te enviará la ubicación exacta al confirmar tu inscripción.</p>
       </div>
     </div>
   );
@@ -250,15 +221,10 @@ export function Footer() {
         <div>
           <Logo variant="stacked" className="text-[30px]" />
           <p className="mt-6 max-w-xs text-sm text-white/50">{site.description}</p>
-          <a
-            href={site.address.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="mt-5 inline-flex items-start gap-2 text-sm text-white/70 hover:text-white"
-          >
+          <p className="mt-5 inline-flex items-start gap-2 text-sm text-white/70">
             <IconPin className="mt-0.5 size-4 shrink-0" />
-            {site.address.street}, {site.address.district}
-          </a>
+            {site.address.district}, {site.address.city}
+          </p>
           <div className="mt-6 flex gap-2">
             {[
               { href: site.social.tiktok, label: "TikTok", Icon: IconTikTok },

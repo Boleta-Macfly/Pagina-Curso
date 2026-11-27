@@ -232,7 +232,7 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
               <p className="font-display text-3xl font-extrabold uppercase italic">Reserva tu cupo</p>
               <p className="mt-3 text-sm text-white/60">
                 {c.dateLabel ? `${c.dateLabel} · ` : ""}
-                {c.location ? `${site.address.street}, ${site.address.district}` : c.modality}. Escríbenos por WhatsApp y te
+                {c.location ? `${site.address.district}, ${site.address.city}` : c.modality}. Escríbenos por WhatsApp y te
                 confirmamos tu inscripción.
               </p>
               <a
@@ -305,7 +305,6 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                       name: site.name,
                       address: {
                         "@type": "PostalAddress",
-                        streetAddress: site.address.street,
                         addressLocality: site.address.district,
                         addressRegion: site.address.city,
                         addressCountry: "PE",
