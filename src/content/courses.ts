@@ -119,7 +119,7 @@ export const courses: Course[] = [
     },
     images: {
       hero: "/cursos/ceramico-portada.jpg",
-      kit: "/cursos/ceramico-kit.png",
+      kit: "/cursos/ceramico-kit.jpg",
       flyer: "/flyers/flyer-curso-tratamiento-ceramico.jpg",
     },
     featured: true,
@@ -163,7 +163,7 @@ export const courses: Course[] = [
     },
     images: {
       hero: "/cursos/ppf-portada.jpg",
-      kit: "/cursos/ppf-kit.png",
+      kit: "/cursos/ppf-kit.jpg",
       flyer: "/flyers/flyer-curso-ppf.jpg",
     },
     featured: true,
