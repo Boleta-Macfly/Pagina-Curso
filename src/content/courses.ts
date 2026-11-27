@@ -63,7 +63,7 @@ const commonIncludes = ["Certificación", "Video de tus prácticas", "Asesoría 
 const commonIncluye = [
   "2 días · 20% teoría y 80% práctica",
   "Material informativo impreso",
-  "Material",
+  "Material de trabajo",
   "Herramientas",
   "Refrigerio (desayuno, almuerzo, postre y bebidas)",
   "Ambiente equipado de alto nivel",

@@ -122,7 +122,15 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
               </li>
             ))}
             {c.modules.length > 4 && (
-              <li className="pl-6 text-sm text-white/60">+ {c.modules.length - 4} {c.modules.length - 4 === 1 ? "tema más" : "temas más"}</li>
+              <li className="pl-6">
+                <Link
+                  href={`/cursos/${c.slug}`}
+                  className="group/t inline-flex items-center gap-1.5 text-sm font-semibold text-white underline-offset-4 hover:underline"
+                >
+                  + {c.modules.length - 4} {c.modules.length - 4 === 1 ? "tema más" : "temas más"} · Ver temario completo
+                  <IconArrow className="size-3.5 transition-transform group-hover/t:translate-x-0.5" />
+                </Link>
+              </li>
             )}
           </ul>
         </div>

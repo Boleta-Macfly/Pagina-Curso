@@ -8,7 +8,10 @@ import { HeroVideoButton } from "./HeroVideoButton";
 import { IconArrow, IconCalendar } from "./Icons";
 
 export function Hero() {
-  const next = courses.find((c) => c.status === "abierto" && c.startDate);
+  const upcoming = courses
+    .filter((c) => c.status === "abierto" && c.startDate)
+    .sort((a, b) => (a.startDate ?? "").localeCompare(b.startDate ?? ""));
+  const next = upcoming[0];
 
   return (
     <section id="inicio" className="grain relative isolate overflow-hidden bg-ink pt-28 sm:pt-32">
@@ -57,24 +60,29 @@ export function Hero() {
             </Link>
           </div>
 
-          {next && (
-            <Link
-              href={`/cursos/${next.slug}`}
-              className="group mt-10 inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] py-3 pr-5 pl-3 backdrop-blur transition hover:border-white/30"
-            >
-              <span className="grid size-11 place-items-center rounded-xl bg-white text-black">
-                <IconCalendar className="size-5" />
-              </span>
-              <span className="text-sm">
-                <span className="block text-[11px] font-semibold tracking-[0.18em] text-white/50 uppercase">
-                  Próximo curso
-                </span>
-                <span className="font-semibold">
-                  {next.title} · {next.dateLabel}
-                </span>
-              </span>
-              <IconArrow className="size-4 text-white/50 transition-transform group-hover:translate-x-1 group-hover:text-white" />
-            </Link>
+          {upcoming.length > 0 && (
+            <div className="mt-10 flex flex-wrap gap-3">
+              {upcoming.map((c) => (
+                <Link
+                  key={c.slug}
+                  href={`/cursos/${c.slug}`}
+                  className="group inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] py-3 pr-5 pl-3 backdrop-blur transition hover:border-white/30"
+                >
+                  <span className="grid size-11 place-items-center rounded-xl bg-white text-black">
+                    <IconCalendar className="size-5" />
+                  </span>
+                  <span className="text-sm">
+                    <span className="block text-[11px] font-semibold tracking-[0.18em] text-white/50 uppercase">
+                      Próximo curso
+                    </span>
+                    <span className="font-semibold">
+                      {c.title} · {c.dateLabel}
+                    </span>
+                  </span>
+                  <IconArrow className="size-4 text-white/50 transition-transform group-hover:translate-x-1 group-hover:text-white" />
+                </Link>
+              ))}
+            </div>
           )}
         </div>
 
