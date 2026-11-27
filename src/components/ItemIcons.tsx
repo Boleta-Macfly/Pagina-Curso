@@ -239,7 +239,28 @@ export const IconWorkshop = ({ className }: P) => (
   </svg>
 );
 
+/** Tabla de costos y márgenes (hoja de cálculo con flecha de ganancia) */
+export const IconCostTable = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <rect x="3" y="4" width="13" height="16" rx="1.5" />
+    <path d="M3 9h13M3 14h13M8.5 4v16" />
+    <path d="m15 15 3-3 2 2 2.5-3.5" />
+    <path d="M20 10.5h2.5V13" />
+  </svg>
+);
+
+/** Diseño editable (lienzo con pincel) */
+export const IconDesign = ({ className }: P) => (
+  <svg {...base} className={className}>
+    <rect x="3" y="3.5" width="14" height="17" rx="1.5" />
+    <path d="M6 8h8M6 11.5h5" />
+    <path d="M21 9.5 14.5 16l-2.5.6.6-2.5L19 7.5a1.4 1.4 0 0 1 2 2Z" />
+  </svg>
+);
+
 const rules: [RegExp, React.ComponentType<P>[]][] = [
+  [/tabla de costos|m[aá]rgenes/i, [IconCostTable]],
+  [/canva|dise[nñ]o editable/i, [IconDesign]],
   [/descuento|%\s*de\s*desc/i, [IconDiscount]],
   [/asesor[ií]a grupal|grupo privado|comunidad/i, [IconPrivateGroup]],
   [/kit.*cer[aá]mico/i, [IconKitCeramic]],

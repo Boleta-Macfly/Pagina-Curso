@@ -57,7 +57,13 @@ export type Course = {
   seo?: { title?: string; description?: string };
 };
 
-const commonIncludes = ["Certificación", "Video de tus prácticas", "Asesoría grupal durante 1 mes", "Merch"];
+const commonIncludes = [
+  "Certificación",
+  "Video de tus prácticas",
+  "Asesoría grupal durante 1 mes",
+  "Merch",
+  "Tabla de costos y márgenes de ganancia",
+];
 
 /** Lo que incluyen los cursos presenciales. */
 const commonIncluye = [
@@ -95,7 +101,7 @@ export const courses: Course[] = [
       "Aplicación de recubrimiento cerámico",
     ],
     incluye: commonIncluye,
-    includes: commonIncludes,
+    includes: [...commonIncludes, "Diseño editable en Canva con tus precios al público (para poner tu logo)"],
     split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit Alcance Pro para tus primeros servicios",

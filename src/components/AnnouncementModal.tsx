@@ -17,7 +17,9 @@ export function AnnouncementModal() {
   const [open, setOpen] = useState(false);
   const closeRef = useRef<HTMLButtonElement>(null);
 
-  const includes = courses.find((c) => c.includes.length)?.includes ?? [];
+  // Solo los bonos que tienen TODOS los cursos con bonos.
+  const withIncludes = courses.filter((c) => c.includes.length);
+  const includes = withIncludes[0]?.includes.filter((it) => withIncludes.every((c) => c.includes.includes(it))) ?? [];
   const upcoming = courses
     .filter((c) => c.featured)
     .sort((a, b) => (a.startDate ?? "9999").localeCompare(b.startDate ?? "9999"));
