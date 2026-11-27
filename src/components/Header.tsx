@@ -172,14 +172,11 @@ export function Header() {
           <p className="mb-6 text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">
             Marcas con las que trabaja la academia
           </p>
-          <div className="grid grid-cols-3 gap-6">
+          <div className="grid grid-cols-4 gap-6">
             {brands.map((b) => (
-              <a
+              <BrandLink
                 key={b.name}
-                href={b.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${b.name} en TikTok`}
+                brand={b}
                 className="group flex h-36 flex-col items-center justify-center gap-3 rounded-2xl border border-black/10 px-6 transition hover:border-black hover:shadow-lg"
               >
                 <Image
@@ -191,7 +188,7 @@ export function Header() {
                   className={`w-auto transition group-hover:scale-105 ${b.logo.height / b.logo.width < 0.2 ? "h-7" : "h-16"}`}
                 />
                 {b.note && <span className="text-center text-xs text-black/50">{b.note}</span>}
-              </a>
+              </BrandLink>
             ))}
           </div>
         </div>
@@ -233,14 +230,7 @@ export function Header() {
           </MobileGroup>
           <MobileGroup title="Marcas">
             {brands.map((b) => (
-              <a
-                key={b.name}
-                href={b.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`${b.name} en TikTok`}
-                className="flex items-center gap-3 py-3"
-              >
+              <BrandLink key={b.name} brand={b} className="flex items-center gap-3 py-3">
                 <Image
                   src={b.logo.light}
                   alt={b.name}
@@ -250,7 +240,7 @@ export function Header() {
                   className={`w-auto opacity-85 ${b.logo.height / b.logo.width < 0.2 ? "h-4" : "h-9"}`}
                 />
                 {b.note && <span className="text-xs text-white/50">{b.note}</span>}
-              </a>
+              </BrandLink>
             ))}
           </MobileGroup>
           {links.map((l) => (
@@ -272,6 +262,16 @@ export function Header() {
         </div>
       </div>
     </header>
+  );
+}
+
+/** Logo de marca: enlace a su TikTok si tiene `url`; si no, solo se muestra. */
+function BrandLink({ brand, className, children }: { brand: (typeof brands)[number]; className: string; children: React.ReactNode }) {
+  if (!brand.url) return <div className={className}>{children}</div>;
+  return (
+    <a href={brand.url} target="_blank" rel="noopener noreferrer" aria-label={`${brand.name} en TikTok`} className={className}>
+      {children}
+    </a>
   );
 }
 

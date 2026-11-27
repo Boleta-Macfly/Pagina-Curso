@@ -63,6 +63,12 @@ export const brands: Brand[] = [
     url: "https://www.tiktok.com/@peliculadavidaperu",
     note: "Sponsor",
   },
+  {
+    name: "Master",
+    logo: { light: "/brands/master-blanco.png", dark: "/brands/master-negro.png", width: 490, height: 464 },
+    url: "",
+    note: "Sponsor",
+  },
 ];
 
 export type Faq = { q: string; a: string };
