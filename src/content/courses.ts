@@ -73,7 +73,7 @@ export const courses: Course[] = [
   {
     slug: "curso-tratamiento-ceramico",
     title: "Tratamiento Cerámico",
-    short: "Descontaminación, pulido en 3 etapas y recubrimiento cerámico",
+    short: "Descontaminación, pulido (corrección y abrillantado) y recubrimiento cerámico",
     description:
       "Curso intensivo de detailing: aprende el proceso completo, desde la descontaminación y el pulido hasta la aplicación del recubrimiento cerámico, y amplía tus servicios.",
     modality: "Presencial",
@@ -90,7 +90,7 @@ export const courses: Course[] = [
       "Prelavado acorde a cada superficie",
       "Descontaminación química y manual",
       "Eliminación de imperfecciones de la pintura",
-      "Pulido en 3 etapas",
+      "Pulido (corrección y abrillantado)",
       "Preparación de la superficie",
       "Aplicación de recubrimiento cerámico",
     ],
@@ -120,7 +120,7 @@ export const courses: Course[] = [
     seo: {
       title: "Curso de Tratamiento Cerámico presencial",
       description:
-        "Curso intensivo de tratamiento cerámico con AlexAF: descontaminación, pulido en 3 etapas y aplicación de recubrimiento cerámico. Incluye kit Alcance Pro y certificación.",
+        "Curso intensivo de tratamiento cerámico con AlexAF: descontaminación, pulido (corrección y abrillantado) y aplicación de recubrimiento cerámico. Incluye kit Alcance Pro y certificación.",
     },
   },
   {

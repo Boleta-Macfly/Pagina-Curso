@@ -105,7 +105,7 @@ export const faqs: Faq[] = [
   },
   {
     q: "¿Qué medios de pago aceptan?",
-    a: "Aceptamos Yape, Plin, transferencia bancaria y pago con tarjeta. Tu asesor te indicará los datos para realizar el pago de la separación y del saldo.",
+    a: "Aceptamos Yape, Plin, transferencia bancaria y pago link con tarjeta. Tu asesor te indicará los datos para realizar el pago de la separación y del saldo.",
   },
   { q: "¿Entregan certificado?", a: "Sí. Ambos cursos incluyen certificación, el video de tus prácticas, asesoría grupal durante 1 mes y merch." },
   {

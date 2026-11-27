@@ -37,7 +37,7 @@ const courses = [
       "Prelavado acorde a cada superficie",
       "Descontaminación química y manual",
       "Eliminación de imperfecciones",
-      "Pulido en 3 etapas",
+      "Pulido (corrección y abrillantado)",
       "Preparación de la superficie",
       "Aplicación del recubrimiento",
     ],

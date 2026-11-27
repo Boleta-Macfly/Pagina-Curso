@@ -96,7 +96,7 @@ export const site = {
   },
 
   /** Medios de pago aceptados. */
-  paymentMethods: ["Yape", "Plin", "Transferencia bancaria", "Pago con tarjeta"],
+  paymentMethods: ["Yape", "Plin", "Transferencia bancaria", "Pago link con tarjeta"],
 
   social: {
     tiktok: "https://www.tiktok.com/@alexaf___",
