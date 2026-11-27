@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { site } from "@/config/site";
+import { FlagArgentina, FlagBrazil, FlagUSA } from "../Flags";
 import { LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
 import { IconArrow, IconInstagram, IconTikTok } from "../Icons";
@@ -39,6 +40,20 @@ export function About() {
               </li>
             ))}
           </ul>
+
+          {/* Certificaciones internacionales con bandera */}
+          <div className="mt-5 flex flex-wrap items-center gap-2">
+            <span className="mr-1 text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">Certificado en</span>
+            {coach.certifications.map((c) => {
+              const Flag = { USA: FlagUSA, Brasil: FlagBrazil, Argentina: FlagArgentina }[c];
+              return (
+                <span key={c} className="inline-flex items-center gap-2 rounded-full bg-black py-1.5 pr-4 pl-2 text-sm font-semibold text-white">
+                  <Flag className="h-4 w-6 rounded-[3px] ring-1 ring-white/30" />
+                  {c === "USA" ? "U.S.A." : c}
+                </span>
+              );
+            })}
+          </div>
 
           <div className="mt-8 max-w-lg space-y-4 text-lg leading-relaxed text-black/65">
             {coach.bio.map((p) => (

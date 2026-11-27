@@ -13,7 +13,7 @@ export type CourseStatus = "abierto" | "proximamente" | "lleno";
 
 export type Kit = {
   title: string;
-  /** Nombre corto que se muestra en «Bonos» (p. ej. «Kit Cerámico»). */
+  /** Nombre corto que se muestra en «Bonos» (p. ej. «Kit Emprende Cerámico»). */
   label: string;
   /** Marca que provee el kit (debe existir en content/media.ts → brands). */
   brand: string;
@@ -57,7 +57,7 @@ export type Course = {
   seo?: { title?: string; description?: string };
 };
 
-const commonIncludes = ["Certificación", "Video de tus prácticas", "Grupo privado durante 1 mes", "Merch"];
+const commonIncludes = ["Certificación", "Video de tus prácticas", "Asesoría grupal durante 1 mes", "Merch"];
 
 /** Lo que incluyen los cursos presenciales. */
 const commonIncluye = [
@@ -99,7 +99,7 @@ export const courses: Course[] = [
     split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit Alcance Pro para tus primeros servicios",
-      label: "Kit Cerámico",
+      label: "Kit Emprende Cerámico",
       brand: "Alcance Pro",
       items: [
         "Aquo Alcalino 500 ml",
@@ -150,7 +150,7 @@ export const courses: Course[] = [
     split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit PPF para tus primeros servicios",
-      label: "Kit PPF",
+      label: "Kit Emprende PPF",
       brand: "Película Da Vida",
       items: ["2.5 metros lineales de PPF de regalo", "Magic Gel 1 L", "Magic Activator 1 L", "Kit de paletas", "Cuchilla"],
       perks: ["10% de descuento en PPF", "20% de descuento en gel + activador"],

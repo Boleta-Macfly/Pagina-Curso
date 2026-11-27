@@ -241,9 +241,9 @@ export const IconWorkshop = ({ className }: P) => (
 
 const rules: [RegExp, React.ComponentType<P>[]][] = [
   [/descuento|%\s*de\s*desc/i, [IconDiscount]],
-  [/grupo privado|comunidad/i, [IconPrivateGroup]],
-  [/kit cer[aá]mico/i, [IconKitCeramic]],
-  [/kit ppf/i, [IconKitPPF]],
+  [/asesor[ií]a grupal|grupo privado|comunidad/i, [IconPrivateGroup]],
+  [/kit.*cer[aá]mico/i, [IconKitCeramic]],
+  [/kit.*ppf/i, [IconKitPPF]],
   [/^kit\b/i, [IconGiftBox]],
   [/d[ií]as|teor[ií]a/i, [IconTime]],
   [/impreso/i, [IconPrinted]],

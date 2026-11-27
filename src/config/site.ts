@@ -34,10 +34,12 @@ export const site = {
     /** Foto del coach en /public/coach/. */
     photo: "/coach/alex.jpg",
     /** Títulos tal como aparecen en su biografía de TikTok. */
-    roles: ["9 años en el rubro", "CEO de AF Detailing", "Trainer Oficial Feynlab Perú", "Certificaciones internacionales en Brasil y Argentina"],
+    /** Países de sus certificaciones internacionales (se muestran con bandera). */
+    certifications: ["USA", "Brasil", "Argentina"] as const,
+    roles: ["9 años en el rubro", "CEO de AF Detailing", "Trainer Oficial Feynlab Perú", "Certificaciones internacionales"],
     /** Biografía (cada elemento es un párrafo). */
     bio: [
-      "Con 9 años de experiencia en el rubro, Alex es CEO de AF Detailing y Trainer Oficial de Feynlab en Perú. Cuenta con certificaciones internacionales en Brasil y Argentina y se especializa en la instalación de Paint Protection Film (PPF) y en la aplicación de recubrimientos cerámicos.",
+      "Con 9 años de experiencia en el rubro, Alex es CEO de AF Detailing y Trainer Oficial de Feynlab en Perú. Cuenta con certificaciones internacionales en Estados Unidos, Brasil y Argentina y se especializa en la instalación de Paint Protection Film (PPF) y en la aplicación de recubrimientos cerámicos.",
       "Su método combina técnica profesional y práctica real en taller. En AF Academy forma a detailers y emprendedores para que dominen cada proceso con estándares de alto nivel y puedan ofrecerlo como un servicio profesional. Además, comparte su trabajo en redes con una comunidad de más de 13 mil seguidores.",
     ],
     /** PENDIENTE: mensaje personal del coach. */
