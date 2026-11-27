@@ -101,7 +101,7 @@ export const courses: Course[] = [
       "Aplicación de recubrimiento cerámico",
     ],
     incluye: commonIncluye,
-    includes: [...commonIncludes, "Diseño editable en Canva con tus precios al público (para poner tu logo)"],
+    includes: commonIncludes,
     split: { theory: 20, practice: 80 },
     kit: {
       title: "Kit Alcance Pro para tus primeros servicios",
