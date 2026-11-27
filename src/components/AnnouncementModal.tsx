@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
-import { bundle, courses, soles, statusLabel } from "@/content/courses";
+import { bundle, courses, soles, statusLabel, savingsOf } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { INTRO_MS } from "./IntroSplash";
 import { ItemIcon } from "./ItemIcons";
@@ -151,6 +151,7 @@ export function AnnouncementModal() {
                   <p className="mt-2 flex flex-wrap items-baseline gap-x-2 text-sm">
                     <span className="font-display text-xl font-extrabold whitespace-nowrap italic">Preventa {soles(c.presalePrice)}</span>
                     {c.price && <s className="whitespace-nowrap text-white/60">{soles(c.price)}</s>}
+                    {savingsOf(c) > 0 && <span className="rounded-full bg-white/10 px-2.5 py-0.5 text-xs font-semibold whitespace-nowrap">Ahorras {soles(savingsOf(c))}</span>}
                   </p>
                 )}
                 <div className="mt-4 flex flex-wrap gap-2">
@@ -178,7 +179,9 @@ export function AnnouncementModal() {
               <li className="m-1 flex items-center justify-between gap-3 rounded-2xl bg-white/[0.06] p-4">
                 <span className="text-sm">
                   <span className="block font-semibold">Ambos cursos</span>
-                  <span className="text-white/55">Ahorra {soles(bundle.savings)}</span>
+                  <span className="text-white/55">
+                    <s>{soles(bundle.normalPrice)}</s> · Ahorras {soles(bundle.savings)}
+                  </span>
                 </span>
                 <span className="font-display text-2xl font-extrabold italic">{soles(bundle.price)}</span>
               </li>

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { bonosOf, bundle, courses, getCourse, soles, statusLabel, type Course } from "@/content/courses";
+import { bonosOf, bundle, courses, getCourse, soles, statusLabel, type Course, savingsOf } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { ItemIcon } from "../ItemIcons";
 import { Reveal } from "../Reveal";
@@ -173,9 +173,9 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
       )}
 
       <div className="mt-auto pt-9">
-        <div className="flex items-end gap-4">
+        <div className="flex flex-wrap items-end gap-x-4 gap-y-3">
           {c.presalePrice && c.price && (
-            <span className="text-white/60">
+            <span className="whitespace-nowrap text-white/60">
               <span className="block text-[10px] font-semibold tracking-[0.18em] uppercase">Precio normal</span>
               <s className="text-lg">{soles(c.price)}</s>
             </span>
@@ -184,10 +184,15 @@ function CourseCard({ course: c, index }: { course: Course; index: number }) {
             <span className="block text-[10px] font-semibold tracking-[0.18em] text-white/50 uppercase">
               {c.presalePrice ? "Preventa" : "Inversión"}
             </span>
-            <span className="font-display text-4xl font-extrabold italic">
+            <span className="font-display text-4xl font-extrabold whitespace-nowrap italic">
               {c.presalePrice ? soles(c.presalePrice) : c.price ? soles(c.price) : "Consultar"}
             </span>
           </span>
+          {savingsOf(c) > 0 && (
+            <span className="mb-1.5 rounded-full bg-white px-3 py-1.5 text-[11px] font-bold tracking-[0.1em] whitespace-nowrap text-black uppercase">
+              Ahorras {soles(savingsOf(c))}
+            </span>
+          )}
         </div>
         <div className="mt-6 flex flex-wrap items-center gap-3">
           <a
@@ -221,9 +226,14 @@ function Bundle() {
           <p className="mt-2 text-black/60">{names.join(" + ")}</p>
         </div>
         <div className="flex flex-wrap items-center gap-5">
-          <span className="font-display text-5xl font-extrabold italic sm:text-6xl">{soles(bundle.price)}</span>
+          <span>
+            <span className="block text-[11px] font-semibold tracking-[0.18em] text-black/60 uppercase">
+              Precio normal <s className="ml-1 text-sm tracking-normal">{soles(bundle.normalPrice)}</s>
+            </span>
+            <span className="font-display text-5xl font-extrabold italic sm:text-6xl">{soles(bundle.price)}</span>
+          </span>
           <span className="rounded-full bg-black px-4 py-2 text-xs font-bold tracking-[0.12em] text-white uppercase">
-            Ahorra {soles(bundle.savings)}
+            Ahorras {soles(bundle.savings)}
           </span>
           <a
             {...waProps(

@@ -192,16 +192,27 @@ export const courses: Course[] = [
   },
 ];
 
+export const getCourse = (slug: string) => courses.find((c) => c.slug === slug);
+
+/** Cuánto se ahorra en preventa frente al precio normal (0 si no hay preventa). */
+export const savingsOf = (c: Course) => (c.price && c.presalePrice ? c.price - c.presalePrice : 0);
+
 /** Promoción por llevar ambos cursos presenciales. */
+const bundleCourses = ["curso-tratamiento-ceramico", "curso-ppf"];
+const bundlePrice = 3900;
+/** Suma de los precios normales de los cursos del paquete (S/ 1,500 + S/ 3,300). */
+const bundleNormal = bundleCourses.reduce((t, s) => t + (getCourse(s)?.price ?? 0), 0);
+
 export const bundle = {
   enabled: true,
   title: "Lleva ambos cursos",
-  courses: ["curso-tratamiento-ceramico", "curso-ppf"],
-  price: 3900,
-  savings: 200,
+  courses: bundleCourses,
+  price: bundlePrice,
+  /** Precio normal de ambos cursos por separado. */
+  normalPrice: bundleNormal,
+  /** Ahorro frente al precio normal (se calcula solo). */
+  savings: bundleNormal - bundlePrice,
 };
-
-export const getCourse = (slug: string) => courses.find((c) => c.slug === slug);
 
 /** Bonos de un curso: su kit, los descuentos del kit y los bonos comunes. */
 export const bonosOf = (c: Course) => [...(c.kit ? [c.kit.label, ...c.kit.perks] : []), ...c.includes];

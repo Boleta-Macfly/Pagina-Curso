@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { site } from "@/config/site";
-import { bonosOf, courses, getCourse, soles, statusLabel } from "@/content/courses";
+import { bonosOf, courses, getCourse, soles, statusLabel, savingsOf } from "@/content/courses";
 import { courseMessage, waProps } from "@/lib/whatsapp";
 import { PageShell } from "@/components/PageShell";
 import { HexLights } from "@/components/HexLights";
@@ -93,6 +93,11 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                 </span>
                 {c.presalePrice && c.price && <s className="text-black/60">{soles(c.price)}</s>}
               </dd>
+              {savingsOf(c) > 0 && (
+                <dd className="mt-2 inline-block rounded-full bg-black px-3 py-1 text-[11px] font-bold tracking-[0.1em] text-white uppercase">
+                  Ahorras {soles(savingsOf(c))}
+                </dd>
+              )}
             </div>
           </dl>
           </div>
