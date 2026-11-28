@@ -7,6 +7,7 @@ import { HexLights } from "../HexLights";
 import { Logo, LogoMark } from "../Logo";
 import { Reveal } from "../Reveal";
 import { WhatsAppForm } from "../WhatsAppForm";
+import { OnlineLeadForm } from "../OnlineLeadForm";
 import { IconChevron, IconInstagram, IconPin, IconTikTok, IconWhatsApp } from "../Icons";
 
 /* ---------- AF Academy Online (próximamente) ---------- */
@@ -14,7 +15,7 @@ export function OnlineSoon() {
   return (
     <section className="grain relative overflow-hidden border-t border-white/10 bg-ink py-24 sm:py-32">
       <HexLights className="pointer-events-none absolute inset-0 h-full w-full opacity-[0.12] [mask-image:radial-gradient(ellipse_at_right,black,transparent_70%)]" />
-      <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-10 px-4 sm:px-6 lg:flex-row lg:items-end lg:px-8">
+      <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_minmax(0,460px)] lg:gap-16 lg:px-8">
         <Reveal>
           <span className="inline-flex rounded-full border border-white/20 px-3 py-1 text-[10px] font-bold tracking-[0.2em] uppercase">
             Próximamente
@@ -27,15 +28,16 @@ export function OnlineSoon() {
           <p className="mt-6 max-w-md text-lg text-white/60">
             Estamos preparando cursos online para que aprendas desde cualquier lugar. Muy pronto más novedades.
           </p>
-        </Reveal>
-        <Reveal delay={120}>
-          <p className="flex items-center gap-3 font-display text-[42px] leading-none font-extrabold whitespace-nowrap text-white uppercase italic sm:gap-4 sm:text-7xl lg:text-8xl">
+          <p className="mt-10 flex items-center gap-3 font-display text-[42px] leading-none font-extrabold whitespace-nowrap text-white uppercase italic sm:gap-4 sm:text-7xl">
             <span className="relative flex size-4 shrink-0 sm:size-5" aria-hidden="true">
               <span className="absolute inset-0 animate-ping rounded-full bg-white/60 [animation-duration:2s]" />
               <span className="relative size-full rounded-full bg-white" />
             </span>
             Muy pronto
           </p>
+        </Reveal>
+        <Reveal delay={120}>
+          <OnlineLeadForm />
         </Reveal>
       </div>
     </section>
