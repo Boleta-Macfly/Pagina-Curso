@@ -61,17 +61,17 @@ export function Hero() {
           </div>
 
           {upcoming.length > 0 && (
-            <div className="mt-10 flex flex-wrap gap-3">
+            <div className="mt-10 grid w-full gap-3 sm:w-fit">
               {upcoming.map((c) => (
                 <Link
                   key={c.slug}
                   href={`/cursos/${c.slug}`}
-                  className="group inline-flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] py-3 pr-5 pl-3 backdrop-blur transition hover:border-white/30"
+                  className="group flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] py-3 pr-5 pl-3 backdrop-blur transition hover:border-white/30"
                 >
                   <span className="grid size-11 place-items-center rounded-xl bg-white text-black">
                     <IconCalendar className="size-5" />
                   </span>
-                  <span className="text-sm">
+                  <span className="flex-1 text-sm">
                     <span className="block text-[11px] font-semibold tracking-[0.18em] text-white/50 uppercase">
                       Próximo curso
                     </span>
