@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { openAdvisorChooser } from "@/lib/whatsapp";
 import { IconArrow } from "./Icons";
 
 /** Nombre del formulario en Netlify Forms (debe coincidir con public/__forms.html). */
@@ -51,7 +52,11 @@ export function OnlineLeadForm() {
       setStatus("sent");
       form.reset();
     } catch {
+      // Respaldo: si no se pudo guardar, se envían los datos por WhatsApp para no perder al interesado.
       setStatus("error");
+      openAdvisorChooser(
+        `¡Hola, {asesor}! Quiero que me avisen cuando lancen AF Academy Online.\n\nNombre: ${nombre}\nDesde: ${ubicacion}\nWhatsApp: ${whatsapp}`,
+      );
     }
   }
 
@@ -128,7 +133,7 @@ export function OnlineLeadForm() {
         <IconArrow className="size-4 transition-transform group-hover:translate-x-1" />
       </button>
       <p role="status" aria-live="polite" className="min-h-5 text-sm text-red-400">
-        {status === "error" && "No pudimos enviar tus datos. Revisa tu conexión e inténtalo de nuevo."}
+        {status === "error" && "No pudimos guardar tus datos. Envíanoslos por WhatsApp con el asesor que elijas y te avisaremos."}
       </p>
     </form>
   );
