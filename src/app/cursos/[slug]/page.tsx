@@ -177,12 +177,18 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                         className="object-contain"
                       />
                       {c.kit.value && (
-                        <span className="absolute top-5 right-5 rounded-2xl bg-white px-4 py-2.5 text-black shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] sm:top-7 sm:right-7">
+                        <span className="absolute top-7 right-7 hidden rounded-2xl bg-white px-4 py-2.5 text-black shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] sm:block">
                           <span className="block text-[10px] font-semibold tracking-[0.2em] text-black/60 uppercase">Valorizado en</span>
                           <span className="font-display text-2xl font-extrabold italic sm:text-3xl">{soles(c.kit.value)}</span>
                         </span>
                       )}
                     </div>
+                  )}
+                  {c.kit.value && (
+                    <p className="mb-6 flex items-center justify-between rounded-2xl bg-white px-5 py-3 text-black sm:hidden">
+                      <span className="text-[11px] font-semibold tracking-[0.2em] text-black/60 uppercase">Valorizado en</span>
+                      <span className="font-display text-2xl font-extrabold italic">{soles(c.kit.value)}</span>
+                    </p>
                   )}
                   <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{c.kit.brand}</p>
                   <ul className="mt-4 grid gap-3 sm:grid-cols-2">
