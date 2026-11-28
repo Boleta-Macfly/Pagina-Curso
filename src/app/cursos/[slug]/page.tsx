@@ -176,6 +176,12 @@ export default async function CoursePage({ params }: PageProps<"/cursos/[slug]">
                         sizes="(min-width: 1024px) 720px, 100vw"
                         className="object-contain"
                       />
+                      {c.kit.value && (
+                        <span className="absolute top-5 right-5 rounded-2xl bg-white px-4 py-2.5 text-black shadow-[0_10px_30px_-10px_rgba(0,0,0,0.6)] sm:top-7 sm:right-7">
+                          <span className="block text-[10px] font-semibold tracking-[0.2em] text-black/60 uppercase">Valorizado en</span>
+                          <span className="font-display text-2xl font-extrabold italic sm:text-3xl">{soles(c.kit.value)}</span>
+                        </span>
+                      )}
                     </div>
                   )}
                   <p className="text-[11px] font-semibold tracking-[0.2em] text-white/60 uppercase">{c.kit.brand}</p>

@@ -20,6 +20,8 @@ export type Kit = {
   items: string[];
   /** Beneficios extra destacados (descuentos, regalos). */
   perks: string[];
+  /** Valor referencial del kit en soles (se muestra «Valorizado en S/ …»). null = no se muestra. */
+  value: number | null;
 };
 
 export type Course = {
@@ -116,6 +118,7 @@ export const courses: Course[] = [
         "VX45 20 ml × 2",
       ],
       perks: ["20% de descuento en tu primera compra de productos Alcance Pro"],
+      value: null, // PENDIENTE: valor del kit en soles
     },
     images: {
       hero: "/cursos/ceramico-portada.jpg",
@@ -160,6 +163,7 @@ export const courses: Course[] = [
       brand: "Película Da Vida",
       items: ["2.5 metros lineales de PPF de regalo", "Magic Gel 1 L", "Magic Activator 1 L", "Kit de paletas", "Cuchilla"],
       perks: ["10% de descuento en PPF", "20% de descuento en gel + activador"],
+      value: null, // PENDIENTE: valor del kit en soles
     },
     images: {
       hero: "/cursos/ppf-portada.jpg",
